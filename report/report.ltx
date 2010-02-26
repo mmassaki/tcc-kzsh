@@ -62,7 +62,7 @@ O iPhone usa GPS e triangulação pelas antenas de celular e Wi-Fi para determin
 % Objetivo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objetivo}
-Observando o nível de dispositivos disponíveis no iPhone, nosso objetivo é utilizar-lo para a melhora de qualidade de vida da sociedade. Com o uso de dispositivos como o GPS e do acesso da internet, implementaremos um aplicativo que possui como objetivo informar em tempo real a situação do trânsito, através de contribuições automática entre os usuários e as informações disponíveis pela CET. 
+Observando o nível de dispositivos disponíveis no iPhone, nosso objetivo é utilizar-lo para a melhora de qualidade de vida da sociedade. Com o uso de dispositivos como o GPS e do acesso da internet, implementaremos um aplicativo que possui como objetivo informar em tempo real a situação do trânsito, através de contribuições automática entre os usuários e as informações disponíveis pela CET. O Aplicativo terá foco em São Paulo, porém também utilizável em outros estados.
 
 
 
@@ -308,36 +308,36 @@ Estão presentas as seguintes funcionalidades:
 	\item{\bf Compartilhamento de localização via e-mail}
 \end{itemize}
 
-\subsection{Waze}
-É um aplicativo open-source de localização onde as informações de ruas são obtidas através do cruzamento de informações de rotas de vários usuários. Está disponível para Android, iPhone, Windows Mobile e Symbian.
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.5\textwidth]{img/state-of-art/06-waze.png}
-	\end{center}
-	\caption{Navigon}
-\end{figure}
-
-Os recursos disponíveis na versão para iPhone são:
-
-\begin{itemize}
-	\item{\bf Construção colaborativa do mapa}
-
-	Permite que os usuário criem e editem o mapa.
-
-	\item{\bf Informações úteis}
-	\item{\bf Visualização de velocidade de outros usuários}
-\end{itemize}
+%\subsection{Waze}
+%É um aplicativo open-source de localização onde as informações de ruas são obtidas através do cruzamento de informações de rotas de vários usuários. Está disponível para Android, iPhone, Windows Mobile e Symbian.
+%
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[width=0.5\textwidth]{img/state-of-art/06-waze.png}
+%	\end{center}
+%	\caption{Navigon}
+%\end{figure}
+%
+%Os recursos disponíveis na versão para iPhone são:
+%
+%\begin{itemize}
+%	\item{\bf Construção colaborativa do mapa}
+%
+%	Permite que os usuário criem e editem o mapa.
+%
+%	\item{\bf Informações úteis}
+%	\item{\bf Visualização de velocidade de outros usuários}
+%\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Waze: Social Mobile Traffic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Waze}
+\subsection{Waze}
 \parbox{2.5in}{
 \includegraphics[width=0.35\textwidth]{img/waze/Wazeop.png}
 }
 \parbox{3.5in}{
-Waze é uma aplicação de navegação móvel que possibilita os usuários a utilização e construção dos mapas, obtenção de informações do tráfego em tempo real e criação de rotas curva-a-curva a partir de contribuições pelos próprios usuários. 
+Waze é uma aplicação de navegação móvel que possibilita os usuários a utilização e construção dos mapas, obtenção de informações do tráfego em tempo real e criação de rotas curva-a-curva a partir de contribuições pelos próprios usuários. Está disponível para Android, iPhone, Windows Mobile e Symbian, com código open-source.
 }
 
 
@@ -369,6 +369,12 @@ O usuário pode informar marcando avisos no mapa: Tráfico local, acidente ou pe
 
 Exibe direções de navegação curva-acurva para o endereço ou ponto dado. É aprimorado através da análise de comportamento dos usuários pelo sistema.
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/state-of-art/06-waze.png}
+	\end{center}
+	\caption{Guia curva-a-curva para o usuário}
+\end{figure}
 
 	\item{\bf My location}
 
@@ -393,7 +399,7 @@ Possui integração com esses dispositivos para automaticamente informar sobre s
 % Implementação
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementação}
-Será utilizado o SDK da Apple, chamado de Xcode para a criação do aplicativo para o iPhone. Esse kit já possui apis próprios para utilização do sistema GPS e de tráfico de dados para internet. Dentro dele é integrado um simulador que auxiliará no início do projeto para os testes das etapas do desenvolvimento. Para os módulos finais do desenvolvimento, os testes serão em iPhones reais.
+Será utilizado o SDK do iPhone com base no Xcode da Apple para a criação do aplicativo. Esse kit já possui apis próprios para utilização do sistema GPS e de tráfico de dados para internet. Dentro dele é integrado um simulador que auxiliará no início do projeto para os testes das etapas do desenvolvimento. Para os módulos finais do desenvolvimento, os testes serão em iPhones reais.
 
 
 
