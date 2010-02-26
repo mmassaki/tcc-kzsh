@@ -385,31 +385,38 @@ Possui integração com esses dispositivos para automaticamente informar sobre s
 % Funcionalidades do Projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Funcionalidades do projeto}
-O projeto visa em elaborar um aplicativo voltado para o iPhone em que possui as funcionalidades básicas necessárias para guiar e informar um usuário no trânsito de São Paulo.
-Funcionalidades:
+O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua as funcionalidades básicas necessárias para guiar e informar um usuário no trânsito de São Paulo. Abaixo, elas estão descritas:
 
 \begin{itemize}
-\item{\bf Mapeação das ruas por cores em tempo-real}
+	\item{\bf Servidor de mapas e informações}
 
-A partir da contribuição automática dos usuários de seus dados de sua localidade e velocidade, o servidor se atualiza e informa aos usuários a velocidade média das principais vias da cidade. Também será usado as informações geradas no módulo "Olho vivo" do site da CET para o cálculo dessa velocidade.
+	O sistema contará com um servidor dedicado, responsável por enviar os mapas e condições de tráfego e eventos reportados pelos usuários e, para tal, será utilizado um mapa aberto, ainda a ser definido. Uma opção bastante interessante é o Google Maps, que disponibiliza uma API para sua utilização e será objeto de estudo de viabilidade no decorrer do projeto.
 
-\item{\bf Traçar Rotas}
+	\item{\bf Envio de informações automático}
 
-Com o uso do Api do Gmaps, é informado ao usuário uma rota até seu destino passo-a-passo.
+	O usuário não precisará interagir diretamente com o sistema, sob o ponto de vista de informar condições de trânsito. Basta que o aplicativo esteja executando para que a velocidade média desempenhada na via seja enviada ao servidor.
 
-\item{\bf Avisos no mapa sobre perigos na via}
+	\item{\bf Mapeamento do tráfego por cores em tempo-real}
 
-O usuário pode contribuir colocando avisos em uma via para informar outros usuários sobre acidentes, desvios, entre outros. Ficará disponível na posição do mapa até um limite definido de tempo dependendo qual o tipo de aviso. 
+	À partir da contribuição automática dos dados de localização e velocidade dos usuários, o servidor se atualiza e informa aos usuários a velocidade média de todas as vias monitoradas. Essa informação será exibida por meio de uma escala de cores, indo, por exemplo, do verde - para tráfego livre - ao vermelho - para congestionamento. Será estudado também a viabilidade de se utilizar de forma complementar as informações disponibilizadas pelo módulo "Olho Vivo" do website da CRT.
 
+	\item{\bf Traçar Rotas}
 
-\item{\bf Localização atual}
+	O sistema traçará rotas para o destino do usuário. Selecionado o destino, o sistema apresentará as melhores rotas disponíveis e permitirá que o usuário faça a escolha. Caso o usuário erre o caminho determinado, haverá recálculo da rota automático.
 
-O usuário é centrado no mapa através de sua posição atual informada pelo Gps.
+	\item{\bf Avisos no mapa sobre perigos na via}
 
+	O usuário pode contribuir colocando avisos em uma via para informar outros usuários sobre acidentes, desvios, alagamentos, entre outros. Ficará disponível na posição do mapa até um limite definido de tempo dependendo qual o tipo de aviso. O cálculo do intervalo de para cada tipo de evento será objeto de estudo durante a especificação do projeto.
 
-\item{\bf Informações da CET}
+	\item{\bf Localização atual}
 
-O aplicativo informa as informações disponibilizadas no site.
+	O usuário é centrado no mapa através de sua posição atual informada pelo GPS.
+
+	\item{\bf Módulo de processamento de dados adquiridos}
+
+	O servidor de mapas e informações contará com um funcionalidade de análise de informações adquiridas ao longo do tempo. Será realizado um estudo para avaliar quais informações são relevantes, de que maneira devem ser armazenadas e quais conclusões podem se tirar à partir delas.
+
+	O objetivo central desse módulo é conseguir, ao longo do tempo, modelar o tráfego das cidades monitoradas, visando a identificação de causas do trânsito, a tomada de decisão de ações corretivas nos pontos críticos de acidentes e alagamentos, buscando a melhoria fluidez do tráfego na cidade.
 
 \end{itemize}
 
