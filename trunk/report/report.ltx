@@ -407,7 +407,7 @@ Será utilizado o SDK do iPhone com base no Xcode da Apple para a criação do a
 % Funcionalidades do Projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Funcionalidades do projeto}
-O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua as funcionalidades básicas necessárias para guiar e informar um usuário no trânsito de São Paulo. Abaixo, elas estão descritas:
+O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua as funcionalidades básicas necessárias para guiar e informar um usuário no trânsito de um determinado local, assim como criar uma rede social para troca de informações entre conhecidos e amigos. Abaixo, elas estão descritas:
 
 \begin{itemize}
 	\item{\bf Servidor de mapas e informações}
@@ -420,7 +420,7 @@ O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua a
 
 	\item{\bf Mapeamento do tráfego por cores em tempo-real}
 
-	À partir da contribuição automática dos dados de localização e velocidade dos usuários, o servidor se atualiza e informa aos usuários a velocidade média de todas as vias monitoradas. Essa informação será exibida por meio de uma escala de cores, indo, por exemplo, do verde - para tráfego livre - ao vermelho - para congestionamento. Será estudado também a viabilidade de se utilizar de forma complementar as informações disponibilizadas pelo módulo "Olho Vivo" do website da CRT.
+	À partir da contribuição automática dos dados de localização e velocidade dos usuários, o servidor se atualiza e informa aos usuários a velocidade média de todas as vias monitoradas. Essa informação será exibida por meio de uma escala de cores, indo, por exemplo, do verde - para tráfego livre - ao vermelho - para congestionamento. Será estudado também a viabilidade de se utilizar de forma complementar as informações disponibilizadas pelo módulo ``Trânsito Agora'' do website da CET.
 
 	\item{\bf Traçar Rotas}
 
@@ -429,10 +429,32 @@ O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua a
 	\item{\bf Avisos no mapa sobre perigos na via}
 
 	O usuário pode contribuir colocando avisos em uma via para informar outros usuários sobre acidentes, desvios, alagamentos, entre outros. Ficará disponível na posição do mapa até um limite definido de tempo dependendo qual o tipo de aviso. O cálculo do intervalo de para cada tipo de evento será objeto de estudo durante a especificação do projeto.
+	
+	\item{\bf Pedido de ajuda}
+	
+	Caso o usuário necessite de alguma ajuda em determinado local em caso de pane do veículo ou pneu furado, ele pode enviar um pedido de ajuda pelo sistema para que outros usuários possam ajudá-lo.
 
 	\item{\bf Localização atual}
-
+	
 	O usuário é centrado no mapa através de sua posição atual informada pelo GPS.
+	
+	\item{\bf Adicionar amigos}
+	
+	O usuário pode adicionar seus amigos para que informações sejam trocadas mutuamente e exclusivamente.
+	
+	\item{\bf Siga-me}
+	
+	O usuário pode enviar informações de sua rota para que seus amigos o sigam. Essa funcionalidade tem como objetivo principal otimizar viagens onde um dos veículos é guia.
+	
+	\item{\bf Locais favoritos}
+
+	O usuário pode adicionar suas localizações favoritas à sua conta de usuário e compartilhá-las com seus amigos.
+
+	\item{\bf Pontos de interesse}
+	
+	O mapa do sistema possui pontos de interesses como restaurante, bares, postos de gasolina, hospitais, entre outros. Essas informações podem aprimoradas pelos usuários.
+	
+	O usuário pode buscar através do sistema por pontos de interesse próximos à sua localização.
 
 	\item{\bf Módulo de processamento de dados adquiridos}
 
