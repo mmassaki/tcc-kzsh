@@ -41,10 +41,10 @@ Prof. Dr. Claudio Luiz Marte				\\\\
 %\end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% iPhone
+% Introdução - iPhone
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{iPhone}
+\section{Introdução - iPhone}
 Tendo sua primeira versão lançada em meados de 2007 pela Apple, o iPhone é um \emph{smartphone} repleto de recursos como câmera de vídeo, microfone e alto-falantes, GPS, conectividade Wi-Fi e Bluetooth, acelerômetros, sensores de proximidade e luz ambiente e suporta os sinais GSM e 3G, dependendo do modelo do aparelho. Seu grande apelo é a inovadora interface multi-toques que confere ao produto facilidade de uso e boa usabilidade.
 
 Outro fator muito importante na popularidade do iPhone é a posibilidade de se instalar aplicativos. A Apple mantém uma loja online, App Store, onde é possível se obter aplicações, gratuitas e pagas, de diversas categorias, como jogos, ferramentas de produtividade, finanças, notícias, de redes sociais, navegação, entre muitas outras.
@@ -57,8 +57,17 @@ O resultado desse cenário é um grande e crescente número de aparelhos vendido
 
 O iPhone usa GPS e triangulação pelas antenas de celular e Wi-Fi para determinar sua posição. Os recursos de posicionamento são acessíveis a qualquer desenvolvedor.
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Aplicações baseadas em posicionamento global
+% Objetivo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivo}
+Observando o nível de dispositivos disponíveis no iPhone, nosso objetivo é utilizar-lo para a melhora de qualidade de vida da sociedade. Com o uso de dispositivos como o GPS e do acesso da internet, implementaremos um aplicativo que possui como objetivo informar em tempo real a situação do trânsito, através de contribuições automática entre os usuários e as informações disponíveis pela CET. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Aplicações baseadas em posicionamento global já existentes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Aplicações baseadas em posicionamento global}
@@ -321,7 +330,7 @@ Os recursos disponíveis na versão para iPhone são:
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Waze
+% Waze: Social Mobile Traffic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Waze}
 \parbox{2.5in}{
@@ -380,6 +389,13 @@ Possui integração com esses dispositivos para automaticamente informar sobre s
 
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Implementação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Implementação}
+Será utilizado o SDK da Apple, chamado de Xcode para a criação do aplicativo para o iPhone. Esse kit já possui apis próprios para utilização do sistema GPS e de tráfico de dados para internet. Dentro dele é integrado um simulador que auxiliará no início do projeto para os testes das etapas do desenvolvimento. Para os módulos finais do desenvolvimento, os testes serão em iPhones reais.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Funcionalidades do Projeto
@@ -417,6 +433,8 @@ O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua a
 	O servidor de mapas e informações conta com um funcionalidade de análise de informações adquiridas ao longo do tempo. Será realizado um estudo para avaliar quais informações são relevantes, de que maneira devem ser armazenadas e quais conclusões podem se tirar à partir delas.
 
 	O objetivo central desse módulo é conseguir, ao longo do tempo, modelar o tráfego das cidades monitoradas, visando a identificação de causas do trânsito, a tomada de decisão de ações corretivas nos pontos críticos de acidentes e alagamentos, buscando a melhoria fluidez do tráfego na cidade.
+
+
 
 \end{itemize}
 
