@@ -45,33 +45,31 @@ Prof. Dr. Claudio Luiz Marte				\\\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introdução - iPhone}
-Tendo sua primeira versão lançada em meados de 2007 pela Apple, o iPhone é um \emph{smartphone} repleto de recursos como câmera de vídeo, microfone e alto-falantes, GPS, conectividade Wi-Fi e Bluetooth, acelerômetros, sensores de proximidade e luz ambiente e suporta os sinais GSM e 3G, dependendo do modelo do aparelho \cite{Apple:iPhoneSpecs:2010}. Seu grande apelo é a inovadora interface multi-toques que confere ao produto facilidade de uso e boa usabilidade.
+Tendo sua primeira versão lançada em meados de 2007 pela Apple, o iPhone é um \emph{smartphone} repleto de recursos como câmera de vídeo, microfone e alto-falantes, GPS, conectividade Wi-Fi e Bluetooth, acelerômetros, sensores de proximidade e luz ambiente e suporta os sinais GSM e 3G, dependendo do modelo do aparelho \citep{Apple:iPhoneSpecs:2010}. Seu grande apelo é a inovadora interface multi-toques que confere ao produto facilidade de uso e boa usabilidade.
 
-Outro fator muito importante na popularidade do iPhone é a posibilidade de se instalar aplicativos. A Apple mantém uma loja online, App Store, onde é possível se obter aplicações, gratuitas e pagas, de diversas categorias, como jogos, ferramentas de produtividade, finanças, notícias, de redes sociais, navegação, entre muitas outras.
+Outro fator muito importante na popularidade do iPhone é a posibilidade de se instalar aplicativos. A Apple mantém uma loja online, a App Store, onde é possível se obter aplicações, gratuitas e pagas, de diversas categorias, como jogos, ferramentas de produtividade, finanças, notícias, de redes sociais, navegação, entre muitas outras.
 
-Essa grande diversidade de aplicações, que já ultrapassou a marca de 140.000, é desenvolvida e mantida por empresas e desenvolvedores de todo o mundo. O SDK (Software Development Kit - Kit de Desenvolvimento de Software) e as ferramentas de contrução de interface e teste são gratuitas e podem ser encontrado no site de desenvolvimento da Apple \cite{Apple:DeveloperConnection:2010}. Existe muito material educacional para a plataforma e qualquer pessoa ou empresa pode obter a licença de desenvolvimento, mediante o pagamento de uma taxa.
+Essa grande diversidade de aplicações, que já ultrapassou a marca de 140.000, é desenvolvida e mantida por empresas e desenvolvedores de todo o mundo. O SDK (Software Development Kit - Kit de Desenvolvimento de Software) e as ferramentas de construção de interface e teste são gratuitas e podem ser encontradas no site de desenvolvimento da Apple \citep{Apple:DeveloperConnection:2010}. Existe muito material educacional para a plataforma e qualquer pessoa ou empresa pode obter a licença de desenvolvimento, mediante o pagamento de uma taxa.
 
-Esse conjunto de características fez o iPhone atingir um nível altíssimo de satisfação do usuário. 74\% de usuários dizem estar muito satisfeitos com seu aparelho \cite{ChangeWave:SmartPhoneMarket:2010}.
+Esse conjunto de características fez o iPhone atingir um alto nível de satisfação do usuário: 74\% deles dizem estar muito satisfeitos com seu aparelho \citep{ChangeWave:SmartPhoneMarket:2010}.
 
-O resultado desse cenário é um grande e crescente número de aparelhos vendidos. No quarto quadrimestre de 2009, a Apple vendeu 7,4 milhões de unidades \cite{Apple:Reports:Q4:2009}, o que representa 7\% de crescimento em relação ao mesmo período de 2008 e já soma mais de 33 milhões unidades vendidas. Esse número representa 30\% do mercado de smartphones \cite{ChangeWave:SmartPhoneMarket:2010}, quantidade que parou de crescer com o lançamento de uma plataforma concorrente - o Android - mas que ainda representa um mercado muito grande.
+O resultado desse cenário é um grande e crescente número de aparelhos vendidos. No quarto quadrimestre de 2009, a Apple vendeu 7,4 milhões de unidades \citep{Apple:Reports:Q4:2009}, o que representa 7\% de crescimento em relação ao mesmo período de 2008 e já soma mais de 33 milhões unidades vendidas. Esse número representa 30\% do mercado de smartphones \citep{ChangeWave:SmartPhoneMarket:2010}, quantidade que parou de crescer com o lançamento de uma plataforma concorrente - o Android - mas que ainda representa um mercado muito grande.
 
-O iPhone usa GPS e triangulação pelas antenas de celular e Wi-Fi para determinar sua posição. Os recursos de posicionamento são acessíveis a qualquer desenvolvedor.
+O iPhone usa GPS e triangulação pelas antenas de celular e Wi-Fi para determinar sua posição. Os recursos de posicionamento são acessíveis a qualquer desenvolvedor via API.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Objetivo
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objetivo}
-Observando o nível de dispositivos disponíveis no iPhone, nosso objetivo é utilizar-lo para a melhora de qualidade de vida da sociedade. Com o uso de dispositivos como o GPS e do acesso da internet, implementaremos um aplicativo que possui como objetivo informar em tempo real a situação do trânsito, através de contribuições automática entre os usuários e as informações disponíveis pela CET. O Aplicativo terá foco em São Paulo, porém também utilizável em outros estados.
-
-
+Tendo em vista os diversos recursos do aparelho, a disponibilidade de documentação e ferramentas de desenvolvimento, e as características desse mercado, o projeto tem como objetivo a criação de um aplicativo baseado em posicionamento global e acesso à internet para monitoramento colaborativo das condições do tráfego urbano. Com ele, busca-se a melhoria das condições do tráfego na cidade e, consequentemente, da qualidade de vida de seus habitantes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Aplicações baseadas em posicionamento global já existentes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{Aplicações baseadas em posicionamento global}
-Dentre as categorias de aplicativos disponíveis na App Store estão aqueles baseados em posicionamento global, ou seja, a posição global do usuário é uma das entradas de dados do aplicativo. Abaixo há uma relação das categorias existentes e um exemplo de aplicação para cada.
+Dentre as categorias de aplicativos disponíveis na App Store estão aqueles baseados em posicionamento global, ou seja, a posição global do usuário é uma das entradas de dados do aplicativo. Abaixo há uma relação das categorias existentes e um exemplo de aplicação para cada \citep{LMS:2008}.
 
 \begin{itemize}
 \item{\bf Restaurantes e entretenimento}
@@ -126,7 +124,7 @@ Dentre as categorias de aplicativos disponíveis na App Store estão aqueles bas
 \includegraphics[width=0.35\textwidth]{img/location-aware/06-myweathermobile.png}
 }
 \parbox{2.5in}{
-\emph{MyWeather Mobile} - Informações do tempo de do clima são exibidas de acordo com a localidade do usuário. É possível visualizar as informações por meio de um mapa fornecido pela plataforma Microsoft Virtual Earth, que também permite a interação com o mapa.
+\emph{MyWeather Mobile} - Informações do tempo e do clima são exibidas de acordo com a localidade do usuário. É possível visualizar as informações por meio de um mapa fornecido pela plataforma Microsoft Virtual Earth, que também permite a interação com o mapa.
 }
 
 \item{\bf Fotografia}
@@ -165,7 +163,7 @@ A Tomtom, fabricante de aparelhos GPS para carros, também está começando a di
 	\caption{Tomtom}
 \end{figure}
 
-A aplicação para iphone inclui as seguintes funcionalidades \cite{TomTom:iPhone:2010}:
+A aplicação para iphone inclui as seguintes funcionalidades \citep{TomTom:iPhone:2010}:
 
 \begin{itemize}
 	\item{\bf Ajuda}
@@ -186,7 +184,7 @@ A aplicação para iphone inclui as seguintes funcionalidades \cite{TomTom:iPhon
 
 	\item{\bf Localização de amigos}
 
-	À partir da lista de contatos do iphone, encontra uma rota até um amigo.
+	A partir da lista de contatos do iphone, encontra uma rota até um amigo.
 
 	\item{\bf Compartilhamento de mapas}
 
@@ -208,7 +206,7 @@ Empresa especializada em soluções de localização móvel, a NNG Global Servic
 	\caption{iGO My Way}
 \end{figure}
 
-A versão iPhone possui os seguintes recursos \cite{iGOMyWay:iPhone:2010}:
+A versão iPhone possui os seguintes recursos \citep{iGOMyWay:iPhone:2010}:
 
 \begin{itemize}
 	\item{\bf Integração com a lista de contatos do iPhone}
@@ -235,7 +233,7 @@ Empresa especializada em soluções de localização móvel. Possui soluções p
 	\caption{Sygic}
 \end{figure}
 
-A versão para iPhone possui os seguintes recursos \cite{Sygic:iPhone:2010}:
+A versão para iPhone possui os seguintes recursos \citep{Sygic:iPhone:2010}:
 
 \begin{itemize}
 	\item{\bf Integração com a lista de contatos}
@@ -260,7 +258,7 @@ Aplicação de navegação oficial do iPhone, o Maps é na verdade uma versão d
 	\caption{Maps}
 \end{figure}
 
-Os seguintes recursos estão disponíveis ao usuário \cite{Apple:iPhone:MapsCompass:2010}:
+Os seguintes recursos estão disponíveis ao usuário \citep{Apple:iPhone:MapsCompass:2010}:
 
 \begin{itemize}
 	\item{\bf Compartilhamento de localizações}
@@ -292,7 +290,7 @@ Navigon é um aplicativo exclusivamente de iphone para navegação.
 	\caption{Navigon}
 \end{figure}
 
-Estão presentas as seguintes funcionalidades \cite{Navigon:iPhone:2010}:
+Estão presentas as seguintes funcionalidades \citep{Navigon:iPhone:2010}:
 
 \begin{itemize}
 	\item{\bf Auxílio na escolha de faixa}
@@ -337,37 +335,33 @@ Estão presentas as seguintes funcionalidades \cite{Navigon:iPhone:2010}:
 \includegraphics[width=0.35\textwidth]{img/waze/Wazeop.png}
 }
 \parbox{3.5in}{
-Waze é uma aplicação de navegação móvel que possibilita os usuários a utilização e construção dos mapas, obtenção de informações do tráfego em tempo real e criação de rotas curva-a-curva a partir de contribuições pelos próprios usuários. Está disponível para Android, iPhone, Windows Mobile e Symbian, com código open-source \cite{Waze:iPhone:2010}.
+Waze é uma aplicação de navegação móvel que possibilita aos usuários a utilização e construção dos mapas, obtenção de informações do tráfego em tempo real e criação de rotas curva-a-curva a partir de contribuições pelos próprios usuários. Está disponível para Android, iPhone, Windows Mobile e Symbian, com código open-source \citep{Waze:iPhone:2010}.
 }
-
 
 \begin{itemize}
 	\item{\bf Road Roler}
 	
-Nas áreas onde ainda não existe mapa, ligando essa opção o programa irá guardar as posições das ruas enquanto o usuário dirige.
+	Nas áreas onde ainda não existe mapa, ligando essa opção o programa irá guardar as posições das ruas enquanto o usuário dirige.
 	
-
 	\item{\bf Live Map}
 
-As ruas que forem salvas pelo usuário, irão aparecer no website do waze. No website é possível adicionar os nomes das ruas no mapa.
+	As ruas que forem salvas pelo usuário irão aparecer no website do waze. No website é possível adicionar os nomes das ruas no mapa.
 	
-
 	\item{\bf Waze Road-Muncher}
 
-O Waze Road-muncher pode aparecer em algumas vias, significando para informar o usuário que ele é o primeiro a trafegar na via, e ele está definindo o sentido dela.
+	O Waze Road-muncher pode aparecer em algumas vias, com o objetivo de informar o usuário que ele é o primeiro a trafegar na via e que ele está definindo o sentido dela.
 
 	\item{\bf Waze Road-Color}
 
-É possivel visualizar a velocidade das vias em tempo real. É marcado com um rastro colorido de acordo com a velocidade de um usuário na via que trafegou recentemente.
+	É possivel visualizar a velocidade das vias em tempo real. É marcado com um rastro colorido de acordo com a velocidade de um usuário na via que trafegou recentemente.
 
 	\item{\bf Report}
 
-O usuário pode informar marcando avisos no mapa: Tráfico local, acidente ou perigos que orientam os outros usuários através de texto e/ou foto.
+	O usuário pode informar marcando avisos no mapa: tráfego local, acidente ou perigos que orientam os outros usuários através de texto e/ou foto.
 	
-
 	\item{\bf Drive to}
 
-Exibe direções de navegação curva-acurva para o endereço ou ponto dado. É aprimorado através da análise de comportamento dos usuários pelo sistema.
+	Exibe direções de navegação curva-acurva para o endereço ou ponto requerido. É aprimorado através da análise de comportamento dos usuários pelo sistema.
 
 \begin{figure}[h]
 	\begin{center}
@@ -378,20 +372,19 @@ Exibe direções de navegação curva-acurva para o endereço ou ponto dado. É 
 
 	\item{\bf My location}
 
-Exibe a posição atual no mapa e os eventos próximo do usuário.
+	Exibe a posição atual no mapa e os eventos próximo do usuário.
 
 	\item{\bf Ping a Wazer}
 
-Opção de emitir mensagens diretamente para outro usuário no mapa.
+	Opção de emitir mensagens diretamente para outro usuário no mapa.
 
 	\item{\bf Scoreboard}
 
-Contribuindo para o sistema do Waze, o usuário ganha pontos. E poderá ver seus pontos e de todos outros membros do país no scoreboard.
+	Contribuindo para o sistema do Waze, o usuário ganha pontos. E poderá ver seus pontos e de todos outros membros do país no scoreboard.
 	
 	\item{\bf Suporte ao Twitter e Foursquare}
 
-Possui integração com esses dispositivos para automaticamente informar sobre seu uso no waze como seu destino ou avisos.
-
+	Possui integração com esses dispositivos para automaticamente informar sobre seu uso no waze como seu destino ou avisos.
 
 \end{itemize}
 
@@ -399,9 +392,7 @@ Possui integração com esses dispositivos para automaticamente informar sobre s
 % Implementação
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementação}
-Será utilizado o SDK do iPhone com base no Xcode da Apple para a criação do aplicativo. Esse kit já possui apis próprios para utilização do sistema GPS e de tráfico de dados para internet. Dentro dele é integrado um simulador que auxiliará no início do projeto para os testes das etapas do desenvolvimento. Para os módulos finais do desenvolvimento, os testes serão em iPhones reais.
-
-
+Será utilizado o SDK do iPhone com base no Xcode da Apple para a criação do aplicativo. Esse kit já possui APIs próprios para utilização do sistema GPS e de tráfego de dados pela internet. Dentro dele é integrado um simulador que auxiliará no início do projeto para os testes das etapas do desenvolvimento. Para os módulos finais do desenvolvimento, os testes serão em iPhones reais.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Funcionalidades do Projeto
@@ -420,7 +411,7 @@ O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua a
 
 	\item{\bf Mapeamento do tráfego por cores em tempo-real}
 
-	À partir da contribuição automática dos dados de localização e velocidade dos usuários, o servidor se atualiza e informa aos usuários a velocidade média de todas as vias monitoradas. Essa informação será exibida por meio de uma escala de cores, indo, por exemplo, do verde - para tráfego livre - ao vermelho - para congestionamento. Será estudado também a viabilidade de se utilizar de forma complementar as informações disponibilizadas pelo módulo ``Trânsito Agora'' do website da CET \cite{CET:TransitoAgora:2010}.
+	À partir da contribuição automática dos dados de localização e velocidade dos usuários, o servidor se atualiza e informa aos usuários a velocidade média de todas as vias monitoradas. Essa informação será exibida por meio de uma escala de cores, indo, por exemplo, do verde - para tráfego livre - ao vermelho - para congestionamento. Será estudado também a viabilidade de se utilizar de forma complementar as informações disponibilizadas pelo módulo ``Trânsito Agora'' do website da CET \citep{CET:TransitoAgora:2010}.
 
 	\item{\bf Traçar Rotas}
 
@@ -462,10 +453,7 @@ O projeto visa em elaborar um aplicativo, para a plataforma iPhone, que possua a
 
 	O objetivo central desse módulo é conseguir, ao longo do tempo, modelar o tráfego das cidades monitoradas, visando a identificação de causas do trânsito, a tomada de decisão de ações corretivas nos pontos críticos de acidentes e alagamentos, buscando a melhoria fluidez do tráfego na cidade.
 
-
-
 \end{itemize}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Conclusão
