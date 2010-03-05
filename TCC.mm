@@ -138,6 +138,15 @@
 <node COLOR="#00b439" CREATED="1267745317877" ID="Freemind_Link_753760481" MODIFIED="1267745320545" TEXT="Mensagens">
 <font NAME="SansSerif" SIZE="16"/>
 </node>
+<node COLOR="#00b439" CREATED="1267757055123" ID="Freemind_Link_1384975707" MODIFIED="1267757057671" TEXT="Me encontre">
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1267757057916" ID="Freemind_Link_308913893" MODIFIED="1267757059415" TEXT="Aqui">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1267757061859" ID="Freemind_Link_672331708" MODIFIED="1267757065295" TEXT="Ali">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+</node>
 </node>
 <node COLOR="#0033ff" CREATED="1267740025857" HGAP="178" ID="Freemind_Link_763559556" MODIFIED="1267745339968" POSITION="left" TEXT="Aceler&#xf4;metro" VSHIFT="-1">
 <font NAME="SansSerif" SIZE="18"/>
@@ -171,6 +180,12 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
+<node COLOR="#00b439" CREATED="1267757075899" ID="Freemind_Link_218239314" MODIFIED="1267757077598" TEXT="Delicious">
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1267757081147" ID="Freemind_Link_1386297355" MODIFIED="1267757980391" TEXT="RSS">
+<font NAME="SansSerif" SIZE="16"/>
+</node>
 </node>
 <node COLOR="#0033ff" CREATED="1267737511185" HGAP="136" ID="Freemind_Link_1822087193" MODIFIED="1267745373169" POSITION="left" TEXT="Seguran&#xe7;a" VSHIFT="-28">
 <font NAME="SansSerif" SIZE="18"/>
@@ -184,7 +199,7 @@
 </node>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1267737514233" ID="Freemind_Link_1006379040" MODIFIED="1267740355963" POSITION="left" TEXT="Servidor">
+<node COLOR="#0033ff" CREATED="1267737514233" HGAP="58" ID="Freemind_Link_1006379040" MODIFIED="1267757999862" POSITION="left" TEXT="Servidor" VSHIFT="-4">
 <font NAME="SansSerif" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1267737516441" ID="Freemind_Link_1440839103" MODIFIED="1267740355964" TEXT="Estat&#xed;sticas">
 <font NAME="SansSerif" SIZE="16"/>
