@@ -32,11 +32,14 @@
 </node>
 <node COLOR="#00b439" CREATED="1267736793960" ID="Freemind_Link_807539784" MODIFIED="1267792177129" TEXT="Tr&#xe2;nsito">
 <font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1267737503170" ID="Freemind_Link_1640067072" MODIFIED="1267792185352" TEXT="Envio autm&#xe1;tico">
+<node COLOR="#990000" CREATED="1267737503170" ID="Freemind_Link_1640067072" MODIFIED="1267792208703" TEXT="Usu&#xe1;rio">
 <font NAME="SansSerif" SIZE="14"/>
 <node COLOR="#111111" CREATED="1267792185844" ID="Freemind_Link_1280901375" MODIFIED="1267792190032" TEXT="Privacidade?"/>
 </node>
 <node COLOR="#990000" CREATED="1267792190964" ID="Freemind_Link_654431683" MODIFIED="1267792192760" TEXT="CET">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1267797374846" ID="Freemind_Link_138064851" MODIFIED="1267797377218" TEXT="RFID">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
@@ -110,6 +113,12 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 <node COLOR="#00b439" CREATED="1267738366371" ID="Freemind_Link_1012682916" MODIFIED="1267740355955" TEXT="Virtual Earth">
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1267893295043" ID="Freemind_Link_1725005423" MODIFIED="1267893301855" TEXT="OpenStreetMaps">
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1267893302291" ID="Freemind_Link_131741977" MODIFIED="1267893305303" TEXT="OpenLayer">
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
