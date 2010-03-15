@@ -74,9 +74,13 @@ Disponibilização de um mapa atualizado que sirva de interface ao usuário.
 
 	As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
 	
-	\item{\bf Pontos de interesse}
+	\item{\bf Pontos de interesse (\emph{Poins of interest} - POIs)}
 
-	O usuário pode salvar as localidades que desejar, para que possam ser acessadas rapidamente.
+	São disponibilizadas ao usuário diversas localidades, chamadas de pontos de interesse. Dentre as localidades, podem ser encontrados locais de lazer, como bares, restaurantes, teatros e cinemas, postos de combustível, radares de velocidade e de rodízio, entre outros. Para tal, serão utilizadas bases de dados abertas de pontos de interesse.
+
+	\item{\bf Favoritos}
+
+	O usuário pode salvar localidades, sejam elas pontos de interesse ou não, para que possua uma lista de referência rápida aos locais que utiliza com frequência.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,13 +106,19 @@ Disponibilização de um mapa atualizado que sirva de interface ao usuário.
 	
 	\item{\bf Favoritos}
 
-	Os pontos de interesse salvos pelo usuário podem ficar disponíveis aos amigos dele, de acordo com sua decisão.
+	A lista de localidades favoritas do usuário pode, a cargo do usuário, ser compatilhada com seus amigos.
 	
 	\item{\bf Mensagens}
 
 	Os usuários da rede social podem trocar mensagens entre si.
-		Me encontre - Utilizado para que dois ou mais usuários possam marcar um ponto de encontro e visualizar a distância de todos ao local.
-		Siga-me - Permite que um usuário indique a outros o caminho a ser seguido. Para isso, o usuário que vai à frente server como ponto de chegada para os usuários que o seguem.
+
+	\item{\bf Me encontre}
+
+	Utilizado para que dois ou mais usuários possam marcar um ponto de encontro e visualizar a distância de todos ao local.
+
+	\item{\bf Siga-me}
+
+	Permite que um usuário indique a outros o caminho a ser seguido. Para isso, o usuário que vai à frente serve como ponto de chegada para os usuários que o seguem.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,7 +152,7 @@ O sensor disponível no iPhone pode ser utilizado como ferramenta de assistênci
 
 	\item{\bf Favoritos}
 
-	Cada ponto de interesse salvo pelo usuário pode ser salvo como página favorita em sua respectiva conta do Delicious, Stumbleupon, etc.
+	Cada favorito salvo pelo usuário pode ser salvo também automaticamente como página favorita em sua respectiva conta do Delicious, Stumbleupon, etc. Para isso, será criado um link direto para a localidade, utilizando a página na API escolhida.
 
 	\item{\bf Contatos}
 
