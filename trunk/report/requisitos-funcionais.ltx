@@ -1,0 +1,192 @@
+\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm,amssymb,dsfont}
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{url}
+\usepackage{listings}
+%\usepackage{biblatex}
+\usepackage{natbib}
+%\usepackage{multicol}
+\usepackage{wrapfig}
+
+\setlength{\topmargin}{1cm} \setlength{\oddsidemargin}{0.5cm}
+\setlength{\textwidth}{16cm} \setlength{\textheight}{22.2cm}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+
+\title{Especificação dos requisitos funcionais}
+\author{
+André Ivo Kido							\\
+Henrique Copelli Zambon					\\
+Marcio Massaki Horoiwa					\\
+									\\
+Orientador:							\\
+Profa. Dra. Selma Shin Shimizu Melnikoff		\\
+									\\
+Co-orientador:							\\
+Prof. Dr. Claudio Luiz Marte				\\\\
+}
+ 
+\maketitle
+
+%\begin{abstract}
+%Abstract.
+%\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Diagrama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Diagrama de requisitos funcionais}
+Em reunião do grupo, foi realizado um \emph{brainstorm} de levantamento dos requisitos funcionais da aplicação a ser desenvolvida no projeto. O diagrama, fruto dessa reunião, bem como a descrição de cada requisito, encontram-se adiante neste documento.
+
+\includegraphics[width=1\textwidth]{requisitos-funcionais-img/brainstorm.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mapas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mapas}
+Disponibilização de um mapa atualizado que sirva de interface ao usuário.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Navegação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Navegação}
+\begin{itemize}
+	\item{\bf Rotas}
+
+	A aplicação traça algumas alternativas de rotas entre os pontos determinados pelo usuário, que pode escolher, editar e salvar as que desejar. O usuário é guiado pela aplicação de acordo com a rota que escolher. As indicações do caminho são feitas de forma visual e sonora.
+	
+	\item{\bf Trânsito}
+
+	Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
+	
+	\item{\bf Alertas}
+
+	Eventos como acidentes, alagamentos, interdição de vias, obstáculos na pista, semáforo quebrado e radares móveis, podem ser alertados ao servidor, juntamente com um descrição e imagens, capturadas pela câmera do aparelho.
+	
+	\item{\bf Mapeamento em tempo real}
+
+	As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
+	
+	\item{\bf Pontos de interesse}
+
+	O usuário pode salvar as localidades que desejar, para que possam ser acessadas rapidamente.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Rede social
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rede social}
+\begin{itemize}
+	\item{\bf Lista de amigos}
+
+	Similar à lista de contatos na agenda telefônica do iPhone, a lista é o meio de um usuário integarir com outros por meio de uma rede próprio da aplicação.
+	
+	\item{\bf Meu endereço}
+
+	Permite que usuário indique automático ou manualmente a localização de sua casa.
+	
+	\item{\bf Localização atual}
+
+	Exibe, em tempo real, a posição atual do usuário.
+	
+	\item{\bf Informar amigos}
+
+	Permite que o usuário sinalize localidades para seus amigos. Pode ser utilizado no caso de acidentes, alagamentos e problemas em geral do trânsito, ou para recomendar algum ponto de interesse, trajeto entre duas localidades e finalidades semelhantes.
+	
+	\item{\bf Favoritos}
+
+	Os pontos de interesse salvos pelo usuário podem ficar disponíveis aos amigos dele, de acordo com sua decisão.
+	
+	\item{\bf Mensagens}
+
+	Os usuários da rede social podem trocar mensagens entre si.
+		Me encontre - Utilizado para que dois ou mais usuários possam marcar um ponto de encontro e visualizar a distância de todos ao local.
+		Siga-me - Permite que um usuário indique a outros o caminho a ser seguido. Para isso, o usuário que vai à frente server como ponto de chegada para os usuários que o seguem.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acelerômetro
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acelerômetro}
+O sensor disponível no iPhone pode ser utilizado como ferramenta de assistência à direção. São exemplos de aplicações possíveis:
+\begin{itemize}
+	\item{\bf Lombada}
+
+	Variações intensas na direção do eixo gravitacional podem ser utilizadas como um meio de mapear lombadas, buracos e imperfeições na pista.
+
+
+	\item{\bf Curvas}
+
+	Como o recurso de bússola está disponível somente nos modelos mais recentes do iPhone (3GS), o acelerômetro pode ser aproveitado para reconhecer quando o usuário faz curvas, para aperfeiçoar a precisão de exibição da localidade atual.
+
+	\item{\bf Acidentes}
+
+	Fortes desacelerações, na direção do movimento do veículo, podem ser evidências de um acidente. A aplicação pode fazer proveito desse fato para sinalizar o acidente ou mesmo chamar ajuda.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Integrações
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Integrações}
+\begin{itemize}
+	\item{\bf Redes sociais}
+
+	Todo tipo de evento emitido pelo usuário, como emissão de alertas e pontos de interesse, podem ser retransmitidos automaticamente para outras ferramentas.
+
+	\item{\bf Favoritos}
+
+	Cada ponto de interesse salvo pelo usuário pode ser salvo como página favorita em sua respectiva conta do Delicious, Stumbleupon, etc.
+
+	\item{\bf Contatos}
+
+	A aplicação permite acesso à agenda telefônica do iPhone, permitindo que usuário interaja com seus contatos, mesmo que eles não pertençam à rede social da aplicação.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Segurança
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Segurança}
+\begin{itemize}
+	\item{\bf Regiões inseguras}
+
+	Especialização do módulo de alertas do trânsito para assuntos de segurança. Podem ser registrados casos de assaltos, sequestros e ações semelhantes, para mapear a criminalidade e a insegurança das vias.
+
+	\item{\bf Rastreamento}
+
+	A aplicação pode funcionar como um rastreador, que, a cargo do usuário, registra repetidamente a posição do usuário no servidor, para que se possa saber tanto a posição, quanto as rotas traçadas.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Servidor
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Servidor}
+\begin{itemize}
+	\item{\bf Banco de dados}
+
+	Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
+
+	\item{\bf Estatísticas}
+
+	Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Eficiência energética
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Eficiência energética}
+Desenvolvimento de uma aplicação eficiente, uma vez que a utilização combinada dos recursos do iPhone acarreta uma grande quantidade de energia, que a bateria não é capaz de fornecer por períodos longos.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Referências
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{apalike}
+%\bibliography{references}
+
+\end{document}
