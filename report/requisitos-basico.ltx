@@ -1,0 +1,267 @@
+\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm,amssymb,dsfont}
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{url}
+\usepackage{listings}
+%\usepackage{biblatex}
+\usepackage{natbib}
+%\usepackage{multicol}
+\usepackage{wrapfig}
+
+\setlength{\topmargin}{1cm} \setlength{\oddsidemargin}{0.5cm}
+\setlength{\textwidth}{16cm} \setlength{\textheight}{22.2cm}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+
+\title{Especificação de requisitos - Módulo básico}
+\author{
+André Ivo Kido							\\
+Henrique Copelli Zambon					\\
+Marcio Massaki Horoiwa					\\
+									\\
+Orientador:							\\
+Profa. Dra. Selma Shin Shimizu Melnikoff		\\
+									\\
+Co-orientador:							\\
+Prof. Dr. Claudio Luiz Marte				\\\\
+}
+ 
+\maketitle
+
+%\begin{abstract}
+%Abstract.
+%\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Controle de revisões
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\emph{\bf Tabela de controle de revisões}
+
+Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sumário
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\emph{\bf Sumário}
+
+Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objetivo do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section{Objetivo do documento}
+O objetivo deste documento é identificar e especificar funcionalmente todos os requisitos que a aplicação a ser desenvolvida como projeto de formatura deve atender.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objetivo do sistema
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivo do sistema}
+
+\subsection{Nome do sistema}
+Bla.
+
+\subsection{Escopo}
+Trata-se de um sistema de navegação veicular para a plataforma iPhone.
+
+\subsection{Definições, siglas e abreviaturas}
+iPhone, GPS
+Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Descrição geral
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Descrição geral}
+Bla.
+
+	\subsection{Perspectivas do produto}
+	Bla.
+
+		\subsubsection{Interface no sistema}
+		Bla.
+
+		\subsubsection{Interfaces de usuário}
+		Bla.
+
+		\subsubsection{Interfaces de hardware}
+		Bla.
+
+		\subsubsection{Interfaces com software}
+		Bla.
+
+		\subsubsection{Interfaces de comunicação}
+		Bla.
+
+		\subsubsection{Operação}
+		Bla.
+
+	\subsection{Funções do software}
+	Bla.
+
+	\subsection{Características do usuário}
+	Bla.
+
+	\subsection{Restrições}
+	Bla.
+
+	\subsection{Hipóteses e dependências}
+	Bla.
+
+	\subsection{Versões futuras}
+	Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requisitos específicos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requisitos específicos}
+Bla.
+
+	\subsection{Modelo de casos de uso}
+	Bla.
+
+	\subsection{Modelo de classes}
+	Bla.
+
+	\subsection{Modelo de interação}
+	Bla.
+
+	\subsection{Modelo de estados}
+	Bla.
+
+	\subsection{Requisitos de banco de dados}
+	Bla.
+
+	\begin{itemize}
+		\item Alta disponibilidade
+		\item Robustez
+		\item Banda larga
+	\end{itemize}
+
+	\subsection{Descrição das interfaces externas}
+	Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Restrições do projeto
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Restrições do projeto}
+Bla.
+
+\begin{itemize}
+	\item Recomendado o uso de carregador de carregador veicular de bateria
+	\item Utilização em ambientes abertos
+	\item Respeito às normas de trânsito
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requisitos não funcionais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requisitos não funcionais}
+Bla.
+
+\begin{itemize}
+	\item Usabilidade
+	\item Confiabilidade
+	\item Disponibilidade
+	\item Segurança de acesso (security)
+	\item Manutenibilidade
+	\item Portabilidade
+	\item Segurança (safety)
+	\item Desempenho
+	\item Eficiência energética
+	\item Robustez
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Critérios de aceitação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Critérios de aceitação}
+Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Referências
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Referências}
+Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Apêndices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Apêndices}
+Bla.
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requisitos funcionais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requisitos funcionais}
+Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para
+
+\subsection{Diagrama}
+\includegraphics[width=0.9\textwidth]{requisitos-basico-img/core.png}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mapas
+\subsection{Mapas}
+Disponibilização de um mapa atualizado que sirva de interface ao usuário.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Navegação
+\subsection{Navegação}
+\begin{itemize}
+	\item{\bf Trânsito}
+
+	Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
+
+	\item{\bf Mapeamento em tempo real}
+
+	As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
+
+	\item{\bf Localização atual}
+
+	O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Servidor
+\subsection{Servidor}
+\begin{itemize}
+	\item{\bf Banco de dados}
+
+	Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
+
+	\item{\bf Estatísticas}
+
+	Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requisitos não funcionais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requisitos não funcionais}
+Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Referências
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{apalike}
+%\bibliography{references}
+
+\end{document}
