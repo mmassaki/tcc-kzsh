@@ -71,11 +71,54 @@ O objetivo deste documento é identificar e especificar funcionalmente todos os 
 Bla.
 
 \subsection{Escopo}
-Trata-se de um sistema de navegação veicular para a plataforma iPhone.
+Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa, encontrar rotas para o destino desejado e obter informações do trânsito em tempo real. Essas informações serão obtidas (da CET?) dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. A aplicação se comunica com o servidor para obter as informações históricas e atuais pertinentes à rota seguida pelo usuário.
+
+Com essas características, o sistema é capaz de traçar as rotas mais curtas ou mais rápidas, levando em consideração as condições do trânsito das vias que fazem parte dela. Como as condições são atualizadas em tempo real, o sistema também é capaz de recalcular a rota autonomamente, caso haja mudanças relevantes no tráfego.
+
+Desse modo, a precisão no cálculo do tempo de chegada ao destino será significativamente maior que aquelas obtidas nos navegadores convencionais.
+-há como calcular a previsão de ganho?
 
 \subsection{Definições, siglas e abreviaturas}
 iPhone, GPS
 Bla.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requisitos funcionais
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requisitos funcionais}
+Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para
+
+	\subsection{Diagrama}
+	\includegraphics[width=0.9\textwidth]{img/core.png}
+	
+	\subsection{Mapas}
+	Disponibilização de um mapa atualizado que sirva de interface ao usuário.
+	
+	\subsection{Navegação}
+	\begin{itemize}
+		\item{\bf Trânsito}
+	
+		Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
+	
+		\item{\bf Mapeamento em tempo real}
+	
+		As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
+	
+		\item{\bf Localização atual}
+	
+		O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
+	\end{itemize}
+	
+	\subsection{Servidor}
+	\begin{itemize}
+		\item{\bf Banco de dados}
+	
+		Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
+	
+		\item{\bf Estatísticas}
+	
+		Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
+	\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Descrição geral
@@ -208,49 +251,7 @@ Bla.
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Requisitos funcionais
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requisitos funcionais}
-Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para
 
-\subsection{Diagrama}
-\includegraphics[width=0.9\textwidth]{requisitos-basico-img/core.png}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Mapas
-\subsection{Mapas}
-Disponibilização de um mapa atualizado que sirva de interface ao usuário.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Navegação
-\subsection{Navegação}
-\begin{itemize}
-	\item{\bf Trânsito}
-
-	Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
-
-	\item{\bf Mapeamento em tempo real}
-
-	As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
-
-	\item{\bf Localização atual}
-
-	O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Servidor
-\subsection{Servidor}
-\begin{itemize}
-	\item{\bf Banco de dados}
-
-	Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
-
-	\item{\bf Estatísticas}
-
-	Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos não funcionais

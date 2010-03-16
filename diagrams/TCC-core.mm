@@ -14,7 +14,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1267736819328" HGAP="36" ID="Freemind_Link_1575480631" MODIFIED="1268685700336" TEXT="Mapeamento real-time" VSHIFT="10">
+<node COLOR="#00b439" CREATED="1267736819328" HGAP="36" ID="Freemind_Link_1575480631" MODIFIED="1268770491033" TEXT="Mapeamento em tempo real" VSHIFT="10">
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 <node COLOR="#00b439" CREATED="1267737332704" HGAP="32" ID="Freemind_Link_678991819" MODIFIED="1268685710102" TEXT="Localiza&#xe7;&#xe3;o atual" VSHIFT="24">
