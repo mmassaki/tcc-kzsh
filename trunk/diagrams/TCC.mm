@@ -40,7 +40,7 @@
 <font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
-<node COLOR="#00b439" CREATED="1267736819328" ID="Freemind_Link_1575480631" MODIFIED="1267740355942" TEXT="Mapeamento real-time">
+<node COLOR="#00b439" CREATED="1267736819328" ID="Freemind_Link_1575480631" MODIFIED="1268770470834" TEXT="Mapeamento em tempo real">
 <font NAME="SansSerif" SIZE="16"/>
 <node COLOR="#990000" CREATED="1267737048826" ID="Freemind_Link_876604940" MODIFIED="1267740355942" TEXT="Cores">
 <font NAME="SansSerif" SIZE="14"/>
@@ -126,18 +126,6 @@
 </node>
 <node COLOR="#00b439" CREATED="1267739465269" ID="Freemind_Link_101224167" MODIFIED="1267740355957" TEXT="Localiza&#xe7;&#xe3;o atual">
 <font NAME="SansSerif" SIZE="16"/>
-</node>
-<node COLOR="#00b439" CREATED="1267739121400" ID="Freemind_Link_1995007599" MODIFIED="1267740355957" TEXT="Informar amigos">
-<font NAME="SansSerif" SIZE="16"/>
-<node COLOR="#990000" CREATED="1267739129776" ID="Freemind_Link_1071671083" MODIFIED="1267740355958" TEXT="E-mail">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1267739133384" ID="Freemind_Link_898636139" MODIFIED="1267740355959" TEXT="SMS">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
-<node COLOR="#990000" CREATED="1267745304621" ID="Freemind_Link_1349950582" MODIFIED="1267745307521" TEXT="Mensagem interna">
-<font NAME="SansSerif" SIZE="14"/>
-</node>
 </node>
 <node COLOR="#00b439" CREATED="1267737201756" ID="Freemind_Link_310912139" MODIFIED="1267740355959" TEXT="Favoritos">
 <font NAME="SansSerif" SIZE="16"/>
