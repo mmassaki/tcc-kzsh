@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{ae}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{amsmath,amsthm,amssymb,dsfont}
 \usepackage{bm}
 \usepackage{dsfont}
@@ -87,10 +88,16 @@ Bla.
 % Requisitos funcionais
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Requisitos funcionais}
-Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para
+Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para o funcionamento do sistema.
 
 	\subsection{Diagrama}
-	\includegraphics[width=0.9\textwidth]{img/core.png}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.9\textwidth]{img/core.png}
+		\caption{Diagrama de funcionalidades}
+	\end{figure}
+
+
 	
 	\subsection{Mapas}
 	Disponibilização de um mapa atualizado que sirva de interface ao usuário.
@@ -175,6 +182,12 @@ Bla.
 	O aplicativo desenvolvido para o iPhone, após a inicialização, exibe a tela principal do sistema com o mapa do sistema.
 	
 	Devido a interface do iPhone não possuir botões para uso no aplicativo, toda interação com o usuário é feita através de toques ou gestos na tela.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=1.0]{img/use_case_diagram.pdf}
+		\caption{Diagrama de casos de uso}
+	\end{figure}
 	
 	\subsubsection{Atores do sistema} % (fold)
 	\label{ssub:atores_do_sistema}
@@ -274,7 +287,7 @@ Bla.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Usuário solicita o envio de evento;
+		\item Usuário solicita o envio de evento, através de um toque na tela do mapa;
 		\item Sistema solicita os dados relativos ao evento;
 		\item Usuário insere os dados do evento;
 		\item Sistema insere o evento utilizando dados do GPS e exibe resultado.
@@ -284,31 +297,32 @@ Bla.
 	
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item .
+		\item Erro na inserção de dados do evento: sistema exibe uma mensagem ao usuário (passo 4).
 	\end{enumerate}
 	
 	\
 	
-	\textbf{Caso de uso 5:} Informar velocidade da via
+	\textbf{Caso de uso 5:} Informar posição atual
 	
-	\textbf{Descrição:} Este caso de uso descreve o processo de envio da velocidade da via.
+	\textbf{Descrição:} Este caso de uso descreve o processo de envio de dados da posição atual do usuário.
 	
-	\textbf{Evento iniciador:} .
+	\textbf{Evento iniciador:} Tempo de disparo do timer alcançado.
 	
 	\textbf{Atores:} \emph{Timer}
 	
-	\textbf{Pré-condição:} .
+	\textbf{Pré-condição:} Usuário com a posição atual encontrada.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item .
+		\item \emph{Timer} dispara enviando os dados da posição atual do usuário;
+		\item Sistema armazena os dados;
 	\end{enumerate}
 	
-	\textbf{Pós-condição:} .
+	\textbf{Pós-condição:} Dados da posição atual do usuário armazenados.
 	
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item .
+		\item Erro no envio de dados para o sistema (passo 1).
 	\end{enumerate}
 
 	% subsubsection casos_de_uso (end)
