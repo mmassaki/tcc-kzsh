@@ -1,7 +1,7 @@
 # Fdb version 2
 ["latex"] 0 "interface-usuario.ltx" "interface-usuario.dvi" "interface-usuario" 
   "interface-usuario.ltx" 1269632326 3445 a474980f6ba9d6be3c76698e89a08485 ""
-["pdflatex"] 1269634022 "interface-usuario.ltx" "interface-usuario.pdf" "interface-usuario" 
+["pdflatex"] 1269634477 "interface-usuario.ltx" "interface-usuario.pdf" "interface-usuario" 
   "/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii" 1251025892 71625 fad1c4b52151c234b6873a255b0ad6b3 ""
   "/usr/local/texlive/2009/texmf-dist/tex/generic/babel/babel.def" 1215520807 29228 699ca4762be67572f34cbe7344a39df8 ""
   "/usr/local/texlive/2009/texmf-dist/tex/generic/babel/babel.sty" 1215520807 9157 d37603ce39728bfcae9239e273925a9c ""
@@ -48,6 +48,6 @@
   "img/main_screen.png" 1269633516 330956 57270d69ccc15f569961c0980a9474c1 ""
   "img/navigation_diagram.pdf" 1269631252 162085 e87443d4797d8299015bed2cb0ed4908 ""
   "img/tipo_evento_screen.png" 1269633897 197066 52920470470460f0f7bf48794728fc22 ""
-  "interface-usuario.aux" 1269634023 1152 dd360e7c1574102c640214bc49d726b8 ""
-  "interface-usuario.ltx" 1269634018 4217 4e08e108eb9b2423fc3c8f846c42da48 ""
-  "interface-usuario.toc" 1269634023 347 24b65d99a20e914d9b5cfc77b4a9f374 ""
+  "interface-usuario.aux" 1269634478 1152 dd360e7c1574102c640214bc49d726b8 ""
+  "interface-usuario.ltx" 1269634472 4221 bab5ec6828c460e960ba0d184f55e0d0 ""
+  "interface-usuario.toc" 1269634478 347 24b65d99a20e914d9b5cfc77b4a9f374 ""
