@@ -22,7 +22,7 @@
 
 \begin{document}
 
-\title{Especificação de requisitos - Módulo básico}
+\title{Especificação de requisitos}
 \author{
 André Ivo Kido							\\
 Henrique Copelli Zambon					\\
@@ -69,13 +69,7 @@ O objetivo deste documento é identificar e especificar funcionalmente todos os 
 % Bla.
 
 \subsection{Escopo}
-Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa, encontrar rotas para o destino desejado e obter informações do trânsito em tempo real. Essas informações serão obtidas dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. A aplicação se comunica com o servidor para obter as informações históricas e atuais pertinentes à rota seguida pelo usuário.
-
-Com essas características, o sistema é capaz de traçar as rotas mais curtas ou mais rápidas, levando em consideração as condições do trânsito das vias que fazem parte dela. Como as condições são atualizadas em tempo real, o sistema também é capaz de recalcular a rota autonomamente, caso haja mudanças relevantes no tráfego.
-
-Desse modo, a precisão no cálculo do tempo de chegada ao destino será significativamente maior que aquelas obtidas nos navegadores convencionais.
-
-% -há como calcular a previsão de ganho?
+A aplicação, específica para a plataforma iPhone, permite que o usuário se localize em um mapa com informações de trânsito. Será configurado um servidor para que haja comunicação entre o aplicativo e um banco de dados com informações históricas adquiridas.
 
 % \subsection{Definições, siglas e abreviaturas}
 % iPhone, GPS
@@ -85,7 +79,17 @@ Desse modo, a precisão no cálculo do tempo de chegada ao destino será signifi
 % Descrição geral
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Descrição geral}
-Bla.
+Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa e obter informações do trânsito em tempo real.
+
+Essas informações serão obtidas dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. Elas também são disponibilizadas aos usuários, que poderão vizualizá-las na forma de um mapa com uma escala de cores, ou seja, as ruas serão coloridas, variando do vermelho ao verde, indicando condições de congestionamento até tráfego livre.
+
+A aplicação, portanto, se comunica pela internet com o servidor para obter as informações históricas e atuais pertinentes à região em que o usuário se encontra, que é determinada pelo GPS do aparelho.
+
+%Com essas características, o sistema é capaz de traçar as rotas mais curtas ou mais rápidas, levando em consideração as condições do trânsito das vias que fazem parte dela. Como as condições são atualizadas em tempo real, o sistema também é capaz de recalcular a rota autonomamente, caso haja mudanças relevantes no tráfego.
+
+%Desse modo, a precisão no cálculo do tempo de chegada ao destino será significativamente maior que aquelas obtidas nos navegadores convencionais.
+
+% -há como calcular a previsão de ganho?
 
 	% \subsection{Perspectivas do produto}
 	% 	Bla.
@@ -148,7 +152,11 @@ Bla.
 	% Bla.
 
 	\subsection{Restrições}
-	Bla.
+	\begin{itemize}
+		\item A aplicação é exclusiva para a plataforma iPhone;
+		\item O funcionamento e precisão da localização estão sujeitos ao recurso de GPS do iPhone e independem da aplicação;
+		\item O funcionamento e desempenho da atualização de informações estão sujeitos ao recursos do iPhone e ao funcionamento da operadora;
+	\end{itemize}
 
 	% \subsection{Hipóteses e dependências}
 	% 	Bla.
@@ -336,13 +344,13 @@ Bla.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Restrições do projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Restrições do projeto}
+%\section{Restrições do projeto}
 
-\begin{itemize}
-	\item Recomendado o uso de carregador de carregador veicular de bateria
-	\item Utilização em ambientes abertos
-	\item Respeito às normas de trânsito
-\end{itemize}
+%\begin{itemize}
+%	\item Recomendado o uso de carregador de carregador veicular de bateria
+%	\item Utilização em ambientes abertos
+%	\item Respeito às normas de trânsito
+%\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos não funcionais

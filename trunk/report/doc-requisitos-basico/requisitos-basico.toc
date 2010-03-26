@@ -10,7 +10,6 @@
 \contentsline {subsection}{\numberline {3.2}Restri\IeC {\c c}\IeC {\~o}es}{5}
 \contentsline {section}{\numberline {4}Requisitos espec\IeC {\'\i }ficos}{5}
 \contentsline {subsection}{\numberline {4.1}Modelo de casos de uso}{5}
-\contentsline {subsubsection}{\numberline {4.1.1}Atores do sistema}{5}
+\contentsline {subsubsection}{\numberline {4.1.1}Atores do sistema}{6}
 \contentsline {subsubsection}{\numberline {4.1.2}Casos de uso}{6}
-\contentsline {section}{\numberline {5}Restri\IeC {\c c}\IeC {\~o}es do projeto}{8}
-\contentsline {section}{\numberline {6}Requisitos n\IeC {\~a}o funcionais}{8}
+\contentsline {section}{\numberline {5}Requisitos n\IeC {\~a}o funcionais}{9}
