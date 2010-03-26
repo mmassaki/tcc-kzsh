@@ -44,18 +44,14 @@ Prof. Dr. Claudio Luiz Marte				\\\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Controle de revisões
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\emph{\bf Tabela de controle de revisões}
-
-Bla.
+% \pagebreak
+% \emph{\textbf{Tabela de controle de revisões}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sumário
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
-\emph{\bf Sumário}
-
-Bla.
+\tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Objetivo do documento
@@ -69,64 +65,21 @@ O objetivo deste documento é identificar e especificar funcionalmente todos os 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Objetivo do sistema}
 
-\subsection{Nome do sistema}
-Bla.
+% \subsection{Nome do sistema}
+% Bla.
 
 \subsection{Escopo}
-Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa, encontrar rotas para o destino desejado e obter informações do trânsito em tempo real. Essas informações serão obtidas (da CET?) dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. A aplicação se comunica com o servidor para obter as informações históricas e atuais pertinentes à rota seguida pelo usuário.
+Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa, encontrar rotas para o destino desejado e obter informações do trânsito em tempo real. Essas informações serão obtidas dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. A aplicação se comunica com o servidor para obter as informações históricas e atuais pertinentes à rota seguida pelo usuário.
 
 Com essas características, o sistema é capaz de traçar as rotas mais curtas ou mais rápidas, levando em consideração as condições do trânsito das vias que fazem parte dela. Como as condições são atualizadas em tempo real, o sistema também é capaz de recalcular a rota autonomamente, caso haja mudanças relevantes no tráfego.
 
 Desse modo, a precisão no cálculo do tempo de chegada ao destino será significativamente maior que aquelas obtidas nos navegadores convencionais.
--há como calcular a previsão de ganho?
 
-\subsection{Definições, siglas e abreviaturas}
-iPhone, GPS
-Bla.
+% -há como calcular a previsão de ganho?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Requisitos funcionais
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requisitos funcionais}
-Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para o funcionamento do sistema.
-
-	\subsection{Diagrama}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.9\textwidth]{img/core.png}
-		\caption{Diagrama de funcionalidades}
-	\end{figure}
-
-
-	
-	\subsection{Mapas}
-	Disponibilização de um mapa atualizado que sirva de interface ao usuário.
-	
-	\subsection{Navegação}
-	\begin{itemize}
-		\item{\bf Trânsito}
-	
-		Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
-	
-		\item{\bf Mapeamento em tempo real}
-	
-		As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
-	
-		\item{\bf Localização atual}
-	
-		O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
-	\end{itemize}
-	
-	\subsection{Servidor}
-	\begin{itemize}
-		\item{\bf Banco de dados}
-	
-		Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
-	
-		\item{\bf Estatísticas}
-	
-		Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
-	\end{itemize}
+% \subsection{Definições, siglas e abreviaturas}
+% iPhone, GPS
+% Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Descrição geral
@@ -134,47 +87,79 @@ Partindo do levantamento de requisitos, foram selecionados os módulos essenciai
 \section{Descrição geral}
 Bla.
 
-	\subsection{Perspectivas do produto}
-	Bla.
-
-		\subsubsection{Interface no sistema}
-		Bla.
-
-		\subsubsection{Interfaces de usuário}
-		Bla.
-
-		\subsubsection{Interfaces de hardware}
-		Bla.
-
-		\subsubsection{Interfaces com software}
-		Bla.
-
-		\subsubsection{Interfaces de comunicação}
-		Bla.
-
-		\subsubsection{Operação}
-		Bla.
+	% \subsection{Perspectivas do produto}
+	% 	Bla.
+	% 
+	% 		\subsubsection{Interface no sistema}
+	% 		Bla.
+	% 
+	% 		\subsubsection{Interfaces de usuário}
+	% 		Bla.
+	% 
+	% 		\subsubsection{Interfaces com software}
+	% 		Bla.
+	% 
+	% 		\subsubsection{Interfaces de comunicação}
+	% 		Bla.
+	% 
+	% 		\subsubsection{Operação}
+	% 		Bla.
 
 	\subsection{Funções do software}
-	Bla.
+	Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para o funcionamento do sistema.
 
-	\subsection{Características do usuário}
-	Bla.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\textwidth]{img/core.png}
+			\caption{Diagrama de funcionalidades}
+		\end{figure}
+
+		\subsubsection{Mapas}
+		Disponibilização de um mapa atualizado que sirva de interface ao usuário.
+
+		\subsubsection{Navegação}
+		\begin{itemize}
+			\item{\bf Trânsito}
+
+			Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
+
+			\item{\bf Mapeamento em tempo real}
+
+			As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
+
+			\item{\bf Localização atual}
+
+			O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
+		\end{itemize}
+
+		\subsubsection{Servidor}
+		\begin{itemize}
+			\item{\bf Banco de dados}
+
+			Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
+
+			\item{\bf Estatísticas}
+
+			Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
+		\end{itemize}
+		
+
+	% \subsection{Características do usuário}
+	% Bla.
 
 	\subsection{Restrições}
 	Bla.
 
-	\subsection{Hipóteses e dependências}
-	Bla.
+	% \subsection{Hipóteses e dependências}
+	% 	Bla.
 
-	\subsection{Versões futuras}
-	Bla.
+	% \subsection{Versões futuras}
+	% 	Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos específicos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Requisitos específicos}
-Bla.
 
 	\subsection{Modelo de casos de uso}
 	Para a modelagem de casos de uso definiu-se como sistema o dispositivo iPhone juntamente com o Servidor de dados.
@@ -327,32 +312,31 @@ Bla.
 
 	% subsubsection casos_de_uso (end)
 
-	\subsection{Modelo de classes}
-	Bla.
-
-	\subsection{Modelo de interação}
-	Bla.
-
-	\subsection{Modelo de estados}
-	Bla.
-
-	\subsection{Requisitos de banco de dados}
-	Bla.
-
-	\begin{itemize}
-		\item Alta disponibilidade
-		\item Robustez
-		\item Banda larga
-	\end{itemize}
-
-	\subsection{Descrição das interfaces externas}
-	Bla.
+	% \subsection{Modelo de classes}
+	% Bla.
+	% 
+	% \subsection{Modelo de interação}
+	% Bla.
+	% 
+	% \subsection{Modelo de estados}
+	% Bla.
+	% 
+	% \subsection{Requisitos de banco de dados}
+	% Bla.
+	% 
+	% \begin{itemize}
+	% 	\item Alta disponibilidade
+	% 	\item Robustez
+	% 	\item Banda larga
+	% \end{itemize}
+	% 
+	% \subsection{Descrição das interfaces externas}
+	% Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Restrições do projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Restrições do projeto}
-Bla.
 
 \begin{itemize}
 	\item Recomendado o uso de carregador de carregador veicular de bateria
@@ -364,7 +348,6 @@ Bla.
 % Requisitos não funcionais
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Requisitos não funcionais}
-Bla.
 
 \begin{itemize}
 	\item Usabilidade
@@ -382,38 +365,20 @@ Bla.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Critérios de aceitação
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Critérios de aceitação}
-Bla.
+% \section{Critérios de aceitação}
+% Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Referências
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Referências}
-Bla.
+% \section{Referências}
+% Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Apêndices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Apêndices}
-Bla.
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Requisitos não funcionais
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requisitos não funcionais}
-Bla.
+% \section{Apêndices}
+% Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Referências
