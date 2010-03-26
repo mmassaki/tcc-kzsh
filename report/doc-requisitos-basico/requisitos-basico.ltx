@@ -12,6 +12,7 @@
 \usepackage{natbib}
 %\usepackage{multicol}
 \usepackage{wrapfig}
+\usepackage{indentfirst}
 
 \setlength{\topmargin}{1cm} \setlength{\oddsidemargin}{0.5cm}
 \setlength{\textwidth}{16cm} \setlength{\textheight}{22.2cm}
@@ -169,7 +170,148 @@ Bla.
 Bla.
 
 	\subsection{Modelo de casos de uso}
-	Bla.
+	Para a modelagem de casos de uso definiu-se como sistema o dispositivo iPhone juntamente com o Servidor de dados.
+	
+	O aplicativo desenvolvido para o iPhone, após a inicialização, exibe a tela principal do sistema com o mapa do sistema.
+	
+	Devido a interface do iPhone não possuir botões para uso no aplicativo, toda interação com o usuário é feita através de toques ou gestos na tela.
+	
+	\subsubsection{Atores do sistema} % (fold)
+	\label{ssub:atores_do_sistema}
+	
+		Os atores do sitema são:
+		\begin{itemize}
+			\item 	Usuário que utiliza a aplicação através do iPhone;
+			\item 	\emph{Timer} que envia periodicamente informações de trânsito.	
+		\end{itemize}
+	
+	% subsubsection atores_do_sistema (end)
+	
+	\subsubsection{Casos de uso} % (fold)
+	\label{ssub:casos_de_uso}
+		
+	\textbf{Caso de uso 1:} Navegar no mapa
+
+	\textbf{Descrição:} Este caso de uso descreve o processo de navegação no mapa do sistema.
+	
+	\textbf{Evento iniciador:} Deslizamento do dedo na tela do mapa.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário navega no mapa através do deslizamento do dedo na tela;
+		\item Sistema atualiza a exibição do mapa.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Exibição do mapa na posição desejada pelo usuário.
+	
+	\textbf{Extensões:} Não há.
+
+	\
+
+	\textbf{Caso de uso 2:} Localizar posição
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de exibição da posição atual do usuário no mapa.
+	
+	\textbf{Evento iniciador:} Solicitação da exibição da posição atual no mapa.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita exibição da posição atual;
+		\item Sistema verifica a posição do usuário através do uso de GPS e exibe a posição atual no mapa.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Posição atual do usuário exibida no mapa.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passo 2).
+	\end{enumerate}
+
+	\
+
+	\textbf{Caso de uso 3:} Verificar Trânsito
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de exibição do trânsito atual no mapa.
+	
+	\textbf{Evento iniciador:} Solicitação da exibição do trânsito atual no mapa.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita exibição do trânsito atual no mapa;
+		\item Sistema obtém informações do trânsito da região em que o usuário está visualizando no mapa e exibe o trânsito mapeado com cores na mapa.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Informações do trânsito atual exibidas no mapa.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Sistema não consegue obter as informações do trânsito atual: sistema exibe uma mensagem ao usuário (passo 2).
+	\end{enumerate}
+	
+	\
+		
+	\textbf{Caso de uso 4:} Informar evento
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de envio de evento para o sistema.
+	
+	\textbf{Evento iniciador:} Solicitação para envio de evento.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa com a posição atual do usuário.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita o envio de evento;
+		\item Sistema solicita os dados relativos ao evento;
+		\item Usuário insere os dados do evento;
+		\item Sistema insere o evento utilizando dados do GPS e exibe resultado.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Evento armazenado no sistema.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item .
+	\end{enumerate}
+	
+	\
+	
+	\textbf{Caso de uso 5:} Informar velocidade da via
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de envio da velocidade da via.
+	
+	\textbf{Evento iniciador:} .
+	
+	\textbf{Atores:} \emph{Timer}
+	
+	\textbf{Pré-condição:} .
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item .
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} .
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item .
+	\end{enumerate}
+
+	% subsubsection casos_de_uso (end)
 
 	\subsection{Modelo de classes}
 	Bla.
