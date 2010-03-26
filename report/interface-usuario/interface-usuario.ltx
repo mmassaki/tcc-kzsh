@@ -1,0 +1,136 @@
+\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath,amsthm,amssymb,dsfont}
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{url}
+\usepackage{listings}
+%\usepackage{biblatex}
+\usepackage{natbib}
+%\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{indentfirst}
+
+\setlength{\topmargin}{1cm} \setlength{\oddsidemargin}{0.5cm}
+\setlength{\textwidth}{16cm} \setlength{\textheight}{22.2cm}
+
+\renewcommand{\baselinestretch}{1.2}
+
+\begin{document}
+
+\title{Projeto da Interface de Usuário}
+\author{
+André Ivo Kido							\\
+Henrique Copelli Zambon					\\
+Marcio Massaki Horoiwa					\\
+									\\
+Orientador:							\\
+Profa. Dra. Selma Shin Shimizu Melnikoff		\\
+									\\
+Co-orientador:							\\
+Prof. Dr. Claudio Luiz Marte				\\\\
+}
+ 
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Controle de revisões
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagebreak
+% \emph{\textbf{Tabela de controle de revisões}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sumário
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objetivo do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\section{Objetivo do documento} % (fold)
+\label{sec:objetivo_do_documento}
+O objetivo deste documento é apresentar a interface homem-computador (IHC).
+% section objetivo_do_documento (end)
+
+% \section{Caracterização do usuário} % (fold)
+% \label{sec:caracterização_do_usuário}
+% 
+% % section caracterização_do_usuário (end)
+
+\section{Estilo da interface} % (fold)
+\label{sec:estilo_da_interface}
+
+A interface do sistema é simplificada visando maior facilidade e usabilidade. Os estilos da interface são listados a seguir:
+
+\begin{itemize}
+	\item Janelas
+	\item Web
+	\item Formulários
+	\item Linguagem natural
+\end{itemize}
+
+% section estilo_da_interface (end)
+
+\section{Identificação dos principais objetos} % (fold)
+\label{sec:_identificação_dos_principais_objetos}
+
+O principal objeto do sistema é a imagem do mapa que é exibido na tela principal. Os eventos atuais do mapa são identificados por ícones e o trânsito atual por cores das vias variando do vermelho (ruim) ao verde (bom).
+
+A interface faz uso de botões com texto ou imagens auto-explicativas, assim como alguns comandos comuns em aplicativos para iPhone como o deslizamento do dedo sobre o mapa para navegação e \emph{zoom} com uso de dois dedos.
+
+Para o envio de informações detalhadas sobre o evento há o uso de formulários e imagens que são adquiridas na hora com a câmera do aparelho.
+
+Janelas de aviso informam o usuário de eventuais erros ocorridos.
+
+% section _identificação_dos_principais_objetos (end)
+
+\section{Protótipo de navegação} % (fold)
+\label{sec:protótipo_de_navegação}
+
+A navegação do sistema é demonstrado a seguir:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1.0]{img/navigation_diagram.pdf}
+	\caption{Diagrama de navegação}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/main_screen.png}
+	\caption{Tela principal}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/tipo_evento_screen.png}
+	\caption{Tela de seleção de tipo de evento}
+\end{figure}
+
+% Apresentar as principais telas do sistema e identificar nelas os seguintes componentes:
+% 
+% •	Campos associados a elementos dos Bancos de Dados
+% •	Campos associados a funções do software
+% •	Navegação entre as principais telas
+% 
+% Deverá haver consistência com o Documento de Especificação de Requisitos de Software.
+% 
+
+% section protótipo_de_navegação (end)
+
+% \section{Mensagens de erro} % (fold)
+% \label{sec:mensagens_de_erro}
+% 
+% Este item relaciona as mensagens de erro a serem apresentadas para o usuário.
+% 
+% Mensagem	Situação
+% 
+% % section mensagens_de_erro (end)
+
+\end{document}
