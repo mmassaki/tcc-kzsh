@@ -1,0 +1,5 @@
+\select@language {brazil}
+\contentsline {section}{\numberline {1}Objetivo do documento}{3}
+\contentsline {section}{\numberline {2}Estilo da interface}{3}
+\contentsline {section}{\numberline {3}Identifica\IeC {\c c}\IeC {\~a}o dos principais objetos}{3}
+\contentsline {section}{\numberline {4}Prot\IeC {\'o}tipo de navega\IeC {\c c}\IeC {\~a}o}{3}
