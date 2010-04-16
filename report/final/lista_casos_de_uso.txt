@@ -12,6 +12,8 @@
 11.	Apagar rota
 12.	Enviar rota
 
-13.	Enviar SMS
-14.	Enviar e-mail
-15.	Enviar tweet
+13.	Listar integrações
+14.	Enviar SMS
+15.	Enviar e-mail
+16.	Enviar tweet
+17.	Gerenciar integrações
