@@ -5,12 +5,13 @@
 05.	Informar posição atual (timer)
 
 06.	Calcular rota
-00.	Seguir rota
-07.	Salvar rota
-00.	Apagar rota
-08.	Enviar rota
+07.	Seguir rota
+08. Listar rotas salvas
+09.	Salvar rota
+10.	Consultar rota
+11.	Apagar rota
+12.	Enviar rota
 
-00.	Fazer ligação
-00.	Enviar SMS
-00.	Enviar e-mail
-00.	Enviar tweet
+13.	Enviar SMS
+14.	Enviar e-mail
+15.	Enviar tweet
