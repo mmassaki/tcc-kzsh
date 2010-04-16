@@ -317,6 +317,55 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Erro no envio de dados para o sistema (passo 1).
 	\end{enumerate}
 
+	\
+
+	\textbf{Caso de uso 6:} Calcular rota
+	
+ 	\textbf{Descrição:} Este caso de uso descreve a criação de uma rota.
+	
+	\textbf{Evento iniciador:} Solicitação do cálculo de rota.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita o cálculo de rota;
+		\item Sistema pergunta se o usuário deseja criar uma nova rota ou escolher uma rota já existente;
+		\item Usuário escolhe criar uma rota nova;
+		\item Sistema solicita o endereço do local de destino;
+		\item Usuário entra com as informações;
+		\item Sistema solicita o endereço do local de partida;
+		\item Usuário entra com as informações, ou escolhe que sua localização atual seja utilizada e confirma o cálculo da rota;
+		\item Sistema calcula a rota entre os pontos escolhidos e apresenta o resultado no mapa;
+		\item Sistema apresenta as opções de salvar ou seguir a rota;
+		\item Se o usuário escolher salvar, o fluxo segue o caso de uso "Salvar rota";
+		\item Caso contrário, o fluxo segue o caso de uso "Seguir rota".
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Posição atual do usuário exibida no mapa com as opções de salvar ou seguir.
+	
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 00: Salvar rota (passo 10);
+		\item Caso de uso 00: Seguir rota (passo 11).
+	\end{enumerate}
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passos 7 e 8).
+	\end{enumerate}
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Local de origem não encontrado (passo 5);
+		\item Local de destino não encontrado (passo 7);
+		\item Sistema falha ao calcular a rota (passo 8).
+	\end{enumerate}
+
+	\
+
 	% subsubsection casos_de_uso (end)
 
 	% \subsection{Modelo de classes}
