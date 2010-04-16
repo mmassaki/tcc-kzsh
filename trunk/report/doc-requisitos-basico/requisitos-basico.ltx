@@ -251,8 +251,9 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Usuário solicita exibição do trânsito atual no mapa;
-		\item Sistema obtém informações do trânsito da região em que o usuário está visualizando no mapa e exibe o trânsito mapeado com cores na mapa.
+		\item Usuário solicita a exibição do trânsito local e atual no mapa, tocando o botão "Posição atual";
+		\item Sistema obtém as informações pertinentes por meio da localização do usuário, obtida pelos dados do GPS;
+		\item Sistema processa as informações obtidas e as mapeia por meio de uma escala de cores no mapa.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Informações do trânsito atual exibidas no mapa.
@@ -261,9 +262,9 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\begin{enumerate}
 		\item Sistema não consegue obter as informações do trânsito atual: sistema exibe uma mensagem ao usuário (passo 2).
 	\end{enumerate}
-	
+
 	\
-		
+
 	\textbf{Caso de uso 4:} Informar evento
 	
 	\textbf{Descrição:} Este caso de uso descreve o processo de envio de evento para o sistema.
@@ -277,8 +278,10 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
 		\item Usuário solicita o envio de evento, através de um toque na tela do mapa;
+		\item Sistema exibe uma lista de tipos de eventos;
+		\item Usuário escolhe o tipo de evento que deseja informar por meio de um toque no nome ou ícone dele;
 		\item Sistema solicita os dados relativos ao evento;
-		\item Usuário insere os dados do evento;
+		\item Usuário insere os dados do evento e confirma a informação;
 		\item Sistema insere o evento utilizando dados do GPS e exibe resultado.
 	\end{enumerate}
 	
