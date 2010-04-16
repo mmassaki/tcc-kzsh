@@ -5,8 +5,10 @@
 05.	Informar posição atual (timer)
 
 06.	Calcular rota
-07.	Tratar rota (salvar/alterar/excluir)
-08.	Usar rota (extensão: enviar por e-mail)
+00.	Seguir rota
+07.	Salvar rota
+00.	Apagar rota
+08.	Enviar rota
 
 00.	Fazer ligação
 00.	Enviar SMS
