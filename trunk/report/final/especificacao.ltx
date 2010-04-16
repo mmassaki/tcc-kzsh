@@ -620,7 +620,191 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 
 	\
 
+	\textbf{Caso de uso 13:} Listar integrações
+
+ 	\textbf{Descrição:} Processo para listar as integrações que o sistema oferece.
 	
+	\textbf{Evento iniciador:} Solicitação de listagem de integrações;
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela inicial.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário seleciona a listagem de integrações;
+		\item Sistema exibe uma lista de todas as integrações disoníveis.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Listagem de integrações exibidas na tela.
+
+	\
+
+	\textbf{Caso de uso 14:} Enviar SMS
+
+ 	\textbf{Descrição:} Processo para enviar um SMS.
+	
+	\textbf{Evento iniciador:} Solicitação de envio de SMS.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela de listagem de integrações ou na tela de enviar SMS, direcionada pelo envio de rota.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Caso o usuário esteja tela de listagem de integrações, escolhe a opção de envio de SMS;
+		\item Caso tenha sido redirecionado da tela de enviar rota, segue a execução;
+		\item Sistema solicita que o usuário informe o contato e a mensagem que deseja enviar a ele;
+		\item Usuário escolhe o contato na lista de contatos do iPhone, ou digita o número diretamente e, sem seguida, digita a mensagem e confirma o envio;
+		\item Sistem envia o SMS e retorna:
+		\begin{enumerate}
+			\item À tela inicial, se o envio foi requisitado a partir da tela de listagens de integração;
+			\item À tela de consulta de rota, caso o envio tenha sido requisitado a partir do envio de rota.
+		\end{enumerate}
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} SMS enviado e sistema na tela adequada.
+
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 13: Listar integrações (passo 1);
+		\item Caso de uso 12: Enviar rota (passo 2);
+		\item Caso de uso 10: Consultar rota (passo 5b).
+	\end{enumerate}
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Sinal de celular indisponível: mensagem é exibida para informar o usuário (passo 5).
+	\end{enumerate}
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Falha ao enviar SMS (passo 5).
+	\end{enumerate}
+
+	\
+
+	\textbf{Caso de uso 15:} Enviar e-mail
+
+ 	\textbf{Descrição:} Processo para enviar e-mail.
+	
+	\textbf{Evento iniciador:} Solicitação de envio de e-mail.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela de listagem de integrações ou na tela de envio de e-mail, redirecionado pelo envio de rota.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Caso o usuário esteja tela de listagem de integrações, escolhe a opção de envio de e-mail;
+		\item Caso tenha sido redirecionado da tela de enviar rota, segue a execução;
+		\item Sistema solicita que o usuário informe o e-mail, ou escolha um contato na agenda telefônica do iPhone, e a mensagem a enviar;
+		\item Usuário entra os dados e confirma o envio;
+		\item Sistem envia o e-mail e retorna:
+		\begin{enumerate}
+			\item À tela inicial, se o envio foi requisitado a partir da tela de listagens de integração;
+			\item À tela de consulta de rota, caso o envio tenha sido requisitado a partir do envio de rota.
+		\end{enumerate}
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} E-mail enviado e sistema na tela adequada.
+	
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 13: Listar integrações (passo 1);
+		\item Caso de uso 12: Enviar rota (passo 2);
+		\item Caso de uso 10: Consultar rota (passo 5b).
+	\end{enumerate}
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Conexão à internet indisponível: mensagem é exibida para informar o usuário (passo 5).
+	\end{enumerate}
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Falha ao enviar e-mail. (passo 5).
+	\end{enumerate}
+
+	\
+
+	\textbf{Caso de uso 16:} Enviar tweet
+
+ 	\textbf{Descrição:} Processo para enviar tweet.
+	
+	\textbf{Evento iniciador:} Solicitação de envio de tweet.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela de listagem de integrações ou na tela de envio de tweet, redirecionado pelo envio de rota.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Caso o usuário esteja tela de listagem de integrações, escolhe a opção de envio de tweet;
+		\item Caso tenha sido redirecionado da tela de enviar rota, segue a execução;
+		\item Sistema solicita que o usuário informe a mensagem a enviar;
+		\item Usuário entra os dados e confirma o envio;
+		\item Sistem envia o tweet e retorna:
+		\begin{enumerate}
+			\item À tela inicial, se o envio foi requisitado a partir da tela de listagens de integração;
+			\item À tela de consulta de rota, caso o envio tenha sido requisitado a partir do envio de rota.
+		\end{enumerate}
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Tweet enviado e sistema na tela adequada.
+	
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 13: Listar integrações (passo 1);
+		\item Caso de uso 12: Enviar rota (passo 2);
+		\item Caso de uso 10: Consultar rota (passo 5b).
+	\end{enumerate}
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Conexão à internet indisponível: mensagem é exibida para informar o usuário (passo 5).
+	\end{enumerate}
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Falha ao enviar tweet. (passo 5).
+	\end{enumerate}
+
+	\
+
+	\textbf{Caso de uso 17:} Gerenciar integrações
+
+ 	\textbf{Descrição:} Processo para cadastrar, alterar ou remover um cadastro em uma das integrações disponibilizadas pelo sistema.
+	
+	\textbf{Evento iniciador:} Solicitação de gerenciar integrações.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela inicial.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário seliciona a opção de configurações do sistema;
+		\item Sistema exibe as opções;
+		\item Usuário escolhe a opção de gerenciar integrações;
+		\item Sistema exibe a listagem de integrações disponíveis, a não ser SMS, que não permite configuração;
+		\item O usuário escolhe a integração que deseja gerenciar;
+		\item Usuário escolhe se deseja, cadastrar, alterar ou remover as informações de sua conta;
+		\item Sistema realiza as operações desejada;
+		\item Sistema retorna à tela de configuração de integrações.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Gerenciamento concluído com sucesso e sistema na tela de configuração de integrações.
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Conexão à internet não disponível: mensagem é exibida para informar o usuário (passo 7).
+	\end{enumerate}
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Falha ao gerenciar integração (passo 7).
+	\end{enumerate}
 
 	\
 
