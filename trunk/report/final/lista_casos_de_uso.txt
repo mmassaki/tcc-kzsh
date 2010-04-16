@@ -1,0 +1,14 @@
+01.	Navegar no mapa
+02.	Localizar posição atual
+03.	Verificar trânsito
+04.	Informar evento (extensão: twittar, sms, e-mail)
+05.	Informar posição atual (timer)
+
+06.	Calcular rota
+07.	Tratar rota (salvar/alterar/excluir)
+08.	Usar rota (extensão: enviar por e-mail)
+
+00.	Fazer ligação
+00.	Enviar SMS
+00.	Enviar e-mail
+00.	Enviar tweet
