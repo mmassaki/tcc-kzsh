@@ -1,7 +1,7 @@
 01.	Navegar no mapa
 02.	Localizar posição atual
 03.	Verificar trânsito
-04.	Informar evento (extensão: twittar, sms, e-mail)
+04.	Informar evento (*extensão: twittar, sms, e-mail)
 05.	Informar posição atual (timer)
 
 06.	Calcular rota
@@ -10,10 +10,14 @@
 09.	Salvar rota
 10.	Consultar rota
 11.	Apagar rota
-12.	Enviar rota
+12.	Enviar rota (extensão: twittar, sms, e-mail)
 
 13.	Listar integrações
 14.	Enviar SMS
 15.	Enviar e-mail
 16.	Enviar tweet
 17.	Gerenciar integrações
+
+
+
+*Não documentada
