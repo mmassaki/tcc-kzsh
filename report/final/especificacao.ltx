@@ -1,80 +1,109 @@
-\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+%\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+\documentclass{abnt}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{ae}
-\usepackage{graphicx}
-\usepackage{float}
+%\usepackage{ae}
+\usepackage{graphicx, float}
 \usepackage{amsmath,amsthm,amssymb,dsfont}
-\usepackage{bm}
-\usepackage{dsfont}
+%\usepackage{bm}
+%\usepackage{dsfont}
 \usepackage{url}
-\usepackage{listings}
+%\usepackage{listings}
+\usepackage[num]{abntcite}
 %\usepackage{biblatex}
-\usepackage{natbib}
+%\usepackage{natbib}
 %\usepackage{multicol}
-\usepackage{wrapfig}
-\usepackage{indentfirst}
-
-\setlength{\topmargin}{1cm} \setlength{\oddsidemargin}{0.5cm}
-\setlength{\textwidth}{16cm} \setlength{\textheight}{22.2cm}
-
-\renewcommand{\baselinestretch}{1.2}
+%\usepackage{wrapfig}
 
 \begin{document}
 
+\begin{titlepage}
+\ \vfill
+
+\noindent\rule{\textwidth}{1pt}
+
+\vspace*{0.5cm}
+
+\centering\par\setstretch{1.1}
+
+{\huge\sffamily\fontseries{sbc}\selectfont
+Especificação de requisitos \par}
+
+\vspace*{0.5cm}
+
+\Large
+André Ivo Kido\\
+Henrique Copelli Zambon\\
+Marcio Massaki Horoiwa
+
+Orientador:\\
+Profa. Dra. Selma Shin Shimizu Melnikoff
+
+Co-orientador:\\
+Prof. Dr. Claudio Luiz Marte
+
+\vspace*{0.2cm}
+
+\textsc{\smaller Versão 1}\par
+
+\vspace*{0.5cm}
+
+\noindent\rule{\textwidth}{1pt}
+
+\vfill\vfill\ 
+
+\end{titlepage}
+
 \title{Especificação de requisitos}
 \author{
-André Ivo Kido							\\
-Henrique Copelli Zambon					\\
-Marcio Massaki Horoiwa					\\
-									\\
-Orientador:							\\
-Profa. Dra. Selma Shin Shimizu Melnikoff		\\
-									\\
-Co-orientador:							\\
-Prof. Dr. Claudio Luiz Marte				\\\\
-}
- 
-\maketitle
+André Ivo Kido\\
+Henrique Copelli Zambon\\
+Marcio Massaki Horoiwa\\
+\\
+Orientador:\\
+Profa. Dra. Selma Shin Shimizu Melnikoff\\
+\\
+Co-orientador:\\
+Prof. Dr. Claudio Luiz Marte}
+
+\date{Versão 1}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Controle de revisões
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \pagebreak
 % \emph{\textbf{Tabela de controle de revisões}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sumário
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Objetivo do documento
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-\section{Objetivo do documento}
+\chapter{Objetivo do documento}
 O objetivo deste documento é identificar e especificar todos os requisitos que a aplicação a ser desenvolvida como projeto de formatura deve atender.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Objetivo do sistema
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Objetivo do sistema}
+\chapter{Objetivo do sistema}
 
-% \subsection{Nome do sistema}
+% \section{Nome do sistema}
 % Bla.
 
-\subsection{Escopo}
+\section{Escopo}
 A aplicação, específica para a plataforma iPhone, permite que o usuário se localize em um mapa com informações de trânsito. Será configurado um servidor para que haja comunicação entre o aplicativo e um banco de dados com informações históricas adquiridas.
 
-% \subsection{Definições, siglas e abreviaturas}
+% \section{Definições, siglas e abreviaturas}
 % iPhone, GPS
 % Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Descrição geral
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Descrição geral}
+\chapter{Descrição geral}
 Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa e obter informações do trânsito em tempo real.
 
 Essas informações serão obtidas dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. Elas também são disponibilizadas aos usuários, que poderão vizualizá-las na forma de um mapa com uma escala de cores, ou seja, as ruas serão coloridas, variando do vermelho ao verde, indicando condições de congestionamento até tráfego livre.
@@ -87,25 +116,25 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 
 % -há como calcular a previsão de ganho?
 
-	% \subsection{Perspectivas do produto}
+	% \section{Perspectivas do produto}
 	% 	Bla.
 	% 
-	% 		\subsubsection{Interface no sistema}
+	% 		\subsection{Interface no sistema}
 	% 		Bla.
 	% 
-	% 		\subsubsection{Interfaces de usuário}
+	% 		\subsection{Interfaces de usuário}
 	% 		Bla.
 	% 
-	% 		\subsubsection{Interfaces com software}
+	% 		\subsection{Interfaces com software}
 	% 		Bla.
 	% 
-	% 		\subsubsection{Interfaces de comunicação}
+	% 		\subsection{Interfaces de comunicação}
 	% 		Bla.
 	% 
-	% 		\subsubsection{Operação}
+	% 		\subsection{Operação}
 	% 		Bla.
 
-	\subsection{Funções do software}
+	\section{Funções do software}
 	Partindo do levantamento de requisitos, foram selecionados os módulos essenciais para o funcionamento do sistema.
 
 		\begin{figure}[H]
@@ -114,10 +143,10 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 			\caption{Diagrama de funcionalidades}
 		\end{figure}
 
-		\subsubsection{Mapas}
+		\subsection{Mapas}
 		Disponibilização de um mapa atualizado que sirva de interface ao usuário.
 
-		\subsubsection{Navegação}
+		\subsection{Navegação}
 		\begin{itemize}
 			\item{\bf Trânsito}
 
@@ -132,7 +161,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 			O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
 		\end{itemize}
 
-		\subsubsection{Servidor}
+		\subsection{Servidor}
 		\begin{itemize}
 			\item{\bf Banco de dados}
 
@@ -144,28 +173,28 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\end{itemize}
 		
 
-	% \subsection{Características do usuário}
+	% \section{Características do usuário}
 	% Bla.
 
-	\subsection{Restrições}
+	\section{Restrições}
 	\begin{itemize}
 		\item A aplicação é exclusiva para a plataforma iPhone;
 		\item O funcionamento e precisão da localização estão sujeitos ao recurso de GPS do iPhone e independem da aplicação;
 		\item O funcionamento e desempenho da atualização de informações estão sujeitos ao recursos do iPhone e ao funcionamento da operadora;
 	\end{itemize}
 
-	% \subsection{Hipóteses e dependências}
+	% \section{Hipóteses e dependências}
 	% 	Bla.
 
-	% \subsection{Versões futuras}
+	% \section{Versões futuras}
 	% 	Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos específicos
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requisitos específicos}
+\chapter{Requisitos específicos}
 
-	\subsection{Modelo de casos de uso}
+	\section{Modelo de casos de uso}
 	Para a modelagem de casos de uso definiu-se como sistema o dispositivo iPhone juntamente com o Servidor de dados.
 	
 	O aplicativo desenvolvido para o iPhone, após a inicialização, exibe a tela principal do sistema com o mapa do sistema.
@@ -178,7 +207,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\caption{Diagrama de casos de uso}
 	\end{figure}
 	
-	\subsubsection{Atores do sistema} % (fold)
+	\subsection{Atores do sistema}
 	\label{ssub:atores_do_sistema}
 	
 		Os atores do sitema são:
@@ -187,9 +216,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 			\item 	\emph{Timer} que envia periodicamente informações de trânsito.	
 		\end{itemize}
 	
-	% subsubsection atores_do_sistema (end)
-	
-	\subsubsection{Casos de uso} % (fold)
+	\subsection{Casos de uso}
 	\label{ssub:casos_de_uso}
 
 	\
@@ -808,18 +835,16 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 
 	\
 
-	% subsubsection casos_de_uso (end)
-
-	% \subsection{Modelo de classes}
+	% \section{Modelo de classes}
 	% Bla.
 	% 
-	% \subsection{Modelo de interação}
+	% \section{Modelo de interação}
 	% Bla.
 	% 
-	% \subsection{Modelo de estados}
+	% \section{Modelo de estados}
 	% Bla.
 	% 
-	% \subsection{Requisitos de banco de dados}
+	% \section{Requisitos de banco de dados}
 	% Bla.
 	% 
 	% \begin{itemize}
@@ -828,13 +853,13 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	% 	\item Banda larga
 	% \end{itemize}
 	% 
-	% \subsection{Descrição das interfaces externas}
+	% \section{Descrição das interfaces externas}
 	% Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Restrições do projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Restrições do projeto}
+%\chapter{Restrições do projeto}
 
 %\begin{itemize}
 %	\item Recomendado o uso de carregador de carregador veicular de bateria
@@ -845,7 +870,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos não funcionais
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Requisitos não funcionais}
+\chapter{Requisitos não funcionais}
 
 \begin{itemize}
 	\item Usabilidade
@@ -855,19 +880,19 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Critérios de aceitação
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Critérios de aceitação}
+% \chapter{Critérios de aceitação}
 % Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Referências
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Referências}
+% \chapter{Referências}
 % Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Apêndices
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Apêndices}
+% \chapter{Apêndices}
 % Bla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
