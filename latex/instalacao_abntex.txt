@@ -1,0 +1,3 @@
+Instalação do ABNTex
+
+  - jogar o conteúdo da pasta "textmf" na pasta "~/Lybrary/textmf"
