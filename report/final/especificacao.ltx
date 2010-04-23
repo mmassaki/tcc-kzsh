@@ -17,6 +17,9 @@
 
 \begin{document}
 
+\renewcommand{\ABNTchapterfont}{\bfseries\sffamily\fontseries{sbc}\selectfont}
+\renewcommand{\ABNTsectionfont}{\bfseries\sffamily\fontseries{sbc}\selectfont}
+
 \begin{titlepage}
 \ \vfill
 
@@ -212,14 +215,13 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 		Os atores do sitema são:
 		\begin{itemize}
-			\item 	Usuário que utiliza a aplicação através do iPhone;
-			\item 	\emph{Timer} que envia periodicamente informações de trânsito.	
+			\item Usuário que utiliza a aplicação através do iPhone;
+			\item \emph{Timer} que envia periodicamente informações de trânsito;
+			\item API de rotas acessada através da internet.
 		\end{itemize}
 	
 	\subsection{Casos de uso}
 	\label{ssub:casos_de_uso}
-
-	\
 
 %	\textbf{Caso de uso 00:}
 %
@@ -253,7 +255,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 %		\item
 %	\end{enumerate}
 
-	\
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 1:} Navegar no mapa
 
@@ -273,9 +275,8 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Pós-condição:} Exibição do mapa na posição desejada pelo usuário.
 	
-	\textbf{Extensões:} Não há.
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 2:} Localizar posição atual
 	
@@ -300,7 +301,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passo 2).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 3:} Verificar Trânsito
 	
@@ -326,7 +327,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Sistema não consegue obter as informações do trânsito atual: sistema exibe uma mensagem ao usuário (passo 2).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 4:} Informar evento
 	
@@ -355,7 +356,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Erro na inserção de dados do evento: sistema exibe uma mensagem ao usuário (passo 4).
 	\end{enumerate}
 	
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\textbf{Caso de uso 5:} Informar posição atual
 	
@@ -380,54 +381,59 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Erro no envio de dados para o sistema (passo 1).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\textbf{Caso de uso 6:} Calcular rota
+	\textbf{Caso de uso 6:} Traçar rota
 	
- 	\textbf{Descrição:} Este caso de uso descreve a criação de uma rota.
+ 	\textbf{Descrição:} Este caso de uso descreve o traçamento de uma rota.
 	
-	\textbf{Evento iniciador:} Solicitação do cálculo de rota.
+	\textbf{Evento iniciador:} Solicitação de traçamento de rota.
 	
 	\textbf{Atores:} Usuário
 	
-	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	\textbf{Pré-condição:} Sistema em uma das telas de exibição do mapa.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Usuário solicita o cálculo de rota;
+		\item Usuário solicita o traçamento de rota;
 		\item Sistema pergunta se o usuário deseja criar uma nova rota ou escolher uma rota já existente;
 		\item Usuário escolhe criar uma rota nova;
 		\item Sistema solicita o endereço do local de destino;
 		\item Usuário entra com as informações;
 		\item Sistema solicita o endereço do local de partida;
 		\item Usuário entra com as informações, ou escolhe que sua localização atual seja utilizada e confirma o cálculo da rota;
-		\item Sistema calcula a rota entre os pontos escolhidos e apresenta o resultado no mapa;
 		\item Sistema apresenta as opções de salvar ou seguir a rota;
-		\item Se o usuário escolher salvar, o fluxo segue o caso de uso "Salvar rota";
-		\item Caso contrário, o fluxo segue o caso de uso "Seguir rota".
+		\item Se o usuário escolher salvar, o fluxo segue o caso de uso ``Salvar rota'';
+		\item Caso contrário, o fluxo segue o caso de uso ``Seguir rota''.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Posição atual do usuário exibida no mapa com as opções de salvar ou seguir.
 	
 	\textbf{Inclusões:}
 	\begin{enumerate}
-		\item Caso de uso 9: Salvar rota (passo 10);
-		\item Caso de uso 7: Seguir rota (passo 11).
+		\item Caso de uso 9: Salvar rota (passo 9);
+		\item Caso de uso 7: Seguir rota (passo 10 e extensão 2c);
+		\item Caso de uso 8: Listar rotas salvas (extensão 2a)
 	\end{enumerate}
 
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passos 7 e 8).
+		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passos 7).
+		\item Usuário seleciona traçar uma rota já existente (passo 2):
+		\begin{enumerate}
+			\item Sistema segue caso de uso 8;
+			\item Usuário seleciona uma das rotas;
+			\item Sistema segue caso de uso 7.
+		\end{enumerate}
 	\end{enumerate}
 
 	\textbf{Exceções:}
 	\begin{enumerate}
 		\item Local de origem não encontrado (passo 5);
 		\item Local de destino não encontrado (passo 7);
-		\item Sistema falha ao calcular a rota (passo 8).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 7:} Seguir rota
 	
@@ -437,16 +443,17 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Atores:} Usuário
 	
-	\textbf{Pré-condição:} Sistema na tela final de criação de rota ou na tela de listagem de rotas.
+	\textbf{Pré-condição:} Sistema na tela final de traçamento de rota ou na tela de listagem de rotas.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
 		\item Usuário solicita seguir uma rota;
+		\item Sistema calcula a rota a ser seguida com base nas informações de origem e destino da rota;
 		\item Caso o usuário não esteja localizado no ponto inicial da rota:
 			\begin{enumerate}
 				\item Sistema pergunta se o usuário deseja que seja traçada uma rota a partir da localização atual até o local de início da rota;
-				\item Se o usuário confirma, a rota é calculada e a execução segue o fluxo final (passo 3);
-				\item Caso contrário, o sistema aguarda até que o usuário chegue ao local de inicío, para então seguir o fluxo final (passo 3).
+				\item Se o usuário confirma, a rota é recalculada e a execução segue o fluxo final (passo 4);
+				\item Caso contrário, o sistema aguarda até que o usuário chegue ao local de inicío, para então seguir o fluxo final (passo 4).
 			\end{enumerate}
 		\item Em caso afirmativo, o sistema segue o fluxo final, a seguir:
 			\begin{enumerate}
@@ -454,30 +461,30 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 				\item Sistema sinaliza a rota colorindo-a;
 				\item Conforme o usuário avança, sua posição é atualizada;
 				\item Conforme o usuário avança, são exibidas setas que indicam o caminho a seguir, como forma de auxiliar a direção;
-				\item Sistema permanece atualizando a posição e exibindo setas indicativas, até que o usuário atinga o destino;
-				\item Sistema retorna à tela inicial.
+				\item Sistema permanece atualizando a posição e exibindo setas indicativas, até que o usuário atinja o destino;
+				\item Sistema exibe tela com mapa sem a rota.
 			\end{enumerate}
 	\end{enumerate}
 	
-	\textbf{Pós-condição:} Sistema na tela inicial.
+	\textbf{Pós-condição:} Sistema exibindo mapa sem rota e usuário na posição de destino da rota.
 	
 	\textbf{Inclusões:}
 	\begin{enumerate}
-		\item Caso de uso 00: Calcular rota (passo 2b);
+		\item Caso de uso 18: Calcular rota (passo 2 e 3b);
 	\end{enumerate}
 
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passos 2 e 3);
-		\item Sem conexão à internet: sistema exibe mensagem ao usuário (passos 2 e 3).
+		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passos 3 e 4);
+		\item Sem conexão à internet: sistema exibe mensagem ao usuário (passos 3 e 4).
 	\end{enumerate}
 
 	\textbf{Exceções:}
 	\begin{enumerate}
-		\item Sistema falha ao calcular a rota (passo 2b).
+		\item Sistema falha ao calcular a rota (passo 2 e 3b).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 8:} Listar rotas salvas
 
@@ -487,61 +494,42 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Atores:} Usuário
 	
-	\textbf{Pré-condição:} Sistema na tela final de calcular rota ou na tela inicial.
+	\textbf{Pré-condição:} Sistema no passo 2 do caso de uso de uso 6.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Caso o usuário se esteja na tela de cálculo de rota:
-		\begin{enumerate}
-			\item Usuário escolhe a opção de rotas já existentes;
-			\item A execução segue para o passo 3.
-		\end{enumerate}
-		\item Caso esteja na tela inicial:
-		\begin{enumerate}
-			\item Usuário escolhe a opção de listar rotas;
-			\item A execução segue para o passo 3.
-		\end{enumerate}
+		\item Usuário escolhe a opção de rotas já existentes;
 		\item O sistema busca as rotas que o usuário salvou e exibe o resultado na tela.
 	\end{enumerate}
 	
-	\textbf{Pós-condição:} Sistema exibe tela de listagem de rotas.
-	
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 6: Calcular rota (passo 1).
-	\end{enumerate}
+	\textbf{Pós-condição:} Sistema com listagem de rotas exibidas na tela.
 
 	\textbf{Exceções:}
 	\begin{enumerate}
-		\item Usuário não possui rotas. (passo 3).
+		\item Usuário não possui rotas. (passo 2).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 9:} Salvar rota
 
- 	\textbf{Descrição:} Este caso de uso descreve o processo para salvar uma rota calculada.
+ 	\textbf{Descrição:} Este caso de uso descreve o processo para salvar uma rota.
 	
 	\textbf{Evento iniciador:} Solicitação de salvar rota.
 	
 	\textbf{Atores:} Usuário
 	
-	\textbf{Pré-condição:} Sistema na tela final de cálculo de rota.
+	\textbf{Pré-condição:} Sistema na tela final do traçamento de rota.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Na tela final de cálculo de rotas, o usuário escolhe a opção de salvar a rota;
+		\item Usuário escolhe a opção de salvar rota;
 		\item Sistema solicita que o usuário entre um identificação (nome) para a rota;
 		\item Usuário entra e confirma a identificação;
-		\item Sistema registra rota do usuário e retorna à tela inicial.
+		\item Sistema armazena a rota do usuário e retorna à tela inicial.
 	\end{enumerate}
 	
-	\textbf{Pós-condição:} Rota registrada e sistema na tela inicial.
-	
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 6: Calcular rota (passo 1).
-	\end{enumerate}
+	\textbf{Pós-condição:} Rota armazenada e sistema na tela de exibição de mapa.
 
 	\textbf{Exceções:}
 	\begin{enumerate}
@@ -549,7 +537,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Sistema falha ao salvar a rota (passo 4).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 10:} Consultar rota
 
@@ -563,19 +551,14 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Na tela de listagem de rotas, usuário toca no nome da rota que deseja consultar;
-		\item Sistema exibe a rota no mapa.
+		\item Na tela de listagem de rotas, usuário toca no ícone ```seta'' ao lado do nome da rota que deseja consultar;
+		\item Sistema exibe dados da rota.
 	\end{enumerate}
 	
-	\textbf{Pós-condição:} Rota exibida na tela.
-	
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 6: Calcular rota (passo 1);
-		\item Caso de uso 8: Listar rotas salvas (passo 1);
-	\end{enumerate}
+	\textbf{Pós-condição:} Dados da rota exibidos na tela.
 
-	\
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 11 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 11:} Apagar rota
 
@@ -585,26 +568,33 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Atores:} Usuário
 	
-	\textbf{Pré-condição:} Sistema na tela de listagem de rotas.
+	\textbf{Pré-condição:} Sistema na tela de listagem ou consulta de rotas.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Sistema apresenta a lista de rotas;
-		\item Usuário desliza o dedo ao longo da linha correspondente à rota que deseja remover;
-		\item Sistema apresenta, na mesma linha, um botão para confirmar a opeção;
+		\item Caso o sistema apresente a lista de rotas:
+		\begin{enumerate}
+			\item Usuário desliza o dedo ao longo da linha correspondente à rota que deseja remover;
+			\item Sistema apresenta, na mesma linha, um botão para confirmar a operação e segue para o passo 3.
+		\end{enumerate}
+		\item Caso o sistema exiba os dados da rota:
+		\begin{enumerate}
+			\item Usuário seleciona opção de remoção de rota;
+			\item Sistema apresenta uma mensagem de confirmação da operação e segue para o passo 3.
+		\end{enumerate}
 		\item Usuário confirma a remoção;
 		\item Sistema apaga a rota e atualiza a listagem de rotas.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Rota apagada e lista de rotas atualizada.
 	
-	\textbf{Inclusões:}
+	\textbf{Exceções:}
 	\begin{enumerate}
-		\item Caso de uso 6: Calcular rota (passo 1);
-		\item Caso de uso 8: Listar rotas salvas (passo 1).
+		\item Erro ao tentar remover a rota (passo 4)
 	\end{enumerate}
+	
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 12 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 12:} Enviar rota
 
@@ -645,7 +635,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Sinal de celular indisponível: mensagem de aviso é exibida ao usuário. (passo 5a).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 13:} Listar integrações
 
@@ -660,12 +650,12 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
 		\item Usuário seleciona a listagem de integrações;
-		\item Sistema exibe uma lista de todas as integrações disoníveis.
+		\item Sistema exibe uma lista de todas as integrações disponíveis.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Listagem de integrações exibidas na tela.
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 14 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 14:} Enviar SMS
 
@@ -683,7 +673,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Caso tenha sido redirecionado da tela de enviar rota, segue a execução;
 		\item Sistema solicita que o usuário informe o contato e a mensagem que deseja enviar a ele;
 		\item Usuário escolhe o contato na lista de contatos do iPhone, ou digita o número diretamente e, sem seguida, digita a mensagem e confirma o envio;
-		\item Sistem envia o SMS e retorna:
+		\item Sistema envia o SMS e retorna:
 		\begin{enumerate}
 			\item À tela inicial, se o envio foi requisitado a partir da tela de listagens de integração;
 			\item À tela de consulta de rota, caso o envio tenha sido requisitado a partir do envio de rota.
@@ -691,13 +681,6 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} SMS enviado e sistema na tela adequada.
-
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 13: Listar integrações (passo 1);
-		\item Caso de uso 12: Enviar rota (passo 2);
-		\item Caso de uso 10: Consultar rota (passo 5b).
-	\end{enumerate}
 
 	\textbf{Extensões:}
 	\begin{enumerate}
@@ -709,7 +692,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Falha ao enviar SMS (passo 5).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 15:} Enviar e-mail
 
@@ -736,13 +719,6 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Pós-condição:} E-mail enviado e sistema na tela adequada.
 	
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 13: Listar integrações (passo 1);
-		\item Caso de uso 12: Enviar rota (passo 2);
-		\item Caso de uso 10: Consultar rota (passo 5b).
-	\end{enumerate}
-
 	\textbf{Extensões:}
 	\begin{enumerate}
 		\item Conexão à internet indisponível: mensagem é exibida para informar o usuário (passo 5).
@@ -753,7 +729,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Falha ao enviar e-mail. (passo 5).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 16:} Enviar tweet
 
@@ -780,13 +756,6 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Pós-condição:} Tweet enviado e sistema na tela adequada.
 	
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 13: Listar integrações (passo 1);
-		\item Caso de uso 12: Enviar rota (passo 2);
-		\item Caso de uso 10: Consultar rota (passo 5b).
-	\end{enumerate}
-
 	\textbf{Extensões:}
 	\begin{enumerate}
 		\item Conexão à internet indisponível: mensagem é exibida para informar o usuário (passo 5).
@@ -797,7 +766,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Falha ao enviar tweet. (passo 5).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 17 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\textbf{Caso de uso 17:} Gerenciar integrações
 
@@ -811,7 +780,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
-		\item Usuário seliciona a opção de configurações do sistema;
+		\item Usuário seleciona a opção de configurações do sistema;
 		\item Sistema exibe as opções;
 		\item Usuário escolhe a opção de gerenciar integrações;
 		\item Sistema exibe a listagem de integrações disponíveis, a não ser SMS, que não permite configuração;
@@ -833,7 +802,36 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Falha ao gerenciar integração (passo 7).
 	\end{enumerate}
 
-	\
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 18 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Caso de uso 18:} Calcular rota
+
+\textbf{Descrição:} Este caso de uso descreve o cálculo de rotas.
+
+\textbf{Evento iniciador:} Solicitação de cálculo de rota.
+
+\textbf{Atores:} Usuário, API de rotas
+
+\textbf{Pré-condição:} Sistema com uma rota (origem e destino) a ser calculada.
+
+\textbf{Seqüência de eventos:}
+\begin{enumerate}
+	\item Sistema envia as informações de origem e destino para API de rotas;
+	\item API recebe os dados de origem e destino, calcula a rota e envia de volta para o sistema;
+	\item Sistema recebe a rota calculada.
+\end{enumerate}
+
+\textbf{Pós-condição:} Sistema com a rota calculada.
+
+\textbf{Extensões:}
+\begin{enumerate}
+	\item Conexão à internet não disponível: mensagem é exibida para informar o usuário (passo 1).
+\end{enumerate}
+
+\textbf{Exceções:}
+\begin{enumerate}
+	\item Sistema não consegue obter rota calculada (passo 3).
+\end{enumerate}
 
 	% \section{Modelo de classes}
 	% Bla.
