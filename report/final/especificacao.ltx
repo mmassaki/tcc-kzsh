@@ -854,6 +854,79 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	% \section{Descrição das interfaces externas}
 	% Bla.
 
+%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Protótipo de telas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\section{Protótipo de telas}
+	As funcionalidades do sistemas foram descritas em casos de uso, que acabaram por definir as telas, as ações e as interações com o usuário. A seguir, encontram-se os protótipos das telas que compõem o sistema.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/01_navegar_antes.png}
+		\includegraphics[scale=0.2]{img/02_navegar_blur.png}
+		\includegraphics[scale=0.2]{img/03_navegar_depois.png}
+		\caption{Navegação no mapa}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/04_localizacao.png}
+		\caption{Localização do usuário no mapa}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/05_transito.png}
+		\caption{Mapeamento das condições do tráfego}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/06_informar_evento.png}
+		\caption{Informar evento}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/08_origem_destino.png}
+		\includegraphics[scale=0.2]{img/07_origem_destino_keyboard.png}
+		\caption{Criação de uma nota rota}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/10_rotas_main.png}
+		\includegraphics[scale=0.2]{img/09_rotas_editar_apagar.png}
+		\caption{Listagem, edição e remoção de rotas}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/11_integracoes.png}
+		\includegraphics[scale=0.2]{img/13_configuracoes.png}
+		\caption{Listagem e configuração de integrações}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.2]{img/12_sms.png}
+		\caption{Integração de envio de SMS}
+	\end{figure}
+
+%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modelo de classes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+	\section{Modelo de classes}
+	A modelagem parcial das classes de negócio do sistema seguem descritas.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.9]{img/class_diagram.pdf}
+		\caption{Modelagem parcial das classes de negócio}
+	\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Restrições do projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -871,8 +944,14 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 \chapter{Requisitos não funcionais}
 
 \begin{itemize}
-	\item Usabilidade
-	\item Desempenho
+	\item {\bf Usabilidade}
+	
+	É essencial que o aplicativo possui uma interface com o usuário que exige a menor interação possível, uma vez que pode ser utilizado diretamente por motoristas. Dessa forma, o requisito de usabilidade inclui, indiretamente, requisitos de segurança.
+	
+	\item {\bf Desempenho}
+	
+	O aplicativo deve responder aos estímulos do usuário no menor tempo possível, bem como realizar todas as suas funções, como envio de mensagens, auxílio de navegação e informação de tráfego, de modo eficiente, para que a atenção do motorista não seja desviada. O requisito de desempenho também inclui indiretamente a segurança, como o requisito de usabilidade.
+	
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
