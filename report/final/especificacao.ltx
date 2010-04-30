@@ -86,7 +86,7 @@ Prof. Dr. Claudio Luiz Marte}
 % Objetivo do documento
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Objetivo do documento}
-O objetivo deste documento é identificar e especificar todos os requisitos que a aplicação a ser desenvolvida como projeto de formatura deve atender.
+O objetivo deste documento é identificar e especificar os requisitos que a aplicação a ser desenvolvida como projeto de formatura deve atender.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Objetivo do sistema
@@ -107,11 +107,11 @@ A aplicação, específica para a plataforma iPhone, permite que o usuário se l
 % Descrição geral
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Descrição geral}
-Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa e obter informações do trânsito em tempo real.
+Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão �  internet, para que o usuário possa se localizar em um mapa e obter informações do trânsito em tempo real.
 
-Essas informações serão obtidas dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. Elas também são disponibilizadas aos usuários, que poderão vizualizá-las na forma de um mapa com uma escala de cores, ou seja, as ruas serão coloridas, variando do vermelho ao verde, indicando condições de congestionamento até tráfego livre.
+As informações das condições de tráfego serão obtidas dos próprios usuários da aplicação, de forma automática, independente de interação com o usuário, e serão concentradas e armazenadas em um servidor dedicado. Elas também são disponibilizadas aos usuários, que poderão vizualizá-las na forma de um mapa com uma escala de cores, ou seja, as ruas serão coloridas, variando do vermelho ao verde, indicando condições de congestionamento até tráfego livre.
 
-A aplicação, portanto, se comunica pela internet com o servidor para obter as informações históricas e atuais pertinentes à região em que o usuário se encontra, que é determinada pelo GPS do aparelho.
+A aplicação, portanto, se comunica pela internet com o servidor para obter as informações históricas e atuais pertinentes �  região em que o usuário se encontra, que é determinada pelo GPS do aparelho.
 
 %Com essas características, o sistema é capaz de traçar as rotas mais curtas ou mais rápidas, levando em consideração as condições do trânsito das vias que fazem parte dela. Como as condições são atualizadas em tempo real, o sistema também é capaz de recalcular a rota autonomamente, caso haja mudanças relevantes no tráfego.
 
@@ -147,32 +147,32 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\end{figure}
 
 		\subsection{Mapas}
-		Disponibilização de um mapa atualizado que sirva de interface ao usuário.
+		Disponibilizar um mapa atualizado que sirva de interface ao usuário.
 
 		\subsection{Navegação}
 		\begin{itemize}
 			\item{\bf Trânsito}
 
-			Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários.
+			Ao trafegar pelas vias, a aplicação envia, automaticamente, a condição atual do trânsito para o servidor. Essa informação, juntamente com aquelas disponíveis pela CET são disponibilizadas para os outros usuários que também estão utilizando a aplicação.
 
 			\item{\bf Mapeamento em tempo real}
 
-			As informações do trânsito são exibidas por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários são sinalizados por meio de ícones.
+			As informações do trânsito são exibidas automaticamente por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado. Alertas emitidos por usuários, como avisos de acidentes, são sinalizados por meio de ícones.
 
 			\item{\bf Localização atual}
 
-			O usuário pode acompanhar sua localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
+			A aplicação apresenta a localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
 		\end{itemize}
 
 		\subsection{Servidor}
 		\begin{itemize}
 			\item{\bf Banco de dados}
 
-			Armazenamento de todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
+			Manipular todo tipo de informação submetida ao servidor, desde condições de tráfego das vias, até alertas emitidos.
 
 			\item{\bf Estatísticas}
 
-			Tratamento dos dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
+			Tratar dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
 		\end{itemize}
 		
 
@@ -183,7 +183,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\begin{itemize}
 		\item A aplicação é exclusiva para a plataforma iPhone;
 		\item O funcionamento e precisão da localização estão sujeitos ao recurso de GPS do iPhone e independem da aplicação;
-		\item O funcionamento e desempenho da atualização de informações estão sujeitos ao recursos do iPhone e ao funcionamento da operadora;
+		\item O funcionamento e desempenho da atualização de informações estão sujeitos ao recursos do iPhone e ao funcionamento da operadora.
 	\end{itemize}
 
 	% \section{Hipóteses e dependências}
@@ -202,7 +202,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	O aplicativo desenvolvido para o iPhone, após a inicialização, exibe a tela principal do sistema com o mapa do sistema.
 	
-	Devido a interface do iPhone não possuir botões para uso no aplicativo, toda interação com o usuário é feita através de toques ou gestos na tela.
+	Devido à interface do iPhone, toda interação com o usuário é feita através de botões virtuais, toques ou gestos na tela.
 	
 	\begin{figure}[H]
 		\centering
@@ -404,7 +404,6 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Usuário entra com as informações, ou escolhe que sua localização atual seja utilizada e confirma o cálculo da rota;
 		\item Sistema apresenta as opções de salvar ou seguir a rota;
 		\item Se o usuário escolher salvar, o fluxo segue o caso de uso ``Salvar rota'';
-		\item Caso contrário, o fluxo segue o caso de uso ``Seguir rota''.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Posição atual do usuário exibida no mapa com as opções de salvar ou seguir.
@@ -425,6 +424,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 			\item Usuário seleciona uma das rotas;
 			\item Sistema segue caso de uso 7.
 		\end{enumerate}
+		\item Caso o usuário não escolha salvar, o fluxo segue o caso de uso ``Seguir rota''.
 	\end{enumerate}
 
 	\textbf{Exceções:}
@@ -453,7 +453,6 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 			\begin{enumerate}
 				\item Sistema pergunta se o usuário deseja que seja traçada uma rota a partir da localização atual até o local de início da rota;
 				\item Se o usuário confirma, a rota é recalculada e a execução segue o fluxo final (passo 4);
-				\item Caso contrário, o sistema aguarda até que o usuário chegue ao local de inicío, para então seguir o fluxo final (passo 4).
 			\end{enumerate}
 		\item Em caso afirmativo, o sistema segue o fluxo final, a seguir:
 			\begin{enumerate}
@@ -476,9 +475,10 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\textbf{Extensões:}
 	\begin{enumerate}
 		\item Permissão para o uso do GPS desativada: sistema exibe mensagem ao usuário (passos 3 e 4);
-		\item Sem conexão à internet: sistema exibe mensagem ao usuário (passos 3 e 4).
+		\item Sem conexão �  internet: sistema exibe mensagem ao usuário (passos 3 e 4).
 	\end{enumerate}
-
+		\item Caso usuário não esteja na posição origem da rota e não queira traçar a rota a partir da localização atual, o sistema aguarda até que o usuário chegue ao local de inicío, para então seguir o fluxo final (passo 4).
+		
 	\textbf{Exceções:}
 	\begin{enumerate}
 		\item Sistema falha ao calcular a rota (passo 2 e 3b).
@@ -519,14 +519,14 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Atores:} Usuário
 	
-	\textbf{Pré-condição:} Sistema na tela final do traçamento de rota.
+	\textbf{Pré-condição:} Sistema na tela final do desenho da rota.
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
 		\item Usuário escolhe a opção de salvar rota;
 		\item Sistema solicita que o usuário entre um identificação (nome) para a rota;
 		\item Usuário entra e confirma a identificação;
-		\item Sistema armazena a rota do usuário e retorna à tela inicial.
+		\item Sistema armazena a rota do usuário e retorna �  tela inicial.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Rota armazenada e sistema na tela de exibição de mapa.
@@ -574,7 +574,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\begin{enumerate}
 		\item Caso o sistema apresente a lista de rotas:
 		\begin{enumerate}
-			\item Usuário desliza o dedo ao longo da linha correspondente à rota que deseja remover;
+			\item Usuário desliza o dedo ao longo da linha correspondente �  rota que deseja remover;
 			\item Sistema apresenta, na mesma linha, um botão para confirmar a operação e segue para o passo 3.
 		\end{enumerate}
 		\item Caso o sistema exiba os dados da rota:
@@ -611,8 +611,8 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item Na tela de consulta de rota, o usuário escolhe a opção de enviar;
 		\item O sistema solicita que o usuário escolha o meio de envio;
 		\item Usuário escolhe entre SMS, e-mail e Twitter;
-		\item Sistema redireciona o usuário à tela correspondente, com um link para a rota já adicionado;
-		\item A execução segue o caso de uso correspondente à escolha do usuário:
+		\item Sistema redireciona o usuário �  tela correspondente, com um link para a rota já adicionado;
+		\item A execução segue o caso de uso correspondente �  escolha do usuário:
 		\begin{enumerate}
 			\item Caso de uso 14, caso SMS;
 			\item Caso de uso 15, caso e-mail;
@@ -631,7 +631,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item Conexão à internet indisponível: mensagem de aviso é exibida ao usuário. (passos 5b e 5c);
+		\item Conexão �  internet indisponível: mensagem de aviso é exibida ao usuário. (passos 5b e 5c);
 		\item Sinal de celular indisponível: mensagem de aviso é exibida ao usuário. (passo 5a).
 	\end{enumerate}
 
@@ -721,7 +721,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item Conexão à internet indisponível: mensagem é exibida para informar o usuário (passo 5).
+		\item Conexão �  internet indisponível: mensagem é exibida para informar o usuário (passo 5).
 	\end{enumerate}
 
 	\textbf{Exceções:}
@@ -758,7 +758,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item Conexão à internet indisponível: mensagem é exibida para informar o usuário (passo 5).
+		\item Conexão �  internet indisponível: mensagem é exibida para informar o usuário (passo 5).
 	\end{enumerate}
 
 	\textbf{Exceções:}
@@ -787,14 +787,14 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 		\item O usuário escolhe a integração que deseja gerenciar;
 		\item Usuário escolhe se deseja, cadastrar, alterar ou remover as informações de sua conta;
 		\item Sistema realiza as operações desejada;
-		\item Sistema retorna à tela de configuração de integrações.
+		\item Sistema retorna �  tela de configuração de integrações.
 	\end{enumerate}
 	
 	\textbf{Pós-condição:} Gerenciamento concluído com sucesso e sistema na tela de configuração de integrações.
 
 	\textbf{Extensões:}
 	\begin{enumerate}
-		\item Conexão à internet não disponível: mensagem é exibida para informar o usuário (passo 7).
+		\item Conexão �  internet não disponível: mensagem é exibida para informar o usuário (passo 7).
 	\end{enumerate}
 
 	\textbf{Exceções:}
@@ -825,7 +825,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 
 \textbf{Extensões:}
 \begin{enumerate}
-	\item Conexão à internet não disponível: mensagem é exibida para informar o usuário (passo 1).
+	\item Conexão �  internet não disponível: mensagem é exibida para informar o usuário (passo 1).
 \end{enumerate}
 
 \textbf{Exceções:}
@@ -935,7 +935,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 %\begin{itemize}
 %	\item Recomendado o uso de carregador de carregador veicular de bateria
 %	\item Utilização em ambientes abertos
-%	\item Respeito às normas de trânsito
+%	\item Respeito � s normas de trânsito
 %\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -946,11 +946,16 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 \begin{itemize}
 	\item {\bf Usabilidade}
 	
-	É essencial que o aplicativo possui uma interface com o usuário que exige a menor interação possível, uma vez que pode ser utilizado diretamente por motoristas. Dessa forma, o requisito de usabilidade inclui, indiretamente, requisitos de segurança.
+	É essencial que o aplicativo possua uma interface com o usuário que exige a menor interação possível, uma vez que pode ser utilizado diretamente por motoristas. Dessa forma, o requisito de usabilidade inclui, indiretamente, requisitos de segurança.
 	
 	\item {\bf Desempenho}
 	
 	O aplicativo deve responder aos estímulos do usuário no menor tempo possível, bem como realizar todas as suas funções, como envio de mensagens, auxílio de navegação e informação de tráfego, de modo eficiente, para que a atenção do motorista não seja desviada. O requisito de desempenho também inclui indiretamente a segurança, como o requisito de usabilidade.
+	
+	\item {\bf Segurança e privacidade}
+	
+	Segurança e privacidade do aplicativo é aplicada no tráfego dos dados via internet para os dados confidenciais, onde será transmitida de forma protegida.
+	
 	
 \end{itemize}
 
