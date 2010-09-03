@@ -1,0 +1,222 @@
+% Modelo de tese para a Poli/USP
+%
+% Jomi Fred Hübner (jomi@inf.furb.br)
+% USP/LTI
+%
+
+%
+% FORMATAÇÃO
+% 
+\documentclass[%ruledheader, % cabeçalho com nome da seção e linha
+               noindentfirst, % não identar primeiro par. da seção
+               normaltoc, % tira o p. no início das páginas do sumário
+               normalfigtabnum, % numeração de figuras dependente do capítulo
+               %sumarioincompleto,
+               %naousarHyperref, % não usa o HyperRef
+               %naousarRefABNT, % não carrega o pacore de referências da ABNT
+               %twoside,
+               %times, % usa fontes tipo windows (times new roman, arial, \ldots)
+               anapnormal, % palavra anexo não aparece em maiúsculo
+               dvipdfm,
+               anapcustomindent % não indenta o restante do título do anexo
+							]
+							{abnt-meu}
+
+% a opção "twoside" possibilita a impressão frente/verso. Segundo a
+% biblioteca, neste caso, tem que ser em papel com gramatura 90.
+%
+% as demais opções podem ser obtidas na documentação da classe abnt e
+% report (do LaTeX).
+%
+% No arquivo Makefile estão os comandos que geram o PDF/PS
+%
+
+\usepackage[latin1]{inputenc}
+\usepackage{helvet} \renewcommand{\familydefault}{\sfdefault}
+\usepackage{ae}
+\usepackage{poli} % personalização da ABNT para a Poli
+\usepackage{graphicx}
+
+%\versaofinal % descomente para gerar a versão final
+              % sem as notas de pendencias, margens laterais, \ldots
+
+
+% 
+% CAPAS
+% 
+\begin{document}
+
+% Título como será escrito na capa e folha de rosto, tudo em maiúscula
+\titulo{NAVEGADOR GPS COLABORATIVO PARA DISPOSITIVO MÓVEL}
+
+% Título como será escrito na ficha catalográfica
+\renewcommand{\PolyTituloFichaCatalografica}{Navegador GPS Colaborativo para dispositivo móvel}
+
+% Autor como será escrito na capa e folha de rosto, tudo em maiúscula 
+\autoresPoli{ANDRÉ KIDO}{MARCIO MASSAKI HOROIWA}{\ }{\ }{\ }
+
+% Autor como será escrito na ficha catalográfica
+\renewcommand{\PolyAutorFichaCatalografica}{Kido, André, Horoiwa, Marcio Massaki}
+\renewcommand{\PolyAutorFichaCatalograficaI}{A. Kido, M. M. Horoiwa}
+
+\orientador{Profa. Dra. Selma Shin Shimizu Melnikoff}
+\coorientador{Prof. Dr. Claudio Luiz Marte}
+\areaConcentracao{Área de concentração:\\Engenharia de Computação}
+
+\departamento{%
+  \href{http://www.pcs.usp.br}
+  {Departamento de Engenharia de Computação\hfill\linebreak e Sistemas Digitais}}
+% o \href faz o PDF com links para os sites
+
+
+% 
+% TIPO DE DOCUMENTO (ESCOLHA APENAS UM)
+% 
+%\teseLD{Texto apresentado}    % para Livre docência (pode-se trocar
+                               % para ``tese apresentada'')
+% \memorialLD                  % para memorial                                                                                                                                      
+\tcc{Engenharia de Computação} % para doutorado                                                                                                                                               
+%\dissertacao{Engenharia}     % para Mestrado
+%\qualiDr{Engenharia Elétrica}  % para quali doutorado
+
+\local{São Paulo} \data{2010}
+\capa
+\setcounter{page}{1}
+\falsafolhaderosto
+\folhaderosto
+
+%
+% Ficha Catalográfica
+% (deve ficar no verso da página de rosto)
+%
+\renewcommand{\PolyAssFichaCatalografica}{%
+  1. Plataforma. 
+  2. Ontologia. 
+  I. Russo, Eduardo
+  II. Fré, Guilherme Nascimento
+	III. Nagamachi, Hélio Kazuo
+	IV. Ferez, Tarik
+  V. Becerra, Jorge Risco
+  IV. Universidade de São Paulo. Escola Politécnica.
+  \PoliDepartamentoData. II. t.}
+
+\fichacatalografica % formata a ficha
+
+%
+% Dedicatória
+%
+\newpage
+\vspace*{\stretch{1}}
+\begin{flushright}
+	Texto da dedicatória
+\end{flushright}
+%
+% Agradecimentos
+%
+\pretextualchapter{Agradecimentos}
+
+\ \ \ \ \ Agradecemos a alguéns
+%
+% Resumo
+% (a natureza do problema, material e métodos,
+% resultados mais significativos, principais conclusões)
+%
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% TCC - A PARTIR DAQUI, SERÃO USADOS ARQUIVOS EXTERNOS
+%
+
+% RESUMO
+\begin{resumo}
+	\input{capitulos/10-resumo/1-resumo}
+\end{resumo}
+% ABSTRACT
+\begin{abstract}
+  \selectlanguage{english}
+	\input{capitulos/10-resumo/2-abstract}
+\end{abstract}
+
+% lista de figuras
+\cleardoublepage\listoffigures
+% lista de tabelas
+\cleardoublepage\listoftables
+% lista de abreviaturas
+\cleardoublepage\input{capitulos/0-abrevsimb/abreviaturas}
+% lista de smbolos
+\cleardoublepage\pretextualchapter{Lista de símbolos}
+\input{capitulos/0-abrevsimb/simbolos}
+
+%
+% SUMÁRIO
+%
+\tableofcontents
+% a poli nao segue a ABNT aqui, a numeracao
+% comeca de 1 na introducao.
+\cleardoublepage
+%INTRODUÇÃO
+%		MOTIVAÇÃO
+%		OBJETIVO
+%		ABRANGÊNCIA
+\part{Introdução}
+	\input{capitulos/20-introducao/1-motivacao}
+	\input{capitulos/20-introducao/2-objetivo}
+	\input{capitulos/20-introducao/3-abrangencia}
+	
+%ASPECTOS CONCEITUAIS
+%		ARQUITETURA MULTIPLATAFORMA
+%		COMPUTAÇÃO DISTRIBUÍDA
+%		PROCESSOS
+%		TECNOLOGIAS UTILIZADAS
+\part{Aspectos conceituais}
+	\input{capitulos/30-teoria/1-multiplataforma}
+	\input{capitulos/30-teoria/2-distribuida}
+	\input{capitulos/30-teoria/3-processos}
+	\input{capitulos/30-teoria/4-tecnologias}
+
+%PROJETO E IMPLEMENTAÇÃO
+%		MÉTODO
+% 	PROTÓTIPO
+% 	COMENTÁRIOS FINAIS
+\part{Projeto e implementação}
+	\input{capitulos/40-projeto/1-metodo}
+	\input{capitulos/40-projeto/2-prototipo}
+	\input{capitulos/40-projeto/3-comentarios}
+	
+%CONCLUSÕES
+\part{Conclusões}
+	\input{capitulos/50-conclusoes/1-conclusoes}	
+
+%ANEXOS
+\input{capitulos/60-anexos/1-anexos}
+%
+% Referências
+%
+
+\bibliographystyle{abnt-alf} % estilo da ABNT
+%\bibliographystyle{plain} % sem estilo da ABNT
+\bibliography{capitulos/bibliografia} % arquivo bibtex
+\nocite{*}
+
+%
+% Apêndice
+%
+\printindex
+
+%
+% Apéndices
+%
+%\apendice
+
+%\chapter{Apêndice}
+
+%
+% Glossário
+%
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "tese"
+%%% x-symbol-8bits: t
+%%% End:
