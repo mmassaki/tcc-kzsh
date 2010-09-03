@@ -1,0 +1,28 @@
+# require 'rake/clean'
+
+# ['log', 'aux', 'bbl', 'blg', 'dvi', 'pdf', 'idx', 'lot', 'lof', 'out', 'toc'].each { |ext| CLEAN.include("*.#{ext}") }
+
+namespace "svn" do |namespace|
+	  desc "Remove missing itens"
+	  task :rm_missing do
+	       sh "svn status | grep '\!' | awk '{print $2;}' | xargs svn rm"
+	  end
+
+	  desc "Add all unversioned files"
+	  task :add do
+	       sh "svn status |grep '\?' |awk '{print $2}'| xargs svn add"
+	  end
+
+	  desc "Sync working folder add and remove files"
+	  task :sync do
+	       sh "svn status | grep '\!' | awk '{print $2;}' | xargs svn rm"
+	       sh "svn status |grep '\?' |awk '{print $2}'| xargs svn add"
+	  end
+end
+
+desc "Compile latex files"
+task :compile do
+     a = `uname -s`
+     sh 'open monografia.pdf' if `uname -s` =~ /Darwin/
+     # latex $< ; latex $< ; bibtex $(<:.tex=) ; latex $< ; latex $< ; dvipdfm -p a4 -o $(<:.tex=.pdf) $(<:.tex=.dvi)
+end
