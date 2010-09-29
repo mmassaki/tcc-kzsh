@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  29 SEP 2010 18:05
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  29 SEP 2010 18:51
 entering extended mode
  %&-line parsing enabled.
 **Evolucao2-1.ltx
@@ -541,23 +541,33 @@ Cap\'{\i }tulo 1.
 
 ]
 Cap\'{\i }tulo 2.
-<img/evo1/TCC-Core4.png, id=15, 808.01875pt x 347.2975pt>
+
+Overfull \hbox (9.532pt too wide) in paragraph at lines 96--97
+[]\OT1/cmr/m/n/12 As in-forma^^Xc~oes das condi^^Xc~oes de tr^^Safego ser~ao ob
+-ti-das dos pr^^Soprios usu^^Sarios da aplica^^Xc~ao,
+ []
+
+[4
+
+]
+Cap\'{\i }tulo 3.
+<img/evo1/TCC-Core4.png, id=18, 808.01875pt x 347.2975pt>
 File: img/evo1/TCC-Core4.png Graphic file (type png)
 
-<use img/evo1/TCC-Core4.png> [4
+<use img/evo1/TCC-Core4.png> [5
 
- <./img/evo1/TCC-Core4.png (PNG copy)>]
-Cap\'{\i }tulo 3.
-<img/evo1/home.png, id=19, 415.5525pt x 772.8875pt>
+ <./img/evo1/TCC-Core4.png (PNG copy)>] [6]
+Cap\'{\i }tulo 4.
+<img/evo1/home.png, id=25, 415.5525pt x 772.8875pt>
 File: img/evo1/home.png Graphic file (type png)
  <use img/evo1/home.png>
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[5
+[7
 
- <./img/evo1/home.png>] [6] (./Evolucao2-1.aux) ) 
+ <./img/evo1/home.png>] [8] (./Evolucao2-1.aux) ) 
 Here is how much of TeX's memory you used:
  3389 strings out of 493848
  42135 string characters out of 3149207
@@ -565,15 +575,15 @@ Here is how much of TeX's memory you used:
  6578 multiletter control sequences out of 15000+200000
  11615 words of font info for 43 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 28i,7n,24p,370b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,7n,24p,497b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2009/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2009/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2009/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2009/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmssdc10.pfb>
-Output written on Evolucao2-1.pdf (6 pages, 271185 bytes).
+Output written on Evolucao2-1.pdf (8 pages, 274893 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 49 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

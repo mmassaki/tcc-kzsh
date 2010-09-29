@@ -1,9 +1,11 @@
 \select@language {brazil}
 \contentsline {chapter}{\numberline {1}Objetivo do documento}{3}
-\contentsline {chapter}{\numberline {2}Mudan\IeC {\c c}as realizadas}{4}
-\contentsline {section}{\numberline {2.1}Escopo}{4}
-\contentsline {section}{\numberline {2.2}Casos de Uso}{4}
-\contentsline {section}{\numberline {2.3}Diagrama de Classes}{4}
-\contentsline {chapter}{\numberline {3}Descri\IeC {\c c}\IeC {\~a}o da Evolu\IeC {\c c}\IeC {\~a}o}{5}
-\contentsline {section}{\numberline {3.1}Implementa\IeC {\c c}\IeC {\~a}o}{5}
-\contentsline {section}{\numberline {3.2}Cronograma}{6}
+\contentsline {chapter}{\numberline {2}Introdu\IeC {\c c}\IeC {\~a}o}{4}
+\contentsline {section}{\numberline {2.1}Objetivo}{4}
+\contentsline {chapter}{\numberline {3}Mudan\IeC {\c c}as realizadas}{5}
+\contentsline {section}{\numberline {3.1}Escopo}{5}
+\contentsline {section}{\numberline {3.2}Casos de Uso}{5}
+\contentsline {section}{\numberline {3.3}Diagrama de Classes}{6}
+\contentsline {chapter}{\numberline {4}Descri\IeC {\c c}\IeC {\~a}o da Evolu\IeC {\c c}\IeC {\~a}o}{7}
+\contentsline {section}{\numberline {4.1}Implementa\IeC {\c c}\IeC {\~a}o}{7}
+\contentsline {section}{\numberline {4.2}Cronograma}{8}
