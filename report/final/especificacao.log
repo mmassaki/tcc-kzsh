@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  29 SEP 2010 17:55
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  29 SEP 2010 18:49
 entering extended mode
  %&-line parsing enabled.
 **especificacao.ltx
@@ -490,18 +490,18 @@ LaTeX Info: Redefining \cite on input line 831.
 (./especificacao.aux)
 \openout1 = `especificacao.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -518,12 +518,12 @@ LaTeX Font Info:    ... okay on input line 18.
 ) [1
 
 {/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 79.
+LaTeX Font Info:    Try loading font information for U+msa on input line 83.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 79.
+LaTeX Font Info:    Try loading font information for U+msb on input line 83.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -541,39 +541,143 @@ Cap\'{\i }tulo 1.
 
 ]
 Cap\'{\i }tulo 2.
-<img/evo1/TCC-Core4.png, id=15, 808.01875pt x 347.2975pt>
-File: img/evo1/TCC-Core4.png Graphic file (type png)
+[4
 
-<use img/evo1/TCC-Core4.png> [4
-
- <./img/evo1/TCC-Core4.png (PNG copy)>]
+]
 Cap\'{\i }tulo 3.
-<img/evo1/home.png, id=19, 415.5525pt x 772.8875pt>
-File: img/evo1/home.png Graphic file (type png)
- <use img/evo1/home.png>
+
+Overfull \hbox (9.532pt too wide) in paragraph at lines 112--113
+[]\OT1/cmr/m/n/12 As in-forma^^Xc~oes das condi^^Xc~oes de tr^^Safego ser~ao ob
+-ti-das dos pr^^Soprios usu^^Sarios da aplica^^Xc~ao,
+ []
+
+<img/core.png, id=19, 676.5275pt x 186.6975pt>
+File: img/core.png Graphic file (type png)
+ <use img/core.png> [5
+
+ <./img/core.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 154.
+
+ (/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
+ [6] [7]
+Cap\'{\i }tulo 4.
+
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./img/diagrama_casos_de_uso.pdf): PD
+F inclusion: found PDF version <1.5>, but at most version <1.4> allowed
+<img/diagrama_casos_de_uso.pdf, id=32, 939.78104pt x 986.18437pt>
+File: img/diagrama_casos_de_uso.pdf Graphic file (type pdf)
+
+<use img/diagrama_casos_de_uso.pdf> [8
+
+] [9 <./img/diagrama_casos_de_uso.pdf>]
+[10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
+<img/01_navegar_antes.png, id=81, 415.5525pt x 772.8875pt>
+File: img/01_navegar_antes.png Graphic file (type png)
+
+<use img/01_navegar_antes.png>
+<img/02_navegar_blur.png, id=83, 415.5525pt x 772.8875pt>
+File: img/02_navegar_blur.png Graphic file (type png)
+
+<use img/02_navegar_blur.png>
+<img/03_navegar_depois.png, id=84, 415.5525pt x 772.8875pt>
+File: img/03_navegar_depois.png Graphic file (type png)
+
+<use img/03_navegar_depois.png>
+<img/04_localizacao.png, id=85, 415.5525pt x 772.8875pt>
+File: img/04_localizacao.png Graphic file (type png)
+
+<use img/04_localizacao.png> [21 <./img/01_navegar_antes.png> <./img/02_navegar
+_blur.png> <./img/03_navegar_depois.png>]
+<img/05_transito.png, id=92, 415.5525pt x 772.8875pt>
+File: img/05_transito.png Graphic file (type png)
+
+<use img/05_transito.png>
+<img/06_informar_evento.png, id=93, 415.5525pt x 772.8875pt>
+File: img/06_informar_evento.png Graphic file (type png)
+
+<use img/06_informar_evento.png>
+<img/08_origem_destino.png, id=94, 415.5525pt x 772.8875pt>
+File: img/08_origem_destino.png Graphic file (type png)
+
+<use img/08_origem_destino.png>
+<img/07_origem_destino_keyboard.png, id=95, 415.5525pt x 772.8875pt>
+File: img/07_origem_destino_keyboard.png Graphic file (type png)
+
+<use img/07_origem_destino_keyboard.png> [22 <./img/04_localizacao.png> <./img/
+05_transito.png> <./img/06_informar_evento.png>]
+<img/10_rotas_main.png, id=102, 415.5525pt x 772.8875pt>
+File: img/10_rotas_main.png Graphic file (type png)
+
+<use img/10_rotas_main.png>
+<img/09_rotas_editar_apagar.png, id=103, 415.5525pt x 772.8875pt>
+File: img/09_rotas_editar_apagar.png Graphic file (type png)
+
+<use img/09_rotas_editar_apagar.png>
+<img/11_integracoes.png, id=104, 415.5525pt x 772.8875pt>
+File: img/11_integracoes.png Graphic file (type png)
+
+<use img/11_integracoes.png>
+<img/13_configuracoes.png, id=105, 415.5525pt x 772.8875pt>
+File: img/13_configuracoes.png Graphic file (type png)
+
+<use img/13_configuracoes.png>
+<img/12_sms.png, id=106, 415.5525pt x 772.8875pt>
+File: img/12_sms.png Graphic file (type png)
+ <use img/12_sms.png> [23 <./img/08_origem_destino.png> <./img/07_origem_destin
+o_keyboard.png> <./img/10_rotas_main.png> <./img/09_rotas_editar_apagar.png> <.
+/img/11_integracoes.png> <./img/13_configuracoes.png>] [24 <./img/12_sms.png>]
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./img/class_diagram.pdf): PDF inclus
+ion: found PDF version <1.5>, but at most version <1.4> allowed
+<img/class_diagram.pdf, id=120, 515.44572pt x 441.81061pt>
+File: img/class_diagram.pdf Graphic file (type pdf)
+
+<use img/class_diagram.pdf>
+Overfull \hbox (8.65276pt too wide) in paragraph at lines 857--858
+ [][] 
+ []
+
+[25 <./img/class_diagram.pdf>]
+Cap\'{\i }tulo 5.
+[26
+
+]
+Cap\'{\i }tulo 6.
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[5
+[27
 
- <./img/evo1/home.png>] [6] (./especificacao.aux) ) 
+] (./especificacao.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3389 strings out of 493848
- 42157 string characters out of 3149207
- 102430 words of memory out of 3000000
- 6578 multiletter control sequences out of 15000+200000
- 11615 words of font info for 43 fonts, out of 3000000 for 9000
+ 3489 strings out of 493848
+ 44509 string characters out of 3149207
+ 104445 words of memory out of 3000000
+ 6659 multiletter control sequences out of 15000+200000
+ 12872 words of font info for 47 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 28i,7n,24p,372b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2009/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2009/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2009/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2009/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmssdc10.pfb>
-Output written on especificacao.pdf (6 pages, 270934 bytes).
+ 28i,6n,24p,499b,217s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
+sr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
+/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmssdc10.pfb></us
+r/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on especificacao.pdf (27 pages, 4595494 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 163 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
