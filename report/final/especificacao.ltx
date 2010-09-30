@@ -211,7 +211,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 	\section{Modelo de casos de uso}
 	Para a modelagem de casos de uso definiu-se como sistema o dispositivo iPhone juntamente com o Servidor de dados.
 	
-	O usuário ao executar a aplicação para iPhone deve autenticar-se ou fazer seu cadastro, caso ainda não o possua. Portanto é necessário que o usuário esteja autenticado para utilizar o sistema.
+	O aplicativo desenvolvido para o iPhone, após sua inicialização, exibe a tela principal com o mapa do sistema.
 	
 	Para o funcionamento da aplicação é necessária uma rede de dados acessada através do iPhone. Caso nenhuma rede esteja disponível a aplicação informará o usuário que não foi possível conectar-se em nenhuma rede de dados.
 	
@@ -708,62 +708,30 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as 
 
 \ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 17 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\textbf{Caso de uso 17:} Autenticar usuário
+		\textbf{Caso de uso 17:} Remover favorito
 
- 	\textbf{Descrição:} Este caso de uso descreve a autenticação do usuário no sistema.
+	 	\textbf{Descrição:} Este caso de uso descreve a remoção de um local favorito.
 
-	\textbf{Evento iniciador:} Solicitação de autenticação do usuário.
+		\textbf{Evento iniciador:} Solicitação de remoção de um local favorito.
 
-	\textbf{Atores:} Usuário
+		\textbf{Atores:} Usuário
 
-	\textbf{Pré-condição:} Não há.
+		\textbf{Pré-condição:} Sistema com um local favorito selecionado para remoção.
 
-	\textbf{Seqüência de eventos:}
-	\begin{enumerate}
-		\item Sistema solicita autenticação ou cadastro do usuário;
-		\item Usuário insere os dados de autenticação e confirma;
-		\item Sistema autentica o usuário no sistema.
-	\end{enumerate}
+		\textbf{Seqüência de eventos:}
+		\begin{enumerate}
+			\item Sistema solicita confirmação de remoção do favorito;
+			\item Usuário confirma a remoção;
+			\item Sistema remove o favorito.
+		\end{enumerate}
 
-	\textbf{Pós-condição:} Usuário autenticado no sistema.
+		\textbf{Pós-condição:} Local favorito removido.
 
-	\textbf{Inclusões:}
-	\begin{enumerate}
-		\item Caso de uso 18: Cadastrar usuário
-	\end{enumerate}
+		\textbf{Extensões:}
+		\begin{enumerate}
+			\item Usuário cancela remoção (passo 2): sistema retorna à tela anterior.
+		\end{enumerate}
 
-	\textbf{Extensões:}
-	\begin{enumerate}
-		\item Usuário solicita cadastrar-se no sistema (passo 2): Executa-se o caso de uso 18 e segue para o passo 3;
-		\item Dados de autenticação incorretos (passo 3): sistema exibe mensagem ao usuário.
-	\end{enumerate}
-
-\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 18 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\textbf{Caso de uso 18:} Cadastrar usuário
-
- 	\textbf{Descrição:} Este caso de uso descreve o cadastro de um usuário no sistema.
-
-	\textbf{Evento iniciador:} Solicitação de cadastro de usuário.
-
-	\textbf{Atores:} Usuário
-
-	\textbf{Pré-condição:} Não há.
-
-	\textbf{Seqüência de eventos:}
-	\begin{enumerate}
-		\item Sistema solicita dados do usuário a ser cadastrado;
-		\item Usuário insere os dados e confirma;
-		\item Sistema armazena os dados no novo usuário.
-	\end{enumerate}
-
-	\textbf{Pós-condição:} Usuário cadastrado no banco de dados.
-
-	\textbf{Extensões:}
-	\begin{enumerate}
-		\item Dados incorretos (passo 3): sistema exibe mensagem ao usuário.
-	\end{enumerate}
-	
 	% \section{Modelo de classes}
 	% Bla.
 	% 
