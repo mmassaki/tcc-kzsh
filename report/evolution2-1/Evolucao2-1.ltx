@@ -1,0 +1,658 @@
+%\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+\documentclass{abnt}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{ae}
+\usepackage{graphicx, float}
+\usepackage{amsmath,amsthm,amssymb,dsfont}
+%\usepackage{bm}
+%\usepackage{dsfont}
+\usepackage{url}
+%\usepackage{listings}
+\usepackage[num]{abntcite}
+%\usepackage{biblatex}
+%\usepackage{natbib}
+%\usepackage{multicol}
+%\usepackage{wrapfig}
+
+\begin{document}
+
+\renewcommand{\ABNTchapterfont}{\bfseries\sffamily\fontseries{sbc}\selectfont}
+\renewcommand{\ABNTsectionfont}{\bfseries\sffamily\fontseries{sbc}\selectfont}
+
+\begin{titlepage}
+\ \vfill
+
+\noindent\rule{\textwidth}{1pt}
+
+\vspace*{0.5cm}
+
+\centering\par\setstretch{1.1}
+
+{\huge\sffamily\fontseries{sbc}\selectfont
+Relatório de Evolução \par}
+
+\vspace*{0.5cm}
+
+\Large
+André Ivo Kido\\
+Marcio Massaki Horoiwa
+
+Orientador:\\
+Profa. Dra. Selma Shin Shimizu Melnikoff
+
+Co-orientador:\\
+Prof. Dr. Claudio Luiz Marte
+
+
+\vspace*{0.5cm}
+
+\noindent\rule{\textwidth}{1pt}
+
+\vfill\vfill\ 
+
+\end{titlepage}
+
+\title{Especificação de requisitos}
+\author{
+André Ivo Kido\\
+Henrique Copelli Zambon\\
+Marcio Massaki Horoiwa\\
+\\
+Orientador:\\
+Profa. Dra. Selma Shin Shimizu Melnikoff\\
+\\
+Co-orientador:\\
+Prof. Dr. Claudio Luiz Marte}
+
+\date{Versão 1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Controle de revisões
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \emph{\textbf{Tabela de controle de revisões}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sumário
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objetivo do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Objetivo do documento}
+O objetivo deste documento é documentar a evolução do projeto de formatura até o momento atual, informando os problemas e sucessos encontrados.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introdução do TCC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introdução}
+
+\section{Objetivo}
+Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa e obter informações do trânsito em tempo real.
+
+As informações das condições de tráfego serão obtidas dos próprios usuários da aplicação, de forma automática, independente da ação direta deles e serão concentradas e armazenadas em um servidor dedicado. Elas também são disponibilizadas aos usuários, que poderão visualizá-las na forma de um mapa com uma escala de cores, ou seja, as ruas serão coloridas, variando do vermelho ao verde, indicando condições de congestionamento até tráfego livre.
+
+A aplicação, portanto, se comunica pela internet com o servidor para obter as informações históricas e atuais pertinentes à região em que o usuário se encontra, que é determinada pelo GPS do aparelho.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mudanças realizadas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Mudanças realizadas}
+
+\section{Escopo}
+Houve mudanças no escopo apresentado anteriormente devido à saída de um membro no grupo de projeto de formatura. Foram modificadas o fluxo de navegação e algumas funcionalidades suplementares da base de nosso foco, como o gerenciamento de rotas para um sistema de rotas favoritas, atribuimos menor prioridade para a coleta de informações de trânsito da CET e maior para as informações obtidas colaborativamente. As consequências dessas mudanças estão apresentadas neste relatório.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/evo1/TCC-Core4.png}
+		\caption{Escopo do sistema}
+	\end{figure}
+
+
+
+\
+%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Casos de uso
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\section{Casos de Uso}
+	Modificações nos casos de uso.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/diagrama_casos_de_uso.pdf}
+		\caption{Diagrama dos casos de uso}
+	\end{figure}
+	
+\
+
+	
+	\subsection{Lista atualizada dos Casos de uso}
+	\label{ssub:casos_de_uso}
+
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 1:} Navegar no mapa
+
+	\textbf{Descrição:} Este caso de uso descreve o processo de navegação no mapa do sistema.
+	
+	\textbf{Evento iniciador:} Deslizamento do dedo na tela do mapa.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema em uma das telas de exibição do mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário navega no mapa através de um deslizamento do dedo na tela;
+		\item Sistema atualiza a exibição do mapa de acordo com a distância e velocidade do deslizamento do dedo.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Exibição do mapa na posição desejada pelo usuário.
+	
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 2:} Localizar posição atual
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de exibição da posição atual do usuário no mapa.
+	
+	\textbf{Evento iniciador:} Solicitação da exibição da posição atual no mapa.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita exibição da posição atual;
+		\item Sistema verifica a posição do usuário através do uso de GPS e exibe a posição atual no mapa.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Posição atual do usuário exibida no mapa.
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 3:} Verificar Trânsito
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de exibição do trânsito atual no mapa.
+	
+	\textbf{Evento iniciador:} Solicitação da exibição do trânsito atual no mapa.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita a exibição do trânsito atual no mapa;
+		\item Sistema obtém as informações do trânsito atual da região do mapa exibida na tela e exibe as informações através de uma escala de cores.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Informações do trânsito atual exibidas no mapa.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Sistema não consegue obter as informações do trânsito atual (passo 2): sistema exibe uma mensagem ao usuário.
+	\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 4:} Informar evento
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de envio de evento para o sistema.
+	
+	\textbf{Evento iniciador:} Solicitação para envio de evento.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa com a posição atual do usuário.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita o envio de evento, através de um toque na tela do mapa;
+		\item Sistema exibe uma lista de tipos de eventos;
+		\item Usuário escolhe o tipo de evento que deseja informar por meio de um toque no nome ou ícone dele;
+		\item Sistema solicita os dados relativos ao evento;
+		\item Usuário insere os dados do evento e confirma a informação;
+		\item Sistema insere o evento utilizando dados do GPS e exibe resultado.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Evento armazenado no sistema.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Erro na inserção de dados do evento (passo 4): sistema exibe uma mensagem ao usuário.
+	\end{enumerate}
+	
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 5 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\textbf{Caso de uso 5:} Informar posição atual
+	
+	\textbf{Descrição:} Este caso de uso descreve o processo de envio de dados da posição atual do usuário.
+	
+	\textbf{Evento iniciador:} Tempo de disparo do timer alcançado.
+	
+	\textbf{Atores:} \emph{Timer}
+	
+	\textbf{Pré-condição:} Usuário com a posição atual encontrada.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item \emph{Timer} dispara enviando os dados da posição atual do usuário, velocidade, data e hora;
+		\item Sistema armazena os dados;
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Dados da posição atual do usuário armazenados.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Erro no envio de dados para o sistema (passo 1): sistema registra o erro num \emph{log}.
+	\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 6:} Traçar rota
+	
+ 	\textbf{Descrição:} Este caso de uso descreve o processo de traçar uma rota.
+	
+	\textbf{Evento iniciador:} Solicitação de traçar rota.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema em uma das telas de exibição do mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita traçar um rota;
+		\item Sistema solicita o destino ao usuário;
+		\item Usuário informa o destino da rota;
+		\item Sistema pergunta se deseja traçar a rota a partir da posição atual ou escolher um local de origem;
+		\item Usuário deseja escolher um local de origem da rota;
+		\item Sistema solicita a origem ao usuário;
+		\item Usuário informa a origem da rota;
+		\item Sistema obtém através das informações uma rota e exibe na tela para navegação.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Posição atual do usuário e rota exibidas no mapa.
+	
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 10: Selecionar localização (passo 2-3 e 6-7)
+		\item Caso de uso 11: Calcular rota (passo 8)
+	\end{enumerate}
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Localização não encontrada (passo 3 e 7);
+		\item Usuário deseja traçar rota a partir da posição atual (passo 4): sistema obtém a posição atual e segue para o passo 8.
+	\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 7 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 7:} Seguir rota
+	
+ 	\textbf{Descrição:} Este caso de uso descreve o processo de seguir uma rota.
+	
+	\textbf{Evento iniciador:} Solicitação de seguir uma rota
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Informação da localização do usuário obtida e uma rota traçada na tela de mapa.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita seguir rota;
+		\item Sistema atualiza a posição do usuário no mapa continuamente e exibe setas no mapa indicando o caminho a ser seguido até que o usuário atinja o destino da rota;
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Usuário na posição de destino da rota.
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 8 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 8:} Selecionar favorito
+
+ 	\textbf{Descrição:} Este caso de uso descreve a seleção de um dos locais favoritos do usuário.
+	
+	\textbf{Evento iniciador:} Solicitação de um local favorito.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Não há.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Sistema exibe os locais favoritos do usuário;
+		\item Usuário seleciona um dos locais;
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Um local favorito selecionado pelo usuário.
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 9 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 9:} Salvar favorito
+
+ 	\textbf{Descrição:} Este caso de uso descreve o processo para salvar um local favorito.
+	
+	\textbf{Evento iniciador:} Solicitação de salvar favorito.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Um local selecionado pelo usuário.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário seleciona a opção de salvar como favorito;
+		\item Sistema solicita um nome para o favorito;
+		\item Usuário digita os dados solicitados e confirma;
+		\item Sistema armazena o local favorito do usuário e retorna à tela anterior.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Local favorito armazenado.
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 10 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 10:} Selecionar localização
+
+ 	\textbf{Descrição:} Este caso de uso descreve a seleção de uma localização na aplicação.
+	
+	\textbf{Evento iniciador:} Solicitação localização.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Não há.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Sistema pergunta ao usuário se ele deseja digitar um endereço ou escolher um local favorito;
+		\item Usuário seleciona digitar um endereço;
+		\item Sistema solicita um endereço;
+		\item Usuário digita o endereço e confirma;
+		\item Sistema busca o endereço e exibe uma imagem com a localização com opção de salvar como local favorito e solicita confirmação do usuário;
+		\item Usuário confirma a localização.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Localização selecionada pelo usuário.
+	
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 8: Selecionar favorito (passo 1);
+		\item Caso de uso 9: Salvar favorito (passo 5);
+	\end{enumerate}
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Usuário seleciona escolher um local favorito (passo 1): executa-se o caso de uso 8 e segue para o passo 5;
+		\item Usuário seleciona salvar local como favorito (passo 5): executa-se o caso de uso 9 e retorna para o passo 5;
+		\item Endereço não encontrado (passo 5): sistema exibe uma mensagem informativa;
+		\item Usuário não confirma o endereço e volta para a tela anterior (passo 5).
+	\end{enumerate}
+
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 11 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 11:} Calcular rota
+
+	\textbf{Descrição:} Este caso de uso descreve o cálculo de uma rota.
+
+	\textbf{Evento iniciador:} Solicitação de cálculo de rota.
+
+	\textbf{Atores:} Usuário, API de rotas
+
+	\textbf{Pré-condição:} Sistema com uma localização de origem e destino.
+
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Sistema envia as informações de origem e destino para API de rotas;
+		\item API recebe os dados de origem e destino, calcula a rota e envia de volta para o sistema;
+		\item Sistema recebe a rota calculada pela API;
+		\item Sistema ajusta a rota para otimizar o trajeto com base no trânsito atual.
+	\end{enumerate}
+
+	\textbf{Pós-condição:} Sistema com a rota calculada.
+	
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Sistema não consegue obter rota calculada pela API (passo 3).
+	\end{enumerate}
+	
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 12 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 12:} Enviar destino
+
+ 	\textbf{Descrição:} Este caso de uso descreve o envio do local de destino do usuário.
+	
+	\textbf{Evento iniciador:} Solicitação de envio do local de destino.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Usuário na tela de confirmação de local de destino.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Usuário solicita enviar local de destino;
+		\item Sistema solicita o meio de envio;
+		\item Usuário seleciona o meio de envio;
+		\item Sistema solicita confirmação de envio;
+		\item Usuário confirma envio.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Local de destino enviado.
+	
+	\textbf{Inclusões:}
+	\begin{enumerate}
+		\item Caso de uso 13: Enviar via SMS (passo 2-5);
+		\item Caso de uso 14: Enviar via e-mail (passo 2-5);
+		\item Caso de uso 15: Enviar via Twitter (passo 2-5);
+		\item Caso de uso 16: Enviar via Facebook (passo 2-5).
+	\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 13 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 13:} Enviar via SMS
+
+ 	\textbf{Descrição:} Este caso de uso descreve o envio do local de destino via SMS.
+	
+	\textbf{Evento iniciador:} Solicitação de envio do local de destino via SMS.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela de seleção de meio de envio de destino.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Sistema solicita o(s) número(s) do(s) destinatário(s) e exibe a mensagem a ser enviada podendo ser editada;
+		\item Usuário insere os dados e confirma o envio;
+		\item Sistema envia o SMS.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} SMS enviado.
+
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Sinal de celular indisponível (passo 3): sistema exibe mensagem ao usuário.
+	\end{enumerate}
+	
+		\textbf{Exceções:}
+		\begin{enumerate}
+			\item Erro ao enviar SMS (passo 3): sistema exibe mensagem ao usuário.
+		\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 14 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 14:} Enviar via e-mail
+
+ 	\textbf{Descrição:} Este caso de uso descreve o envio do local de destino via e-mail.
+	
+	\textbf{Evento iniciador:} Solicitação de envio do local de destino via e-mail.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela de seleção de meio de envio de destino.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Sistema solicita o(s) e-mail(s) do(s) destinatário(s) e exibe a mensagem a ser enviada podendo ser editada;
+		\item Usuário insere os dados e confirma o envio;
+		\item Sistema envia o e-mail.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} E-mail enviado.
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Erro ao enviar e-mail (passo 3): sistema exibe mensagem ao usuário.
+	\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\textbf{Caso de uso 15:} Enviar via Twitter
+
+ 	\textbf{Descrição:} Este caso de uso descreve o envio do local de destino via Twitter.
+	
+	\textbf{Evento iniciador:} Solicitação de envio do local de destino via Twitter.
+	
+	\textbf{Atores:} Usuário
+	
+	\textbf{Pré-condição:} Sistema na tela de seleção de meio de envio de destino.
+	
+	\textbf{Seqüência de eventos:}
+	\begin{enumerate}
+		\item Sistema exibe a mensagem a ser enviada podendo ser editada;
+		\item Usuário edita a mensagem se necessário e confirma o envio;
+		\item Sistema envia a mensagem.
+	\end{enumerate}
+	
+	\textbf{Pós-condição:} Mensagem via Twitter enviada.
+	
+	\textbf{Extensões:}
+	\begin{enumerate}
+		\item Usuário não autenticado no Twitter (passo 3): Sistema solicita a autenticação do usuário no Twitter.
+	\end{enumerate}
+
+	\textbf{Exceções:}
+	\begin{enumerate}
+		\item Erro ao enviar mensagem via Twitter (passo 3): sistema exibe mensagem ao usuário.
+	\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 16 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		\textbf{Caso de uso 16:} Enviar via Facebook
+
+	 	\textbf{Descrição:} Este caso de uso descreve o envio do local de destino via Facebook.
+
+		\textbf{Evento iniciador:} Solicitação de envio do local de destino via Facebook.
+
+		\textbf{Atores:} Usuário
+
+		\textbf{Pré-condição:} Sistema na tela de seleção de meio de envio de destino.
+
+		\textbf{Seqüência de eventos:}
+		\begin{enumerate}
+			\item Sistema exibe a mensagem a ser enviada podendo ser editada;
+			\item Usuário edita a mensagem se necessário e confirma o envio;
+			\item Sistema envia a mensagem.
+		\end{enumerate}
+
+		\textbf{Pós-condição:} Mensagem via Facebook enviada.
+
+		\textbf{Extensões:}
+		\begin{enumerate}
+			\item Usuário não autenticado no Facebook (passo 3): Sistema solicita a autenticação do usuário no Facebook.
+		\end{enumerate}
+
+		\textbf{Exceções:}
+		\begin{enumerate}
+			\item Erro ao enviar mensagem via Facebook (passo 3): sistema exibe mensagem ao usuário.
+		\end{enumerate}
+
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 17 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+		\textbf{Caso de uso 17:} Remover favorito
+
+	 	\textbf{Descrição:} Este caso de uso descreve a remoção de um local favorito.
+
+		\textbf{Evento iniciador:} Solicitação de remoção de um local favorito.
+
+		\textbf{Atores:} Usuário
+
+		\textbf{Pré-condição:} Sistema com um local favorito selecionado para remoção.
+
+		\textbf{Seqüência de eventos:}
+		\begin{enumerate}
+			\item Sistema solicita confirmação de remoção do favorito;
+			\item Usuário confirma a remoção;
+			\item Sistema remove o favorito.
+		\end{enumerate}
+
+		\textbf{Pós-condição:} Local favorito removido.
+
+		\textbf{Extensões:}
+		\begin{enumerate}
+			\item Usuário cancela remoção (passo 2): sistema retorna à tela anterior.
+		\end{enumerate}
+
+
+%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modelo de classes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+	\section{Modelo de classes}
+	Modificações das classes de negócio.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{img/diagrama_classes.pdf}
+		\caption{Classes de negócio}
+	\end{figure}
+
+
+%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fluxo de Navegação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+	\section{Fluxo de navegação}
+	Reestruturação no fluxo de navegação.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.9]{img/diagrama_navegacao.pdf}
+		\caption{Fluxo de navegação}
+	\end{figure}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Descrição da Evolução
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Descrição da Evolução}
+
+\section{Implementação}
+Foi implementada o esqueleto da aplicação, visualização do mapa, menus de trânsito e parte do sistema de busca de rotas no iPhone. No servidor, houve evolução no módulo de manipulação de eventos de trânsito. 
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.4]{img/evo1/home.png}
+		\caption{Tela principal do aplicativo}
+	\end{figure}
+
+\
+
+
+\section{Cronograma}
+Em anexo segue o cronograma a ser seguido para finalização da implementação.
+\
+
+
+
+\end{document}

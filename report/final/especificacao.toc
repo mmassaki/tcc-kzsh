@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {4.1}Modelo de casos de uso}{8}
 \contentsline {subsection}{\numberline {4.1.1}Atores do sistema}{9}
 \contentsline {subsection}{\numberline {4.1.2}Casos de uso}{9}
-\contentsline {section}{\numberline {4.2}Prot\IeC {\'o}tipo de telas}{21}
-\contentsline {section}{\numberline {4.3}Modelo de classes}{25}
-\contentsline {chapter}{\numberline {5}Restri\IeC {\c c}\IeC {\~o}es do projeto}{26}
-\contentsline {chapter}{\numberline {6}Requisitos n\IeC {\~a}o funcionais}{27}
+\contentsline {section}{\numberline {4.2}Prot\IeC {\'o}tipo de telas}{20}
+\contentsline {section}{\numberline {4.3}Modelo de classes}{24}
+\contentsline {chapter}{\numberline {5}Restri\IeC {\c c}\IeC {\~o}es do projeto}{25}
+\contentsline {chapter}{\numberline {6}Requisitos n\IeC {\~a}o funcionais}{26}

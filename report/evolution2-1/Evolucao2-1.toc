@@ -1,0 +1,13 @@
+\select@language {brazil}
+\contentsline {chapter}{\numberline {1}Objetivo do documento}{3}
+\contentsline {chapter}{\numberline {2}Introdu\IeC {\c c}\IeC {\~a}o}{4}
+\contentsline {section}{\numberline {2.1}Objetivo}{4}
+\contentsline {chapter}{\numberline {3}Mudan\IeC {\c c}as realizadas}{5}
+\contentsline {section}{\numberline {3.1}Escopo}{5}
+\contentsline {section}{\numberline {3.2}Casos de Uso}{6}
+\contentsline {subsection}{\numberline {3.2.1}Lista atualizada dos Casos de uso}{7}
+\contentsline {section}{\numberline {3.3}Modelo de classes}{18}
+\contentsline {section}{\numberline {3.4}Fluxo de navega\IeC {\c c}\IeC {\~a}o}{19}
+\contentsline {chapter}{\numberline {4}Descri\IeC {\c c}\IeC {\~a}o da Evolu\IeC {\c c}\IeC {\~a}o}{20}
+\contentsline {section}{\numberline {4.1}Implementa\IeC {\c c}\IeC {\~a}o}{20}
+\contentsline {section}{\numberline {4.2}Cronograma}{21}
