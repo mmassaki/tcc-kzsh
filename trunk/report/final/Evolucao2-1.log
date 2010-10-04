@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  29 SEP 2010 18:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  30 SEP 2010 02:14
 entering extended mode
  %&-line parsing enabled.
 **Evolucao2-1.ltx
@@ -556,34 +556,73 @@ File: img/evo1/TCC-Core4.png Graphic file (type png)
 
 <use img/evo1/TCC-Core4.png> [5
 
- <./img/evo1/TCC-Core4.png (PNG copy)>] [6]
+ <./img/evo1/TCC-Core4.png (PNG copy)>]
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./img/diagrama_casos_de_uso.pdf): PD
+F inclusion: found PDF version <1.5>, but at most version <1.4> allowed
+<img/diagrama_casos_de_uso.pdf, id=22, 979.05777pt x 986.18437pt>
+File: img/diagrama_casos_de_uso.pdf Graphic file (type pdf)
+
+<use img/diagrama_casos_de_uso.pdf>
+Overfull \hbox (34.28357pt too wide) in paragraph at lines 128--129
+ [][] 
+ []
+
+[6 <./img/diagrama_casos_de_uso.pdf>] [7] [8] [9] [10] [11] [12] [13] [14]
+[15] [16] [17]
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./img/diagrama_classes.pdf): PDF inc
+lusion: found PDF version <1.5>, but at most version <1.4> allowed
+<img/diagrama_classes.pdf, id=69, 986.18437pt x 507.08446pt>
+File: img/diagrama_classes.pdf Graphic file (type pdf)
+
+<use img/diagrama_classes.pdf>
+Overfull \hbox (37.84686pt too wide) in paragraph at lines 611--612
+ [][] 
+ []
+
+[18 <./img/diagrama_classes.pdf>]
+
+pdfTeX warning: /usr/texbin/pdflatex (file ./img/diagrama_navegacao.pdf): PDF i
+nclusion: found PDF version <1.5>, but at most version <1.4> allowed
+<img/diagrama_navegacao.pdf, id=79, 542.40643pt x 351.84448pt>
+File: img/diagrama_navegacao.pdf Graphic file (type pdf)
+
+<use img/diagrama_navegacao.pdf>
+Overfull \hbox (32.91716pt too wide) in paragraph at lines 625--626
+ [][] 
+ []
+
+[19 <./img/diagrama_navegacao.pdf>]
 Cap\'{\i }tulo 4.
-<img/evo1/home.png, id=25, 415.5525pt x 772.8875pt>
+<img/evo1/home.png, id=90, 415.5525pt x 772.8875pt>
 File: img/evo1/home.png Graphic file (type png)
  <use img/evo1/home.png>
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[7
+[20
 
- <./img/evo1/home.png>] [8] (./Evolucao2-1.aux) ) 
+ <./img/evo1/home.png>] [21] (./Evolucao2-1.aux) ) 
 Here is how much of TeX's memory you used:
- 3389 strings out of 493848
- 42135 string characters out of 3149207
- 102430 words of memory out of 3000000
- 6578 multiletter control sequences out of 15000+200000
- 11615 words of font info for 43 fonts, out of 3000000 for 9000
+ 3412 strings out of 493848
+ 42672 string characters out of 3149207
+ 104442 words of memory out of 3000000
+ 6596 multiletter control sequences out of 15000+200000
+ 12270 words of font info for 45 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 28i,7n,24p,497b,208s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2009/texmf
+ 28i,6n,24p,522b,217s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2009/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2009/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2009/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2009/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2009/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmssdc10.pfb>
-Output written on Evolucao2-1.pdf (8 pages, 274893 bytes).
+fonts/type1/public/amsfonts/cm/cmssdc10.pfb></usr/local/texlive/2009/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Evolucao2-1.pdf (21 pages, 4186292 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 119 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
