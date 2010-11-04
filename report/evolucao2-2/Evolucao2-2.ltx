@@ -1,0 +1,176 @@
+%\documentclass[onecolumn,a4paper,12pt,brazil]{article}
+\documentclass{abnt}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage{ae}
+\usepackage{graphicx, float}
+\usepackage{amsmath,amsthm,amssymb,dsfont}
+%\usepackage{bm}
+%\usepackage{dsfont}
+\usepackage{url}
+%\usepackage{listings}
+\usepackage[num]{abntcite}
+%\usepackage{biblatex}
+%\usepackage{natbib}
+%\usepackage{multicol}
+%\usepackage{wrapfig}
+
+\begin{document}
+
+\renewcommand{\ABNTchapterfont}{\bfseries\sffamily\fontseries{sbc}\selectfont}
+\renewcommand{\ABNTsectionfont}{\bfseries\sffamily\fontseries{sbc}\selectfont}
+
+\begin{titlepage}
+\ \vfill
+
+\noindent\rule{\textwidth}{1pt}
+
+\vspace*{0.5cm}
+
+\centering\par\setstretch{1.1}
+
+{\huge\sffamily\fontseries{sbc}\selectfont
+Relatório de Evolução \par}
+
+\vspace*{0.5cm}
+
+\Large
+André Ivo Kido\\
+Marcio Massaki Horoiwa
+
+Orientador:\\
+Profa. Dra. Selma Shin Shimizu Melnikoff
+
+Co-orientador:\\
+Prof. Dr. Claudio Luiz Marte
+
+
+\vspace*{0.5cm}
+
+\noindent\rule{\textwidth}{1pt}
+
+\vfill\vfill\ 
+
+\end{titlepage}
+
+\title{Especificação de requisitos}
+\author{
+André Ivo Kido\\
+Henrique Copelli Zambon\\
+Marcio Massaki Horoiwa\\
+\\
+Orientador:\\
+Profa. Dra. Selma Shin Shimizu Melnikoff\\
+\\
+Co-orientador:\\
+Prof. Dr. Claudio Luiz Marte}
+
+\date{Versão 1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Controle de revisões
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \emph{\textbf{Tabela de controle de revisões}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sumário
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objetivo do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Objetivo do documento}
+O objetivo deste documento é documentar a evolução do projeto de formatura até o momento atual, informando os problemas e sucessos encontrados.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introdução do TCC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introdução}
+
+\section{Objetivo}
+Trata-se de um sistema de navegação veicular para a plataforma iPhone. São utilizados os recurso de posicionamento global - GPS - e de conexão à internet, para que o usuário possa se localizar em um mapa e obter informações do trânsito em tempo real.
+
+As informações das condições de tráfego serão obtidas dos próprios usuários da aplicação, de forma automática, independente da ação direta deles e serão concentradas e armazenadas em um servidor dedicado. Elas também são disponibilizadas aos usuários, que poderão visualizá-las na forma de um mapa com uma escala de cores, ou seja, as ruas serão coloridas, variando do vermelho ao verde, indicando condições de congestionamento até tráfego livre.
+
+A aplicação, portanto, se comunica pela internet com o servidor para obter as informações históricas e atuais pertinentes à região em que o usuário se encontra, que é determinada pelo GPS do aparelho.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Descrição da Evolução
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Descrição da Evolução}
+
+\section{Implementação}
+
+Foi implementada a funcionalidade de criação de rotas através do dispositivo móvel e o envio de coordenadas com informações para o servidor.
+
+A criação de rota é feita da seguinte maneira:
+\begin{itemize}
+	\item o usuário seleciona que deseja traçar uma rota no dispositivo iPhone;
+	\item a aplicação solicita o local de destino ao usuário, podendo ser um endereço ou coordenada;
+	\item o usuário entra com os dados;
+	\item a aplicação mostra o local selecionado pelo usuário num mapa e solicita confirmação;
+	\item após confirmar o local de destino os passos anteriores repetem-se para confirmar o local de origem da rota ou o usuário pode escolher sua posição atual como local de origem, nesse caso a aplicação busca a posição do usuário através do sinal GPS;
+	\item tendo o local de origem e destino a aplicação solicita ao servidor uma rota informando essas localizações;
+	\item o servidor retorna a rota com base nas informações de trânsito atual;
+	\item a aplicação desenha a rota no mapa da tela e o usuário pode seguí-la.
+\end{itemize}
+
+No momento o servidor não está considerando as informações de trânsito correntes para a criação da rota. Esta funcionalidade será implementada adiante.
+
+Como os Softwares do servidor e do dispositivo iPhone estão sendo  desenvolvidos paralelamente o desenvolvimento será mais eficiente. Os dois softwares ainda não foram integrados, porém os dois estão funcionais separadamente. Serão feitas integrações das funcionalidades e testes para validação das mesmas.
+
+Outra funcionalidade já implementada é a de envio de informações via redes sociais utilizando o Twitter e Facebook. Esta funcionalidade independe do servidor dedicado dependendo somente da conexão à rede de dados através do iPhone.
+
+	% \begin{figure}[H]
+	% 	\centering
+	% 	\includegraphics[scale=0.4]{img/evo1/home.png}
+	% 	\caption{Tela principal do aplicativo}
+	% \end{figure}
+
+\section{Monografia}
+
+O Monografia foi estruturada e dividida em quatro grandes partes: Introdução, Conceitos e Tecnologias envolvidas, Projeto e implementação e Considerações Finais.
+
+Cada uma dessas partes foi subdividida em outras descritas a seguir.
+
+\subsection{Introdução}
+\begin{itemize}
+	\item Objetivo – CONCLUÍDO
+	\item Motivação – CONCLUÍDO
+	\item Justificativa – CONCLUÍDO
+	\item Metodologia de trabalho – Em andamento
+	\item Estrutura do trabalho – Em andamento
+\end{itemize}
+
+\subsection{Conceitos e Tecnologias envolvidas}
+\begin{itemize}
+	\item iPhone – CONCLUÍDO
+	\item GPS – Em andamento
+	\item Considerações finais
+\end{itemize}
+
+\subsection{Projeto e implementação}
+\begin{itemize}
+	\item Especificação de requisitos – Em andamento
+	\item Arquitetura de Software – Em andamento
+	\item Desenvolvimento
+	\item Considerações finais
+\end{itemize}
+
+\subsection{Considerações finais}
+\begin{itemize}
+	\item Conclusões
+	\item Contribuições
+	\item Trabalhos futuros
+	\item Anexos
+	\begin{itemize}
+		\item Especificação de requisitos – CONCLUÍDO
+		\item Modelo de casos de uso – CONCLUÍDO
+		\item Interface Humano-Máquina – CONCLUÍDO
+	\end{itemize}
+\end{itemize}
+
+\end{document}
