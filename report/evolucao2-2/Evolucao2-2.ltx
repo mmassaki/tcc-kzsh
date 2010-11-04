@@ -120,15 +120,17 @@ A criação de rota é feita da seguinte maneira:
 
 No momento o servidor não está considerando as informações de trânsito correntes para a criação da rota. Esta funcionalidade será implementada adiante.
 
+A comunicação entre o iPhone e o servidor é representada pelo esquema a seguir. Note que o servidor dedicado acessa a API do Google Maps para traçamento de rotas. Essa rota primitiva será analisada pelo servidor e caso haja algum trecho onde haja congestionamento a rota será desviada afim de evitá-lo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{img/diagrama_comunicacao.png}
+	\caption{Diagrama de comunicação do sistema}
+\end{figure}
+
 Como os Softwares do servidor e do dispositivo iPhone estão sendo  desenvolvidos paralelamente o desenvolvimento será mais eficiente. Os dois softwares ainda não foram integrados, porém os dois estão funcionais separadamente. Serão feitas integrações das funcionalidades e testes para validação das mesmas.
 
 Outra funcionalidade já implementada é a de envio de informações via redes sociais utilizando o Twitter e Facebook. Esta funcionalidade independe do servidor dedicado dependendo somente da conexão à rede de dados através do iPhone.
-
-	% \begin{figure}[H]
-	% 	\centering
-	% 	\includegraphics[scale=0.4]{img/evo1/home.png}
-	% 	\caption{Tela principal do aplicativo}
-	% \end{figure}
 
 \section{Monografia}
 
