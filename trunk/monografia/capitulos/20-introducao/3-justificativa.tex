@@ -1,0 +1,357 @@
+%
+%~~
+%~~ Justificativa
+%~~
+%
+\chapter{Justificativa} \label{chp:justificativa}
+
+Com a redução dos preços de navegadores GPS e celulares \emph{smartphones} que possuem antena GPS, integrada ou não, o uso de navegadores veiculares tem aumentado substancialmente por toda a cidade. Esses navegadores conseguem informar com grande facilidade o menor caminho a ser seguido ou o caminho mais rápido utilizando vias de maior velocidade, porém esses navegadores não levam em consideração as informações de trânsito que podem interferir no tempo do trajeto a ser percorrido e dependendo da condição do trânsito o trajeto que era o mais rápido pode tornar-se o mais demorado nas grandes cidades.
+
+O recurso do GPS em especial no iPhone tem sido utilizado em diversos tipos de aplicações. A seguir serão demonstradas alguns tipos de aplicações possíveis  atualmente exploradas por alguns aplicativos e o estado da arte com relação à aplicações de navegadores GPS para iPhone.
+
+\section{Aplicações baseadas em posicionamento global}
+Dentre as categorias de aplicativos disponíveis na App Store estão aqueles baseados em posicionamento global, ou seja, a posição global do usuário é uma das entradas de dados do aplicativo. Abaixo há uma relação das categorias existentes e um exemplo de aplicação para cada \citep{LMS:2008}.
+
+\begin{itemize}
+\item{\bf Restaurantes e entretenimento}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/01-yelp.jpg}
+\\
+}
+\parbox{2.5in}{
+\emph{Yelp} - Versão para iPhone do website \url{yelp.com}. Trata-se de um portal para encontrar, apresentar e avaliar pontos de interesse em uma região. Os locais ficam registrados em um mapa, juntamente com sua avaliação e comentários. Tudo isso é feito em qualquer lugar, desde que o usuário tenha acesso à internet.
+}
+
+\item{\bf Redes sociais}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/02-whrrl.jpg}
+\\
+}
+\parbox{2.5in}{
+\emph{Whrrl} - Aplicação semelhante ao Yelp, em que os lugares frequentados e suas avaliações são agrupadas por usuário. Cada usuário cria sua rede de amigos que passam a enxergar as informações dele e permitir que as suas também sejam visualizadas, inclusive em tempo real, se o usuário desejar. Também é possível criar filtros buscar pontos de interesse.
+}
+
+\item{\bf Páginas amarelas}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/03-yellowpages.jpeg}
+\\
+}
+\parbox{2.5in}{
+\emph{Yellow Pages} - Aplicação de busca de produtos e serviços, como as páginas amarelas convencionais, porém de forma digital e móvel. A aplicação busca o serviço desejado nas redondezas do usuário e o informa por uma lista ordenada pela proximidade, ou diretamente no mapa com sinalizadores.
+}
+
+\item{\bf Cinema}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/04-onetapmovies.jpg}
+\\
+}
+\parbox{2.5in}{
+\emph{One Tap Movies} - Permite buscar o cinema mais próximo, de acordo com o filme a que o usuário deseja assistir. O resultado da busca inclui informações sobre o filme, como horários, duração, sinopse, comentários e avaliações e também conta com uma ferramenta de navegação, que guia o usuário do local em que estiver até o cinema 
+}
+
+\pagebreak
+\item{\bf Notícias}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/05-nowlocal.png}
+\\
+}
+\parbox{2.5in}{
+\emph{NowLocal} - Aplicações de notícias, em que elas são selecionadas de acordo com a posição do usuário. Conforme ele se desloca entre cidades, as melhores fontes de notícias são selecionadas e exibidas. É possível também compartilhar as notícias com outras pessoas, diretamente do aplicativo, por e-mail.
+}
+
+\item{\bf Previsão do tempo}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/06-myweathermobile.png}
+\\
+}
+\parbox{2.5in}{
+\emph{MyWeather Mobile} - Informações do tempo e do clima são exibidas de acordo com a localidade do usuário. É possível visualizar as informações por meio de um mapa fornecido pela plataforma Microsoft Virtual Earth, que também permite a interação com o mapa.
+}
+
+\pagebreak
+\item{\bf Fotografia}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/07-airme.jpg}
+\\
+}
+\parbox{2.5in}{
+\emph{AirMe} - Aplicação de compartilhamentos de fotos, em que as fotos tiradas pelo usuário são enviadas à rede com dados de posicionamento do usuário. Há também integração com a rede social de imagens Flickr. Não é necessário estar conectado à internet no momento em que se tira a foto, pois, se for o caso, o aplicativo as armazena até que usuário restabeleça a conexão.
+}
+
+\item{\bf Viagem}
+
+\parbox{2.5in}{
+\includegraphics[width=0.35\textwidth]{img/location-aware/08-hostelscom.jpg}
+\\
+}
+\parbox{2.5in}{
+\emph{Hotels.com} - Versão para iPhone do website \url{hostels.com}, o aplicativo porta as funcionalidades do portal. Com ele é possível pesquisar hospedagens próximas ao usuário, bem como encontrar comentários e avaliações e fazer reservas ou mesmo realizar uma ligação telefônica.
+}
+
+\end{itemize}
+
+\section{Estado da arte}
+Outra categoria de aplicações para iPhone que está crescendo nos últimos tempos é a de navegação. O objetivo, em geral, é auxiliar o usuário a trafegar na cidade, por meio da criação e correção de rotas, avisos de direção em tempo real, indicação de pontos de interesse, entre muitos outros. A seguir estão descritos os navegadores disponíveis na App Store.
+
+\subsection{Tomtom}
+A Tomtom, fabricante de aparelhos GPS para carros, também está começando a disponibilizar suas soluções em localização para celulares com o lançamento de um aplicativo de navegação para o iPhone.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=0.6\textwidth]{img/state-of-art/01-tomtom.jpg}
+	\end{center}
+	\caption{Tomtom}
+\end{figure}
+
+A aplicação para iphone inclui as seguintes funcionalidades \citep{TomTom:iPhone:2010}:
+
+\begin{itemize}
+	\item{\bf Ajuda}
+
+	Ao precisar de ajuda, o aplicativo lista os serviços mais próximos (de hospitais à assistência rodoviária) e o orienta a chegar no local desejado
+
+	\newpage
+	\item{\bf Melhores rotas}
+
+	O aplicativo tentará sempre orientar o usuário por uma melhor rota. É capaz até de utilizar a experiência de motoristas que saíram de sua rota com base na velocidade da estrada.
+
+	\item{\bf Inserção manual de rotas}
+
+	Permite que os usuários escolham sua própria rota, utilizando os recursos do iphone como o multi-touch.
+
+	\item{\bf Pontos de interesse}
+
+	Encontra um caminho até um estabelecimento comercial próximo escolhido. Estão incluídos, bares, restaurantes, cinemas, shopping centers, entre muitos outros.
+
+	\item{\bf Localização de amigos}
+
+	A partir da lista de contatos do iphone, encontra uma rota até um amigo.
+
+	\item{\bf Compartilhamento de mapas}
+
+	Permite que o usuário altere um mapa, o que aumenta a velocidade de atualização de mapas.
+
+	\item{\bf Modos diurno e noturno}
+
+	Com um toque no mapa permite trocar de modo diurno para noturno e vice-versa.
+
+\end{itemize}
+
+\newpage
+\subsection{iGO My Way}
+Empresa especializada em soluções de localização móvel, a NNG Global Services possui soluções para iPhone, Android e Windows Mobile.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/state-of-art/02-igomyway.jpg}
+	\end{center}
+	\caption{iGO My Way}
+\end{figure}
+
+A versão iPhone possui os seguintes recursos \citep{iGOMyWay:iPhone:2010}:
+
+\begin{itemize}
+	\item{\bf Integração com a lista de contatos do iPhone}
+
+	Calcula uma rota a partir de um contato do iphone.
+
+	\item{\bf Pontos de interesse}
+
+	Fornece o telefone de pontos de interesse (bares, restaurantes, lojas, etc.) e permite com que o usuário entre em contato com ele imediatamente.
+
+	\item{\bf Destinação intermediária}
+
+	Permite adicionar rotas com pontos de parada intermediária.
+
+\end{itemize}
+
+\subsection{Sygic}
+Empresa especializada em soluções de localização móvel. Possui soluções para iPhone, Android, Symbian, Windows Mobile e futuramente Maemo.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/state-of-art/03-sygic.jpg}
+	\end{center}
+	\caption{Sygic}
+\end{figure}
+
+A versão para iPhone possui os seguintes recursos \citep{Sygic:iPhone:2010}:
+
+\begin{itemize}
+	\item{\bf Integração com a lista de contatos}
+
+	Permite acesso à lista de contatos da agenda telefônica do aparelho.
+
+	\item{\bf Pontos de interesse}
+
+	Exibe pontos de interesse próximos ao usuário.
+
+	\item{\bf Comandos por voz}
+
+	É possível interagir com a aplicação sem tirar as mãos do volante.
+
+	\item{\bf Informações úteis}
+
+	Permite reportar informações úteis para outros motoristas como acidentes e câmeras de velocidade.
+
+\end{itemize}
+
+\newpage
+\subsection{Maps}
+Aplicação de navegação oficial do iPhone, o Maps é na verdade uma versão do Google Maps portada. 
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/state-of-art/04-maps.png}
+	\end{center}
+	\caption{Maps}
+\end{figure}
+
+Os seguintes recursos estão disponíveis ao usuário \citep{Apple:iPhone:MapsCompass:2010}:
+
+\begin{itemize}
+	\item{\bf Compartilhamento de localizações}
+
+	Permite compartilhar localizações por meio de e-mail e MMS.
+
+	\item{\bf Localização}
+
+	Mostra a localização e a distância percorrida em uma rota utilizando o AGPS.
+
+	\newpage
+	\item{\bf Congestionamento}
+
+	Mostra, por meio de uma escala de cores, informações sobre as condições de tráfego em tempo real.
+
+	\item{\bf Pontos de interesse}
+
+	É possível consultar os pontos de interesse cadastras no Google Maps.
+
+	\item{\bf Mudança de visualização}
+
+	Permite alternar entre a visualização de mapa e de satélite.
+\end{itemize}
+
+\subsection{Navigon}
+Navigon é um aplicativo exclusivamente de iphone para navegação.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/state-of-art/05-navigon.jpg}
+	\end{center}
+	\caption{Navigon}
+\end{figure}
+
+Estão presentes as seguintes funcionalidades \cite{Navigon:iPhone:2010}:
+
+\begin{itemize}
+	\item{\bf Auxílio na escolha de faixa}
+
+	A faixa correta a ser seguida em entroncamentos é exibida de forma gráfica de fácil identificação visual e não exige muita atenção do condutor.
+
+	\item{\bf Modos diurno e noturno}
+
+	As cores da aplicação se ajustam manual ou automaticamente de acordo com o horário do dia para melhorar a interação visual.
+
+	\item{\bf Assistente de velocidade}
+
+	Emite avisos sonoros e visuais.
+
+	\item{\bf Acesso aos contatos do iPhone}
+
+	É possível consultar a agenda telefônica do aparelho sem fechar o aplicativo.
+
+	\item{\bf Pontos de interesse}
+
+	Exibe pontos de interesse próximos ao usuário.
+
+
+	\item{\bf Acesso rápido a rota para casa}
+
+	Existe um atalho para a rápida construção da rota para a casa do usuário, que deve ser cadastrada de antemão.
+
+	\item{\bf Compartilhamento de localização via e-mail}
+
+	É possível enviar um e-mail, sem sair do programa, com informações referentes à posição atual do usuário.
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Waze: Social Mobile Traffic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Waze}
+Waze é uma aplicação de navegação móvel que possibilita aos usuários a utilização e construção dos mapas, obtenção de informações do tráfego em tempo real e criação de rotas curva-a-curva a partir de contribuições pelos próprios usuários. Está disponível para Android, iPhone, Windows Mobile e Symbian, com código open-source \citep{Waze:iPhone:2010}.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/waze/Wazeop.png}
+	\end{center}
+	\caption{Waze para iPhone}
+\end{figure}
+
+Nele estão disponíveis as seguintes funcionalidades:
+
+\begin{itemize}
+	\item{\bf Road Roler}
+	
+	Nas áreas onde ainda não existe mapa, ligando essa opção o programa irá guardar as posições das ruas enquanto o usuário dirige.
+
+	\newpage
+	\item{\bf Live Map}
+
+	As ruas que forem salvas pelo usuário irão aparecer no website do waze. No website é possível adicionar os nomes das ruas no mapa.
+	
+	\item{\bf Waze Road-Muncher}
+
+	O Waze Road-muncher pode aparecer em algumas vias, com o objetivo de informar o usuário que ele é o primeiro a trafegar na via e que ele está definindo o sentido dela.
+
+	\item{\bf Waze Road-Color}
+
+	É possível visualizar a velocidade das vias em tempo real. É marcado com um rastro colorido de acordo com a velocidade de um usuário na via que trafegou recentemente.
+
+	\item{\bf Report}
+
+	O usuário pode informar marcando avisos no mapa: tráfego local, acidente ou perigos que orientam os outros usuários através de texto e/ou foto.
+	
+	\item{\bf Drive to}
+
+	Exibe direções de navegação curva-acurva para o endereço ou ponto requerido. É aprimorado através da análise de comportamento dos usuários pelo sistema.
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{img/state-of-art/06-waze.png}
+	\end{center}
+	\caption{Guia curva-a-curva para o usuário}
+\end{figure}
+
+	\item{\bf My location}
+
+	Exibe a posição atual no mapa e os eventos próximo do usuário.
+
+	\item{\bf Ping a Wazer}
+
+	Opção de emitir mensagens diretamente para outro usuário no mapa.
+
+	\item{\bf Scoreboard}
+
+	Contribuindo para o sistema do Waze, o usuário ganha pontos. E poderá ver seus pontos e de todos outros membros do país no scoreboard.
+	
+	\item{\bf Suporte ao Twitter e Foursquare}
+
+	Possui integração com esses dispositivos para automaticamente informar sobre seu uso no waze como seu destino ou avisos.
+
+\end{itemize}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "tese"
+%%% x-symbol-8bits: t 
+%%% End: 
