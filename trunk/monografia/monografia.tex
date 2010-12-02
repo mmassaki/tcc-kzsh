@@ -7,20 +7,21 @@
 %
 % FORMATAÇÃO
 % 
-\documentclass[%ruledheader, % cabeçalho com nome da seção e linha
-               noindentfirst, % não identar primeiro par. da seção
-               normaltoc, % tira o p. no início das páginas do sumário
-               normalfigtabnum, % numeração de figuras dependente do capítulo
-               %sumarioincompleto,
-               %naousarHyperref, % não usa o HyperRef
-               %naousarRefABNT, % não carrega o pacore de referências da ABNT
-               %twoside,
-               %times, % usa fontes tipo windows (times new roman, arial, \ldots)
-               anapnormal, % palavra anexo não aparece em maiúsculo
-               % dvipdfm,
-               anapcustomindent % não indenta o restante do título do anexo
-							]
-							{abnt-meu}
+\documentclass[
+	%ruledheader, % cabeçalho com nome da seção e linha
+  %noindentfirst, % não identar primeiro par. da seção
+  normaltoc, % tira o p. no início das páginas do sumário
+  %normalfigtabnum, % numeração de figuras dependente do capítulo
+  %sumarioincompleto,
+  naousarHyperref, % não usa o HyperRef
+  %naousarRefABNT, % não carrega o pacore de referências da ABNT
+  %twoside,
+  %times, % usa fontes tipo windows (times new roman, arial, \ldots)
+  %anapnormal, % palavra anexo não aparece em maiúsculo
+  % dvipdfm,
+  anapcustomindent % não indenta o restante do título do anexo
+]{abnt-meu}
+
 
 % a opção "twoside" possibilita a impressão frente/verso. Segundo a
 % biblioteca, neste caso, tem que ser em papel com gramatura 90.
@@ -32,11 +33,15 @@
 %
 
 \usepackage[latin1]{inputenc}
-\usepackage{helvet} \renewcommand{\familydefault}{\sfdefault}
+%\usepackage{helvet} \renewcommand{\familydefault}{\sfdefault}
 \usepackage{ae}
 \usepackage{poli} % personalização da ABNT para a Poli
 \usepackage{graphicx}
-\usepackage{indentfirst}
+\usepackage{listings}
+
+\usepackage[T1]{fontenc} % permite hifenização em palavras acentuadas
+\usepackage[scaled]{helvet} % usa uma fonte sem serifa no tamanho adequado
+\renewcommand*\familydefault{\sfdefault} % usa a fonte não serifada
 
 %\versaofinal % descomente para gerar a versão final
               % sem as notas de pendencias, margens laterais, \ldots
@@ -48,17 +53,17 @@
 \begin{document}
 
 % Título como será escrito na capa e folha de rosto, tudo em maiúscula
-\titulo{BetterWay - MAPEAMENTO COLABORATIVO DO TRÂNSITO}
+\titulo{BetterWay: MAPEAMENTO COLABORATIVO DO TRÂNSITO}
 
 % Título como será escrito na ficha catalográfica
-\renewcommand{\PolyTituloFichaCatalografica}{BetterWay - Mapeamento Colaborativo Do Trânsito}
+\renewcommand{\PolyTituloFichaCatalografica}{BetterWay: mapeamento colaborativo do trânsito}
 
 % Autor como será escrito na capa e folha de rosto, tudo em maiúscula 
 \autoresPoli{ANDRÉ KIDO}{MARCIO MASSAKI HOROIWA}{\ }{\ }{\ }
 
 % Autor como será escrito na ficha catalográfica
-\renewcommand{\PolyAutorFichaCatalografica}{Kido, André, Horoiwa, Marcio Massaki}
-\renewcommand{\PolyAutorFichaCatalograficaI}{A. Kido, M. M. Horoiwa}
+\renewcommand{\PolyAutorFichaCatalografica}{Kido, André Ivo}
+\renewcommand{\PolyAutorFichaCatalograficaI}{A.I. Kido}
 
 \orientador{Profa. Dra. Selma Shin Shimizu Melnikoff}
 \coorientador{Prof. Dr. Claudio Luiz Marte}
@@ -91,14 +96,10 @@
 % (deve ficar no verso da página de rosto)
 %
 \renewcommand{\PolyAssFichaCatalografica}{%
-  1. Plataforma. 
-  2. Ontologia. 
-  I. Kido, André
-  II. Horoiwa, Marcio Massaki
-	III. Melnikoff, Selma Shin Shimizu
-	IV. Marte, Claudio Luiz
-  V. Universidade de São Paulo. Escola Politécnica.
-  \PoliDepartamentoData. II. t.}
+  1. Engenharia de tráfego
+  2. Sistema de Posicionamento Global
+  I. Universidade de São Paulo. Escola Politécnica.
+  \PoliDepartamentoData\ II. t.}
 
 \fichacatalografica % formata a ficha
 
@@ -138,13 +139,17 @@
 \end{abstract}
 
 % lista de figuras
-\cleardoublepage\listoffigures
+\cleardoublepage
+\listoffigures
 % lista de tabelas
-\cleardoublepage\listoftables
+\cleardoublepage
+\listoftables
 % lista de abreviaturas
-\cleardoublepage\input{capitulos/0-abrevsimb/abreviaturas}
-% lista de smbolos
-\cleardoublepage\pretextualchapter{Lista de símbolos}
+\cleardoublepage
+\input{capitulos/0-abrevsimb/abreviaturas}
+% lista de símbolos
+\cleardoublepage
+\pretextualchapter{Lista de símbolos}
 \input{capitulos/0-abrevsimb/simbolos}
 
 %
@@ -171,7 +176,7 @@
 %		IPHONE
 %   GPS
 %   CONSIDERAÇÕES FINAIS
-\part{Conceitos e Tecnologias envolvidas}
+\part{Conceitos e tecnologias envolvidas}
 	\input{capitulos/30-conceitos/1-iphone}
 	\input{capitulos/30-conceitos/2-gps}
 	\input{capitulos/30-conceitos/3-consideracoes}

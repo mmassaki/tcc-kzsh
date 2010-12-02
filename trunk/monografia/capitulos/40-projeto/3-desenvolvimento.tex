@@ -7,8 +7,45 @@
 
 \chapter{Desenvolvimento} \label{chp:desenvolvimento}
 
-Desenvolvimento do projeto.
+\section{Eventos} % (fold)
+\label{sec:eventos}
 
+\subsection{Temporização do evento} % (fold)
+\label{sub:temporização_do_evento}
+
+Os eventos informados pelos usuários são exibidos durante 30 minutos. Após esse período eles são marcados como inativos no banco de dados, não sendo mais informados pelo servidor.
+
+Para a implementação da atualização dos registros no banco de dados utilizou-se o ``crontab'' do servidor. O ``crontab'' é um utilitário dos sistemas Unix e Solaris que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
+
+Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo.
+
+A tarefa é descrita a seguir:
+\lstset{language=Ruby}
+\begin{lstlisting}
+	require 'net::http'
+	a = Evento.new
+	b = a.list
+	
+\end{lstlisting}
+
+% subsection temporização_do_evento (end)
+
+% section eventos (end)
+
+\section{Registros} % (fold)
+\label{sec:registros}
+
+% section registros (end)
+
+\section{Rota} % (fold)
+\label{sec:rota}
+
+% section rota (end)
+
+\section{Trânsito} % (fold)
+\label{sec:trânsito}
+
+% section trânsito (end)
 
 %%% Local Variables: 
 %%% mode: latex
