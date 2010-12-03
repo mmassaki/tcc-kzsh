@@ -7,6 +7,9 @@
 
 \chapter{Desenvolvimento} \label{chp:desenvolvimento}
 
+
+Nesta sessão apresentamos os aspectos técnicos de projeto e implementação do sistema. Inicialmente a arquitetura do projeto como um todo é explanada, juntamente com todas as tecnologias envolvidas. Logo em seguida é apresentado a implementação referente ao sevidor. Por último é explicado a montagem em maiores detalhes do aplicativo móvel construida na plataforma iOS e seus componentes utilizados.
+
 \section{Eventos} % (fold)
 \label{sec:eventos}
 
@@ -42,13 +45,244 @@ A tarefa é descrita a seguir:
 
 % section rota (end)
 
-\section{Trânsito} % (fold)
-\label{sec:trânsito}
 
-% section trânsito (end)
 
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "tese"
 %%% x-symbol-8bits: t 
 %%% End: 
+
+
+
+%
+%~~
+%~~ Desenvolvimento
+%~~
+%
+
+
+
+\section{Arquitetura Geral}
+A arquitetura geral do sistema, incluindo todos os seus componentes, é apresentada na figura X: 
+
+Figura 9: Visão geral dos componentes.
+
+%	\begin{figure}[H]
+%		\centering
+%		\includegraphics[scale=0.5]{img/Arquitetura.png}
+%		\caption{Arquitetura do sistema}
+%	\end{figure}
+
+
+A arquitetura está dividida basicamente em 2 camadas físicas (tiers): 
+\textbf{Servidor de Banco de Dados:} Responsável por armazenar e disponibilizar os dados persistentes enviados pelos usuários do BetterWay via internet e utilizados pelo sistema de trânsito. A partir dos dados, manipula a requisição com a API Google Maps para gerar uma melhor rota no disposiivo com o aplicativo. Também fornece o resultado da manipulação dos dados para a exibição da malha do tráfego atual.
+\textbf{Cliente(Aplicação BetterWay:}  Nó referente aos usuários acessando e utilizando a aplicação BetterWay. Na aplicação está a interface que apresenta o mapa com todas informações disponibilizadas pela aplicação. Possui um sistema interno para gerir endereços e também de informar eventos.
+
+
+\
+
+\section{Xcode e Objetive - C}
+Xcode é uma interface completa disponibilizada pela Apple para a edição de código fonte e sua compilação, sem sair da visão do código. Contém as ferramentas necessárias para a depuração passo a passo da aplicação sendo construida, de uma maneira simples e intuitiva, além de ferramentas de medição de performance, importante para as aplicações iOS que necessitam uma maior preocupação no gerenciamento de memória. Além disso possui ligação a outros programas uteis para a construção de uma nova aplicação, como:
+
+\textbf{Interface Builder:} Editor gráfico para interface de aplicações iOS ou macOS. Possui ligação direta com as classes do projeto, sendo possível interliga-las diretamente no próprio editor. As mudanças realizadas no Interface Builder são sentidas imediatamente no Xcode.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.37]{img/iphone/Xcode.jpg}
+	\includegraphics[scale=0.37]{img/iphone/iPhoneSimulator.jpg}
+	\includegraphics[scale=0.4]{img/iphone/Organizer.png}	
+	\caption{Ambiente de desenvolvimento do Xcode, do iPhone Simulator e do Organizer.}
+\end{figure}
+
+
+\textbf{iPhone Simulator:} Editor gráfico para interface de aplicações iOS ou macOS. Possui ligação direta com as classes do projeto, sendo possível interliga-las diretamente no próprio editor. As mudanças realizadas no Interface Builder são sentidas imediatamente no Xcode.
+
+\textbf{Organizer:} Gerenciador de dispositivos e licenças da Apple. Para o ambiente de desenvolvimento para o iOS, é o responsável por manter os certificados de desenvolvedor necessário para testes diretamente no iPhone. Esse programa também possibilita um acesso rápido aos seus últimos projetos e ajuda organizar projetos que utilizam compilação com auxílio de "autoconf", "make" e "ant", dando suporte à linguagens de programação como Ruby, Python, UNIX, Fortran, e outros.
+
+
+
+
+\section{Objetive-C e Classe Cocoa Touch}
+Objetive-C é a linguagem primária usada para construir softwares para macOS e iOS baseada na linguagem C, com programação orientada a objeto. A origem dos conceitos são relacionados a linguagem Smalltalk, uma das primeiras linguagens orientada a objeto. Possui uma estrutura simples
+
+Cocoa Touch é um framework de padrão de projeto utilizado no iOS, com foco especifico na interface orientada a toques. Fornece ferramentas básicas para implementar, como por exemplo o UIKit que é o responsável pelo visual das aplicações do sistema operacional, como também gerenciamento de dados na aplicação, conexão, construção de strings, acelerometro, etc.
+
+Para características mais específicas da aplicação é separada a parte em outros pacotes de desenvolvimento dentro do Cocoa Touch. Alguns exemplos:
+\begin{enumerate}
+	\item Core Animation
+	\item Core Data
+	\item Core Audio
+	\item Core 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{DESENVOLVIMENTO DO BETTERWAY NO IPHONE}
+A aplicação BetterWay construida para o ambiente iOS é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade. Também é responsável pela interface de envio de eventos e gerenciamento de endereços. 
+	
+\subsection{Dificuldades iniciais}
+\label{ssub:dificuldades_iniciais}
+As dificuldades de construir a aplicação BetterWay para o dispositivo iPhone vem do momento de sua criação, uma vez que o grupo não possui o conhecimento sobre o framework de mapas e de requisições web. 
+No estudo do framework de mapas para o Cocoa Touch, chamado MapKit, não existia métodos diretos para desenho de rotas e de camadas auxiliares para desenho encima da visao do mapa. Implementamos métodos indiretos para desenho através do framework CoreGraphics que deixava a aplicação sobrecarregada, pois neste método era necessário a recalculação de todas marcações realizadas no mapa a cada transição de movimento.
+Porém com o lançamento do SDK 4.0 no final do mês de Agosto melhorias foram implementadas no framework MapKit, sendo agora possível a implementação de uma camada gráfica encima do mapa. A partir do estudo dessa camada, conseguimos implementar uma solução mais dinâmica onde já não era mais ncessário o recalculo de todas marcações para cada mudança no mapa.
+
+
+
+\subsection{Bibliotecas utilizadas}
+Para a aplicação no dispositivo iPhone, utiliza-se duas bibliotecas auxiliares na implementação.
+
+\textbf{JSON:} Biblioteca de codificação/decodificação do protocolo padrão Json para leitura como dados para a linguagem Objetive-C. Protocolo JSON é utilizado como interface de comunicação entre o dispositivo móvel e o servidor.
+
+\textbf{ASIHTTPRequest:} Biblioteca auxiliar para envio de requisições web nas utilizações GET, POST, UPDATE e DELETE. Realiza os procedimentos de verificação e delegação dos métodos existentes no Objetive-C.
+
+
+
+
+\subsection{Classe delegadora: MapDirection}
+
+Classe Delegadora principal da aplicação. Responsável por informar sobre a condições e informações básicas do aparelho e de coordenar todas as View Controllers do aplicativo, além de ser o responsável por manter as listas de permanências de dados sobre os últimos endereços usados e endereços favoritos.
+
+
+
+Os dados a serem armazenados são manipulados pela classe NSUsersDefault, que guarda no SandBox da aplicação. Ao iniciar a aplicação, o método loadDatabase é chamado. Ao encerrar a aplicação, a classe delegate captura essa notificação e assim o processo se retenção de dados é realizada.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{img/iphone/appWillTerminate.png}
+	\caption{Método de encerramento da aplicação.}
+\end{figure}
+
+
+
+Para o verificamento de conectividade do aparelho, implementou-se uma classe herdada de SCNetworkReachability, disponibilizada pela Apple a partir do SystemConfiguration.framework. Verifica-se a conexão com a internet via Edge/3G ou wifi.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{img/iphone/networkStatus.png}
+	\caption{Método de verificação de conectividade}
+\end{figure}
+
+
+Possui objetos que verificam de tempo em tempo diversos atributos do aparelho:
+\textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar a posição atual do usuário.
+
+\textbf{EventClock:} Objeto que realiza a rotina de atualização dos eventos esporadicamente. Ao encontrar um novo evento, realiza a rotina para adicionar no mapa de visualização para o usuário.
+
+\textbf{RegisterClock:} Objeto que realiza a rotina de atualização dos eventos esporadicamente. Ao encontrar um novo evento, realiza a rotina para adicionar no mapa de visualização para o usuário.
+
+
+
+\subsection{View Controller Principal: BetterWayViewController} % (fold)
+\label{sec:betterwayviewcontroller}
+
+Esta sessão contém a descrição da classe central da aplicação, sendo o responsável pela tela principal. Possui o mapa onde é identificado as funcionalidades de geração de rotas, informação do trânsito e de eventos para o usuário. Possui o UINavigatorController, que conecta todas as telas da aplicação.
+
+
+\subsection{Módulo de geração de rota} % (fold)
+\label{sec:modulo_transito}
+
+Este módulo foi estruturada diversas View Controllers necessárias para o fluxo de interatividade com o usuário, que entra com os dados da via de destino e origem no aparelho. 
+
+A seguir é apresentada o fluxograma da aplicação. O fluxo foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas mesmas telas. Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{img/iphone/Destino.png}
+	\includegraphics[scale=0.2]{img/iphone/Origem.png}
+	\caption{Fluxograma para o módulo de geração de rota}
+\end{figure}
+
+
+
+Uma breve descrição para cada ViewController a seguir:
+\textbf{RouteMenuViewController:} View Controller que exibe uma lista de opções para o usuário. Para o caso de se selecionar o endereço de destino a classe exibe as opções entrar com endereço ou utilizar da lista de favoritos. Para o caso de se selecionar o endereço de origem ela exibe além das opções disponíveis no caso de endereço destino, a opção de se utilizar o endereço atual do dispositivo.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{img/iphone/Destino.png}
+	\includegraphics[scale=0.2]{img/iphone/Origem.png}
+	\caption{Aplicação na tela de seleção de menu de endereços}
+\end{figure}
+
+
+\textbf{AddressViewController:} Classe que oferece a interface para o usuário digitar o endereço. Exibe uma lista do histórico da aplicação, que pode ser utilizada sem a necessidade de digitar novamente o endereço já usado.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{img/iphone/AddressViewController.png}
+	\caption{Aplicação na tela de inclusão de endereço}
+\end{figure}
+
+\textbf{FavoriteListViewController:} Classe que exibe a lista de favoritos salvos pelo usuário. Pode-se excluir da lista arrastando o dedo encima do endereço favorito salvo, e confirmar a exclusão com o botão que aparece na tela.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{img/iphone/FavoriteListViewController.png}
+	\caption{Aplicação na lista de favoritos}
+\end{figure}
+
+
+
+\textbf{SearchViewController:}
+Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local. O usuário possui as opcões de salvar no favorito, enviar via e-mail e confirmar o endereço.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{img/iphone/SearchViewController.png}
+	\caption{Aplicação exibindo detalhes do endereço}
+\end{figure}
+
+
+Métodos de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para uma melhor performance no tempo na viagem do usuário. Nas figuras abaixo, encontram-se os códigos usado para a requisição no servidor, e o tratamento de sua resposta.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{img/iphone/tracarRota.png}
+	\caption{Método de requisição da rota}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{img/iphone/coreRotaResponse.png}
+	\caption{Tratamento da resposta de requisição de rota}
+\end{figure}
+
+
+\textbf{FavoriteAddViewController:} View Controller com formulário para a entrada no nome do endereço favorito a ser adicionado.
+
+
+\textbf{SendDestinationViewController:} Classe auxiliar para o envio via e-mail do endereço selecionado pelo usuário. Utiliza-se a classe MFMailComposeViewController disponibilizado pela Apple.
+
+
+
+
+\subsection{Módulo de trânsito} % (fold)
+\label{sec:modulo_transito}
+
+Para implementação do módulo de trânsito é utilizado um método para chamadas contínuas de requisições no servidor para adquirir informações sobre a malha de tráfego nas redondezas que o usuário está visualizando. A malha é desenhada no mapa como se fosse uma lista de trajetos a serem desenhadas no mapa.
+
+\textbf{TrafficClock:} Objeto que realiza a rotina de atualização da malha de tráfego esporadicamente. Ao movimentar o mapa, faz a requisição automática caso esteja ativado.
+
+
+
+\subsection{Módulo de eventos} % (fold)
+\label{sec:modulo_eventos}
+
+% section trânsito (end)
+
+
