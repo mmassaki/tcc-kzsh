@@ -39,10 +39,27 @@
 \usepackage{poli} % personalização da ABNT para a Poli
 \usepackage{graphicx}
 \usepackage{listings}
-
 \usepackage[T1]{fontenc} % permite hifenização em palavras acentuadas
 \usepackage[scaled]{helvet} % usa uma fonte sem serifa no tamanho adequado
 \renewcommand*\familydefault{\sfdefault} % usa a fonte não serifada
+
+\lstset{
+    numbers=left,
+    stepnumber=1,
+    firstnumber=1,
+    numberstyle=\tiny,
+    extendedchars=true,
+    breaklines=true,
+    frame=tb,
+    basicstyle=\footnotesize,
+    stringstyle=\ttfamily,
+    showstringspaces=false,
+    mathescape,
+    morecomment=[l]{;},
+    commentstyle=\color[rgb]{0.5,0.5,0.5},
+    tabsize=1,
+		captionpos=b
+}
 
 %\versaofinal % descomente para gerar a versão final
               % sem as notas de pendencias, margens laterais, \ldots
@@ -180,7 +197,11 @@
 \part{Conceitos e tecnologias envolvidas}
 	\input{capitulos/30-conceitos/1-iphone}
 	\input{capitulos/30-conceitos/2-gps}
-	\input{capitulos/30-conceitos/3-consideracoes}
+	\input{capitulos/30-conceitos/3-xcode}
+	\input{capitulos/30-conceitos/4-objective-c_cocoa_touch}
+	\input{capitulos/30-conceitos/5-ruby_on_rails}
+	\input{capitulos/30-conceitos/6-restful}
+	\input{capitulos/30-conceitos/7-consideracoes}
 	
 %PROJETO E IMPLEMENTAÇÃO
 %		ESPECIFICAÇÃO DE REQUISITOS
