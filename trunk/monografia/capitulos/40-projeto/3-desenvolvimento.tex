@@ -5,137 +5,84 @@
 %
 
 
-\chapter{Desenvolvimento} \label{chp:desenvolvimento}
+\chapter{Desenvolvimento}
+\label{chp:desenvolvimento}
 
+O desenvolvimento do sistema foi dividido em duas partes principais: aplicação do servidor e aplicativo móvel para iPhone. As duas partes foram desenvolvidas paralelamente por cada integrante do grupo e foram realizados testes para cada funcionalidade desenvolvida. Foram especificadas interfaces de comunicação entre o servidor e o dispositivo móvel afim de padronizar e estabelecer as trocas de informações entre ambos. 
 
-Nesta sessão apresentamos os aspectos técnicos de projeto e implementação do sistema. Inicialmente a arquitetura do projeto como um todo é explanada, juntamente com todas as tecnologias envolvidas. Logo em seguida é apresentado a implementação referente ao sevidor. Por último é explicado a montagem em maiores detalhes do aplicativo móvel construida na plataforma iOS e seus componentes utilizados.
+Neste capítulo são descritos separadamente os procedimentos executados para implementação de cada parte do projeto (servidor e aplicativo móvel) com seus respectivos códigos-fonte. Inicialmente é apresentada a implementação referente ao servidor separada por funcionalidades e por último é explicado a implementação em maiores detalhes do aplicativo móvel construído na plataforma iOS e os componentes utilizados.
 
-\section{Eventos} % (fold)
-\label{sec:eventos}
+\section{Servidor}
+\label{sec:servidor}
 
-\subsection{Temporização do evento} % (fold)
-\label{sub:temporização_do_evento}
+Para que o desenvolvimento fosse mais ágil, utilizou-se o \emph{Scaffolding} do \emph{Rails}. O \emph{Scaffolding} gera toda a parte de CRUD dos objetos, inclusive o \emph{script} de criação de tabela no banco de dados, utilizando-se o \emph{WebService} \emph{RESTful} para acesso, criação e edição dos dados.
+
+Foi registrado um domínio gratuito no site \url{http://www.co.cc/} com o nome \url{betterwayserver.co.cc} e foi contratado um plano de hospedagem de \emph{site} nos servidores da empresa TeHospedo: serviços de internet \cite{TeHospedo:site}.
+
+\subsubsection{Criação de eventos} % (fold)
+\label{ssub:criação_de_eventos}
+
+Os eventos do trânsito são criados pelo usuário através do aplicativo móvel. O servidor tem o papel de receber as informações do novo evento e armazená-las no banco de dados.
+
+Ao criar um recurso no \emph{Scaffolding} são geradas as classes do \emph{model} do recurso e seu \emph{controller} para acesso via requisições HTTP. A classe EventosController 
+
+% subsubsection criação_de_eventos (end)
+
+\subsubsection{Temporização do evento} % (fold)
+\label{ssub:temporização_do_evento}
 
 Os eventos informados pelos usuários são exibidos durante 30 minutos. Após esse período eles são marcados como inativos no banco de dados, não sendo mais informados pelo servidor.
 
 Para a implementação da atualização dos registros no banco de dados utilizou-se o ``crontab'' do servidor. O ``crontab'' é um utilitário dos sistemas Unix e Solaris que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
 
-Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo.
+Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo e pode ser vista a seguir.
+\\
 
-A tarefa é descrita a seguir:
-\lstset{language=Ruby}
 \begin{lstlisting}
-	require 'net::http'
-	a = Evento.new
-	b = a.list
-	
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * cd ~/better_way && rails runner -e production app/cron/atualizar_eventos.rb
 \end{lstlisting}
 
-% subsection temporização_do_evento (end)
+Basicamente a tarefa é executada quando os minutos do horário do servidor forem múltiplos de cinco utilizando o \emph{runner} do ambiente \emph{rails} em produção para executar o código \emph{Ruby} atualizar\_eventos.rb que é descrito a seguir.
+\\
 
-% section eventos (end)
+\begin{lstlisting}[language=Ruby]
+	class AtualizarEventos < ActiveRecord::Base
 
-\section{Registros} % (fold)
-\label{sec:registros}
+	  Evento.update_all({:ativo => false}, ["ativo = 1 AND data_hora < ?", Time.now - 30.minutes])
 
-% section registros (end)
+	end
+\end{lstlisting}
 
-\section{Rota} % (fold)
-\label{sec:rota}
+% subsubsection temporização_do_evento (end)
 
-% section rota (end)
+% subsection eventos (end)
 
-
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "tese"
-%%% x-symbol-8bits: t 
-%%% End: 
+\subsection{Registros} % (fold)
+\label{sub:registros}
 
 
+% subsection registros (end)
 
-%
-%~~
-%~~ Desenvolvimento
-%~~
-%
+\subsection{Rotas} % (fold)
+\label{sub:rotas}
 
 
+% subsection rotas (end)
 
-\section{Arquitetura Geral}
-A arquitetura geral do sistema, incluindo todos os seus componentes, é apresentada na figura X: 
-
-Figura 9: Visão geral dos componentes.
-
-%	\begin{figure}[H]
-%		\centering
-%		\includegraphics[scale=0.5]{img/Arquitetura.png}
-%		\caption{Arquitetura do sistema}
-%	\end{figure}
+\subsection{Trânsito} % (fold)
+\label{sub:trânsito}
 
 
-A arquitetura está dividida basicamente em 2 camadas físicas (tiers): 
-\textbf{Servidor de Banco de Dados:} Responsável por armazenar e disponibilizar os dados persistentes enviados pelos usuários do BetterWay via internet e utilizados pelo sistema de trânsito. A partir dos dados, manipula a requisição com a API Google Maps para gerar uma melhor rota no disposiivo com o aplicativo. Também fornece o resultado da manipulação dos dados para a exibição da malha do tráfego atual.
-\textbf{Cliente(Aplicação BetterWay:}  Nó referente aos usuários acessando e utilizando a aplicação BetterWay. Na aplicação está a interface que apresenta o mapa com todas informações disponibilizadas pela aplicação. Possui um sistema interno para gerir endereços e também de informar eventos.
+% subsection trânsito (end)
+
+% section servidor (end)
+
+\section{Aplicativo móvel} % (fold)
+\label{sec:aplicativo_móvel}
+
+A aplicação \emph{BetterWay} construída para o ambiente iOS é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade e também é responsável pelo envio de eventos e gerenciamento de endereços.
 
 
-\
-
-\section{Xcode e Objetive - C}
-Xcode é uma interface completa disponibilizada pela Apple para a edição de código fonte e sua compilação, sem sair da visão do código. Contém as ferramentas necessárias para a depuração passo a passo da aplicação sendo construida, de uma maneira simples e intuitiva, além de ferramentas de medição de performance, importante para as aplicações iOS que necessitam uma maior preocupação no gerenciamento de memória. Além disso possui ligação a outros programas uteis para a construção de uma nova aplicação, como:
-
-\textbf{Interface Builder:} Editor gráfico para interface de aplicações iOS ou macOS. Possui ligação direta com as classes do projeto, sendo possível interliga-las diretamente no próprio editor. As mudanças realizadas no Interface Builder são sentidas imediatamente no Xcode.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.37]{img/iphone/Xcode.jpg}
-	\includegraphics[scale=0.37]{img/iphone/iPhoneSimulator.jpg}
-	\includegraphics[scale=0.4]{img/iphone/Organizer.png}	
-	\caption{Ambiente de desenvolvimento do Xcode, do iPhone Simulator e do Organizer.}
-\end{figure}
-
-
-\textbf{iPhone Simulator:} Editor gráfico para interface de aplicações iOS ou macOS. Possui ligação direta com as classes do projeto, sendo possível interliga-las diretamente no próprio editor. As mudanças realizadas no Interface Builder são sentidas imediatamente no Xcode.
-
-\textbf{Organizer:} Gerenciador de dispositivos e licenças da Apple. Para o ambiente de desenvolvimento para o iOS, é o responsável por manter os certificados de desenvolvedor necessário para testes diretamente no iPhone. Esse programa também possibilita um acesso rápido aos seus últimos projetos e ajuda organizar projetos que utilizam compilação com auxílio de "autoconf", "make" e "ant", dando suporte à linguagens de programação como Ruby, Python, UNIX, Fortran, e outros.
-
-
-
-
-\section{Objetive-C e Classe Cocoa Touch}
-Objetive-C é a linguagem primária usada para construir softwares para macOS e iOS baseada na linguagem C, com programação orientada a objeto. A origem dos conceitos são relacionados a linguagem Smalltalk, uma das primeiras linguagens orientada a objeto. Possui uma estrutura simples
-
-Cocoa Touch é um framework de padrão de projeto utilizado no iOS, com foco especifico na interface orientada a toques. Fornece ferramentas básicas para implementar, como por exemplo o UIKit que é o responsável pelo visual das aplicações do sistema operacional, como também gerenciamento de dados na aplicação, conexão, construção de strings, acelerometro, etc.
-
-Para características mais específicas da aplicação é separada a parte em outros pacotes de desenvolvimento dentro do Cocoa Touch. Alguns exemplos:
-\begin{enumerate}
-	\item Core Animation
-	\item Core Data
-	\item Core Audio
-	\item Core 
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{DESENVOLVIMENTO DO BETTERWAY NO IPHONE}
-A aplicação BetterWay construida para o ambiente iOS é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade. Também é responsável pela interface de envio de eventos e gerenciamento de endereços. 
-	
 \subsection{Dificuldades iniciais}
 \label{ssub:dificuldades_iniciais}
 As dificuldades de construir a aplicação BetterWay para o dispositivo iPhone vem do momento de sua criação, uma vez que o grupo não possui o conhecimento sobre o framework de mapas e de requisições web. 
@@ -285,4 +232,4 @@ Para implementação do módulo de trânsito é utilizado um método para chamadas con
 
 % section trânsito (end)
 
-
+% section aplicativo_móvel (end)
