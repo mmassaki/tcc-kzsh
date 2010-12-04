@@ -199,6 +199,9 @@
 %   CONSIDERAÇÕES FINAIS
 \chapter{Conceitos e tecnologias envolvidas} % (fold)
 \label{cha:conceitos_e_tecnologias_envolvidas}
+
+Neste capítulo são apresentados os conceitos relacionados ao dispositivo \emph{iPhone} da \emph{Apple} e GPS, além das tecnologias e plataformas utilizadas para o desenvolvimento do projeto como o \emph{Objective-C}, \emph{Xcode}, \emph{Ruby on Rails}, \emph{RESTful} e \emph{Google Maps API}.
+
 	\input{capitulos/30-conceitos/1-iphone}
 	\input{capitulos/30-conceitos/2-gps}
 	\input{capitulos/30-conceitos/3-xcode}
@@ -216,6 +219,13 @@
 %   CONSIDERAÇÕES FINAIS
 \chapter{Desenvolvimento do projeto} % (fold)
 \label{cha:desenvolvimento_do_projeto}
+
+O projeto tem como objetivo o desenvolvimento de um sistema que permita o mapeamento do trânsito através do uso de dispositivo móvel com GPS. Para isso foram utilizados o dispositivo móvel \emph{iPhone} para que o usuário acesse o sistema e um servidor que gerencia e armazena os dados.
+
+Para implementação do sistema foi utilizado a tecnologia \emph{Ruby on Rails} com banco de dados \emph{MySQL} devido a sua facilidade e agilidade de desenvolvimento de sistemas \emph{web}.
+
+Como o sistema foi desenvolvido para a plataforma \emph{iPhone} é necessário que o usuário tenha disponível um aparelho destes para acesso ao sistema.
+
 	\input{capitulos/40-projeto/1-requisitos}
 	\input{capitulos/40-projeto/2-arquitetura}
 	\input{capitulos/40-projeto/3-desenvolvimento}
@@ -233,8 +243,6 @@
 	\input{capitulos/50-conclusoes/3-trabalhos_futuros}
 % chapter considerações_finais (end)
 
-%ANEXOS
-\input{capitulos/60-anexos/1-anexos}
 %
 % Referências
 %
@@ -247,17 +255,19 @@
 %
 % Apêndice
 %
-\printindex
+\apendice
+\renewcommand{\thechapter}{\Alph{chapter}}
 
-%
-% Apéndices
-%
-%\apendice
+\chapter{Especificação de requisitos do sistema} % (fold)
+\label{cha:especificação_de_requisitos_do_sistema}
 
-%\chapter{Apêndice}
+	\input{capitulos/60-apendices/a-especificacao}
+	
+% chapter especificação_de_requisitos_do_sistema (end)
 
 %
 % Glossário
 %
 
+\printindex
 \end{document}

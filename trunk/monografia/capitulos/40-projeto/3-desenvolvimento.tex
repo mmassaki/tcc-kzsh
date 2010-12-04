@@ -10,50 +10,43 @@ A implementação do sistema foi dividida em duas partes principais: aplicação do 
 
 Neste capítulo são descritos separadamente os procedimentos executados para implementação de cada parte do projeto (servidor e aplicativo móvel) com seus respectivos códigos-fonte. Inicialmente é apresentada a implementação referente ao servidor separada por funcionalidades e por último é explicado a implementação em maiores detalhes do aplicativo móvel construído na plataforma \emph{iOS} e os componentes utilizados.
 
+%
+%~~
+%~~ Servidor
+%~~
+%
+
 \subsection{Servidor} % (fold)
 \label{sub:servidor}
 
-Para que o desenvolvimento fosse mais ágil, utilizou-se o \emph{Scaffolding} do \emph{Rails}. O \emph{Scaffolding} gera toda a parte de CRUD dos objetos, inclusive o \emph{script} de criação de tabela no banco de dados, utilizando-se o \emph{WebService} \emph{RESTful} para acesso, criação e edição dos dados.
+Para que o desenvolvimento fosse ágil, utilizou-se o \emph{Scaffolding} do \emph{Rails}. O \emph{Scaffolding} gera toda a parte de CRUD dos objetos, inclusive o \emph{script} de criação de tabela no banco de dados, utilizando-se o \emph{WebService} \emph{RESTful} para acesso, criação e edição dos dados.
 
-Foi registrado um domínio gratuito no site \url{http://www.co.cc/} com o nome \url{betterwayserver.co.cc} e foi contratado um plano de hospedagem de \emph{site} nos servidores da empresa TeHospedo: serviços de internet \cite{TeHospedo:site}.
+Foi registrado um domínio gratuito no site \url{http://www.co.cc/} com o nome \url{betterwayserver.co.cc} e foi contratado um plano de hospedagem de \emph{site} nos servidores da empresa TeHospedo: serviços de internet \cite{TeHospedo:site}, que fornece hospedagem \emph{Linux} para aplicações \emph{Ruby on Rails}.
 
+%
+%~~
+%~~ Criação de eventos
+%~~
+%
 
 \subsubsection{Criação de eventos} % (fold)
 \label{ssub:criação_de_eventos}
 
 Os eventos do trânsito são criados pelo usuário através do aplicativo móvel. O servidor tem o papel de receber as informações do novo evento e armazená-las no banco de dados.
 
-Ao criar um recurso no \emph{Scaffolding} são geradas as classes do \emph{model} do recurso e seu \emph{controller} para acesso via requisições HTTP. Para criação de um novo evento é necessário o envio de um POST para o endereço \url{http://betterwayserver.co.cc/eventos} com as informações do novo evento nos parâmetros da requisição. O método \emph{create}, descrito abaixo, da classe \emph{EventosController} é encarregada de tratar essas requisições.
-\\
-\begin{lstlisting}[language=Ruby]
-def create
-  @evento = Evento.new(params[:evento])
-  @evento.data_hora = Time.now
-  @evento.foto = @evento.foto.read if !@evento.foto.nil?
-
-  respond_to do |format|
-    if @evento.save
-      trocar_foto_por_url @evento
-      format.html { redirect_to(@evento, :notice => 'Evento was successfully created.') }
-      format.xml  { render :xml => @evento, :status => :created, :location => @evento }
-      format.json { render :json => @evento, :status => :created, :location => @evento }
-    else
-      format.html { render :action => "new" }
-      format.xml  { render :xml => @evento.errors, :status => :unprocessable_entity }
-      format.json { render :json => @evento.errors, :status => :unprocessable_entity }
-    end
-  end
-end
-\end{lstlisting}
+Ao criar um recurso no \emph{Scaffolding} são geradas as classes do \emph{model} do recurso e seu \emph{controller} para acesso via requisições HTTP. Para criação de um novo evento é necessário o envio de um POST para o endereço \url{http://betterwayserver.co.cc/eventos} com as informações do novo evento nos parâmetros da requisição. O método \emph{create} da classe \emph{EventosController} é encarregada de tratar essas requisições.
 
 O horário de criação do evento é obtido do relógio do servidor para evitar que o usuário envie informação errada, pois o horário do dispositivo pode ser configurado manualmente.
 
-O arquivo de imagem do evento é obtido via POST \emph{multipart/form-data} e os dados binário da imagem são armazenados diretamente no banco de dados.
-
-O cliente pode receber os dados resultantes da criação do novo evento através de uma página html ou em dados estruturados em XML ou JSON.
+O arquivo de imagem do evento é obtido via POST \emph{multipart/form-data} e os dados binário da imagem são armazenados diretamente no banco de dados. Este método de envio é o mesmo utilizado em páginas HTML que utilizam formulários que necessitam de \emph{upload} de arquivo.
 
 % subsubsection criação_de_eventos (end)
 
+%
+%~~
+%~~ Consulta de eventos
+%~~
+%
 
 \subsubsection{Consulta de eventos} % (fold)
 \label{ssub:consulta_de_eventos}
@@ -71,38 +64,15 @@ O servidor deve fornecer as informações dos eventos atuais aos usuários. Para is
 	
 \end{enumerate}
 
-Esta requisição é tratada pelo método \emph{index}, descrito a seguir, da classe \emph{EventosController}.
-\\
-\begin{lstlisting}[language=Ruby]
-  def index
-    
-    lat = params[:latitude].to_f
-    long = params[:longitude].to_f
-    delta_lat = params[:delta_latitude].to_f + DIST_LAT
-    delta_long = params[:delta_longitude].to_f + DIST_LONG
-    
-    if !lat.zero? || !long.zero?
-      @eventos = Evento.where({:ativo => true, :latitude => (lat - delta_lat)..(lat + delta_lat), :longitude => (long - delta_long)..(long + delta_long)})  
-    else
-      @eventos = Evento.all
-    end
-    
-    @eventos.each do |evento|
-      trocar_foto_por_url evento
-    end
-    
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @eventos }
-      format.json { render :json => @eventos }
-    end
-  end
-\end{lstlisting}
-
-Da mesma forma que a criação de novo evento os eventos podem ser obtidos como uma página html ou em estruturas JSON ou XML.
+Esta requisição é tratada pelo método \emph{index} da classe \emph{EventosController}.
 
 % subsubsection consulta_de_eventos (end)
 
+%
+%~~
+%~~ Consulta de eventos
+%~~
+%
 
 \subsubsection{Temporização do evento} % (fold)
 \label{ssub:temporização_do_evento}
@@ -111,57 +81,32 @@ Os eventos informados pelos usuários são exibidos durante 30 minutos. Após esse 
 
 Para a implementação da atualização dos registros no banco de dados utilizou-se o ``crontab'' do servidor. O ``crontab'' é um utilitário dos sistemas Unix e Solaris que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
 
-Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo e pode ser vista a seguir.
-\\
-\begin{lstlisting}
-0,5,10,15,20,25,30,35,40,45,50,55 * * * * cd ~/better_way && rails runner -e production app/cron/atualizar_eventos.rb
-\end{lstlisting}
-
-Basicamente a tarefa é executada quando os minutos do horário do servidor forem múltiplos de cinco utilizando o \emph{runner} do ambiente \emph{rails} em produção para executar o código \emph{Ruby} atualizar\_eventos.rb que é descrito a seguir.
-\\
-\begin{lstlisting}[language=Ruby]
-	class AtualizarEventos < ActiveRecord::Base
-
-	  Evento.update_all({:ativo => false}, ["ativo = 1 AND data_hora < ?", Time.now - 30.minutes])
-
-	end
-\end{lstlisting}
+Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo.
 
 % subsubsection temporização_do_evento (end)
 
+%
+%~~
+%~~ Criação de registros
+%~~
+%
 
 \subsubsection{Criação de registros} % (fold)
 \label{ssub:criação_de_registros}
 
 Os registros são dados armazenados no servidor para interpretação da situação do tráfego nas ruas em que os usuários do sistema viajam. O dispositivo móvel envia de tempos em tempos as informações de posição, velocidade e identificação do mesmo. Essas informações são armazenadas no banco de dados do servidor, que posteriormente analisa-as e estima o trânsito em determinadas vias.
 
-O envio do registro é feito através de um POST para o endereço \url{betterway.co.cc/registros} e o método \emph{create}, descrito a seguir, da classe \emph{RegistrosController} é o responsável por manipular essas requisições.
-\\
-\begin{lstlisting}[language=Ruby]
-def create
-  @registro = Registro.new(params[:registro])
-  @registro.data_hora = Time.now
-
-  respond_to do |format|
-    if @registro.save
-      format.html { redirect_to(@registro, :notice => 'Registro was successfully created.') }
-      format.xml  { render :xml => @registro, :status => :created, :location => @registro }
-      format.json { render :json => @registro, :status => :created, :location => @registro }
-    else
-      format.html { render :action => "new" }
-      format.xml  { render :xml => @registro.errors, :status => :unprocessable_entity }
-      format.json { render :json => @registro.errors, :status => :unprocessable_entity }
-    end
-  end
-end	
-\end{lstlisting}
+O envio do registro é feito através de um POST para o endereço \url{betterway.co.cc/registros} e o método \emph{create} da classe \emph{RegistrosController} é o responsável por manipular essas requisições.
 
 O horário de envio é obtido pelo relógio do servidor pelo mesmo motivo citado anteriormente - evitar erro de informação já que o usuário pode ajustar manualmente o horário do dispositivo móvel.
 
-Os dados do resultado da criação do novo registro podem ser obtidos através de uma página html ou em dados estruturados em JSON ou XML.
-
 % subsubsection criação_de_registros (end)
 
+%
+%~~
+%~~ Criação de rotas
+%~~
+%
 
 \subsubsection{Criação de rotas} % (fold)
 \label{ssub:criação_de_rotas}
@@ -177,49 +122,17 @@ O procedimento de criação de rota segue o seguinte fluxo:
 	\item O servidor retorna ao usuário a rota que não encontrar problemas de fluidez em formato estruturado JSON.
 \end{enumerate}
 
-A classe \emph{RotaController}, responsável pela criação de rota no servidor é descrita a seguir.
-\\
-\begin{lstlisting}[language=Ruby]
-require 'polyline_decoder'
-require 'net/http'
-require 'uri'
+A classe \emph{RotaController}, responsável por este procedimento de criação de rotas no servidor.
 
-class RotaController < ApplicationController
-  
-  def tracar
-    origem = params[:origem]
-    destino = params[:destino]
-    
-    url = URI.parse('http://maps.googleapis.com')
-    http = Net::HTTP.new(url.host, url.port)
-    resp = http.get("/maps/api/directions/json?origin=#{origem}&destination=#{destino}&sensor=false")
-    json = ActiveSupport::JSON.decode(resp.body)
-    
-    if json["routes"].size.zero?
-      render :text => "Nenhuma rota encontrada"
-      return
-    end
-    
-    polyline = json["routes"][0]["overview_polyline"]["points"]
-    
-    polyline_decoder = PolylineDecoder.new
-    line_arr = polyline_decoder.decode(polyline)
-    
-    rota = Hash.new
-    rota["status"] = json["status"]
-    leg = json["routes"][0]["legs"][0]
-    rota["distancia"] = leg["distance"]
-    rota["duracao"] = leg["duration"]
-    rota["polyline"] = line_arr
-    
-    render :json => rota
-  end
-  
-end
-\end{lstlisting}
+A API do \emph{Google Maps} utilizada envia os dados com o desenho da rota (\emph{polyline}) de forma codificada. O algoritmo de codificação é disponibilizado pelo \emph{Google} em \cite{Google:MapsAPI:EncodedPolyline}. Para que a rota seja desenhada corretamente no dispositivo móvel, é necessário fazer a descodificação dessa informação para coordenadas geográficas. Esta descodificação é realizada no servidor antes de enviar as informações para o cliente através do uso da biblioteca \emph{polyline\_decoder} \cite{PolylineDecoder}.
 
 % subsubsection criação_de_rotas (end)
 
+%
+%~~
+%~~ Trânsito
+%~~
+%
 
 \subsubsection{Trânsito} % (fold)
 \label{ssub:trânsito}
@@ -231,10 +144,22 @@ end
 % subsection servidor (end)
 
 
+%
+%~~
+%~~ Aplicativo móvel
+%~~
+%
+
 \subsection{Aplicativo móvel} % (fold)
 \label{sub:aplicativo_móvel}
 
 A aplicação \emph{BetterWay} construída para o ambiente \emph{iOS} é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade e também é responsável pelo envio de eventos e gerenciamento de endereços.
+
+%
+%~~
+%~~ Dificuldades iniciais
+%~~
+%
 
 \subsubsection{Dificuldades iniciais} % (fold)
 \label{ssub:dificuldades_iniciais}
@@ -245,6 +170,12 @@ Porém com o lançamento do SDK 4.0 no final do mês de Agosto melhorias foram impl
 
 % subsubsection dificuldades_iniciais (end)
 
+
+%
+%~~
+%~~ Bibliotecas utilizadas
+%~~
+%
 
 \subsubsection{Bibliotecas utilizadas} % (fold)
 \label{ssub:bibliotecas_utilizadas}
@@ -257,27 +188,26 @@ Para a aplicação no dispositivo iPhone, utiliza-se duas bibliotecas auxiliares n
 
 % subsubsection bibliotecas_utilizadas (end)
 
+%
+%~~
+%~~ Classe delegadora
+%~~
+%
 
 \subsubsection{Classe delegadora: \emph{MapDirection}} % (fold)
 \label{ssub:classe_delegadora_mapdirection}
 
 Classe Delegadora principal da aplicação. Responsável por informar sobre a condições e informações básicas do aparelho e de coordenar todas as View Controllers do aplicativo, além de ser o responsável por manter as listas de permanências de dados sobre os últimos endereços usados e endereços favoritos.
 
-
-
 Os dados a serem armazenados são manipulados pela classe NSUsersDefault, que guarda no SandBox da aplicação. Ao iniciar a aplicação, o método loadDatabase é chamado. Ao encerrar a aplicação, a classe delegate captura essa notificação e assim o processo se retenção de dados é realizada.
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.8]{img/iphone/appWillTerminate.png}
 	\caption{Método de encerramento da aplicação.}
 \end{figure}
 
-
-
 \textbf{Reachability:} Para o verificamento de conectividade do aparelho, implementou-se uma classe herdada de \emph{SCNetworkReachability}, disponibilizada pela Apple a partir do \emph{SystemConfiguration.framework}. Verifica-se a conexão com a internet via \emph{edge}/\emph{3G} ou \emph{wifi}. O método aplicado é descrito a seguir:
-
-
 
 \begin{lstlisting}[language=C]
 - (void) checkNetworkStatus:(NSNotification *)notice {
@@ -307,6 +237,11 @@ Possui objetos que verificam de tempo em tempo diversos atributos do aparelho:
 
 % subsubsection classe_delegadora_mapdirection (end)
 
+%
+%~~
+%~~ View Controller
+%~~
+%
 
 \subsubsection{View Controller Principal: \emph{BetterWayViewController}} % (fold)
 \label{ssub:view_controller_principal_betterwayviewcontroller}
@@ -315,6 +250,11 @@ Esta sessão contém a descrição da classe central da aplicação, sendo o responsáv
 
 % subsubsection view_controller_principal_betterwayviewcontroller (end)
 
+%
+%~~
+%~~ Módulo de geração de rota
+%~~
+%
 
 \subsubsection{Módulo de geração de rota} % (fold)
 \label{ssub:módulo_de_geração_de_rota}
@@ -324,18 +264,18 @@ Este módulo foi estruturada diversas View Controllers necessárias para o fluxo d
 A seguir é apresentada o diagrama de classe para a geração de rota na aplicação. Foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas mesmas telas. Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
 
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.7]{img/iphone/BetterWayDiagramaClasseRota.pdf}
 	\caption{Diagrama de classe para o módulo de geração de rota}
 \end{figure}
 
 
-
 Uma breve descrição para cada ViewController a seguir:
 \textbf{RouteMenuViewController:} View Controller que exibe uma lista de opções para o usuário. Para o caso de se selecionar o endereço de destino a classe exibe as opções entrar com endereço ou utilizar da lista de favoritos. Para o caso de se selecionar o endereço de origem ela exibe além das opções disponíveis no caso de endereço destino, a opção de se utilizar o endereço atual do dispositivo.
 A implementação para o uso do endereço atual utilizou-se da classe \emph{MKReverseGeocode}, que a partir da posição em relação a latitude e longitude do local, utiliza-se o serviço de rastreamento de endereço da API do Google Maps.
-\begin{figure}
+
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.2]{img/iphone/Destino.png}
 	\includegraphics[scale=0.2]{img/iphone/Origem.png}
@@ -351,22 +291,21 @@ A implementação para o uso do endereço atual utilizou-se da classe \emph{MKRever
 \end{figure}
 
 \textbf{FavoriteListViewController:} Classe que exibe a lista de favoritos salvos pelo usuário. Pode-se excluir da lista arrastando o dedo encima do endereço favorito salvo, e confirmar a exclusão com o botão que aparece na tela.
-\begin{figure}
+
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.2]{img/iphone/FavoriteListViewController.png}
 	\caption{Aplicação na lista de favoritos}
 \end{figure}
 
-
-
 \textbf{SearchViewController:}
 Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local. O usuário possui as opcões de salvar no favorito, enviar via e-mail e confirmar o endereço.
-\begin{figure}
+
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.2]{img/iphone/SearchViewController.png}
 	\caption{Aplicação exibindo detalhes do endereço}
 \end{figure}
-
 
 Métodos de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário. Nas figuras abaixo, encontram-se os códigos usado para a requisição no servidor, e o tratamento de sua resposta. O método de requisição está descrito abaixo:
 \\
@@ -389,7 +328,7 @@ Métodos de requisição de rotas é realizado a partir da requisição das posições d
 }
 \end{lstlisting}
 
-\begin{figure}[htp]
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.6]{img/iphone/coreRotaResponse.png}
 	\caption{Tratamento da resposta de requisição de rota}
@@ -406,6 +345,11 @@ Classes para as funções suplementares da aplicação:
 
 % subsubsection módulo_de_geração_de_rota (end)
 
+%
+%~~
+%~~ Módulo de trânsito
+%~~
+%
 
 \subsubsection{Módulo de trânsito} % (fold)
 \label{ssub:módulo_de_trânsito}
@@ -420,6 +364,11 @@ Um outro problema de integridade dos dados surgiu, pois dependendo da condição d
 
 % subsubsection módulo_de_trânsito (end)
 
+%
+%~~
+%~~ Módulo de eventos
+%~~
+%
 
 \subsubsection{Módulo de eventos} % (fold)
 \label{ssub:módulo_de_eventos}
@@ -428,7 +377,7 @@ O módulo de eventos contém classes que coordenam os métodos para gerenciar os ev
 
 \textbf{EventClock:} Classe que opera esporadicamente a requisição da lista de eventos no servidor. Entre uma requisição e outra foi definido 8 segundos de espera. Também é responsável por tratar a resposta do servidor.
 
-\begin{figure}
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.2]{img/iphone/EventoMapa.png}
 	\caption{Evento identificado no mapa}
