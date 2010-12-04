@@ -1,0 +1,45 @@
+%
+%~~
+%~~ Google Maps API
+%~~
+%
+\section{Google Maps API} % (fold)
+\label{sec:google_maps_api}
+
+O \emph{Google} disponibiliza diversas APIs da sua aplicação \emph{Google Maps}. Estão disponíveis APIs para \emph{JavaScript}, \emph{Flash}, imagens de mapas estáticos, \emph{web services} e uma API para \emph{Google Earth} \cite{Google:MapsAPIFamily}.
+
+Para este trabalho foram utilizados os serviços de geocodificação e rotas da API em \emph{web services} utilizando como estrutura de dados o padrão JSON.
+
+\subsection{Web services} % (fold)
+\label{sub:web_services}
+
+A API em \emph{web services} do \emph{Google Maps} disponibiliza através de requisições HTTP serviços de dados geográficos. Os serviços disponíveis são:
+
+\begin{itemize}
+	\item Geocodificação
+	\item Rotas
+	\item Elevação
+	\item Locais
+\end{itemize}
+
+Os dados requisitados são fornecidos em formato XML ou JSON, bastando o desenvolvedor escolher o tipo de dado que ele deseja manipular.
+
+
+\subsubsection{Geocodificação} % (fold)
+\label{ssub:geocodificação}
+
+Geocodificação é o processo de conversão de endereços em coordenadas geográficas, que podem então ser utilizadas para marcar posições no mapa. O \emph{Google} disponibiliza tanto a geocodificação quanto a geocodificação reversa, que consiste em converter coordenadas geográficas em endereços \cite{Google:MapsAPIFamily}.
+
+% subsubsection geocodificação (end)
+
+
+\subsubsection{Rotas} % (fold)
+\label{ssub:rotas}
+
+O serviço de rotas do \emph{Google} calcula rotas entre duas localizações, especificadas como origem e destino \cite{Google:MapsAPI:Direction}. Além disso é possível adicionar localizações intermediárias para que a rota calculada passe por esses pontos.
+
+% subsubsection rotas (end)
+
+% subsection web_services (end)
+
+% section google_maps_api (end)

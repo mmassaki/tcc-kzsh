@@ -6,4 +6,50 @@
 \section{Ruby on Rails} % (fold)
 \label{sec:ruby_on_rails}
 
+O \emph{Ruby on Rails} é um \emph{framework} para programação de sistemas \emph{web} de código aberto voltado à satisfação do programador e produtividade sustentável \cite{RubyOnRails:site}. Ele utiliza a linguagem de programação \emph{Ruby}, uma linguagem \emph{script} de alto nível, o que facilita o desenvolvimento ágil de sistemas, pois o código-fonte é simples e de fácil entendimento. Por ser uma linguagem \emph{script} o código-fonte não é compilado, mas sim interpretado em tempo de execução.
+
+Atualmente existem alguns \emph{sites} famosos que utilizam o \emph{framework Ruby on Rails} como o \emph{Twitter}, \emph{Groupon}, \emph{Yellow Pages}, \emph{Github}, etc \cite{RubyOnRails:site}.
+
+\subsection{Arquitetura MVC} % (fold)
+\label{sub:arquitetura_mvc}
+
+O \emph{Ruby on Rails} utiliza o padrão de arquitetura de software MVC para organização das aplicações. A separação dos arquivos é feita por três camadas: \emph{Model}, \emph{View} e \emph{Controller}. Cada camada possui características e funções específicas listadas a seguir:
+
+\textbf{\emph{Model:}} possui as classes dos modelos de dados da aplicação. Aqui estão as classes dos objetos que são persistidos no banco de dados, classes de objetos auxiliares e a descrição da lógica de negócio do sistema. O banco de dados é acessado através dos métodos das classes contidas nessa camada.
+
+\textbf{\emph{View:}} nesta camada estão os arquivos que descrevem a interface do usuário. Aqui estão os arquivos das telas que o usuário visualizará e interagirá quando utilizar o sistema. Como trata-se de sistema \emph{web}, em geral as telas são renderizadas em formato html para execução nos navegadores de internet.
+
+\textbf{\emph{Controller:}} camada de classes de controle da aplicação. Essas classes coordenam a execução do sistema recebendo as requisições do usuário, executando os comandos necessários e acessando os modelos de dados.
+
+A arquitetura MVC possui o seguinte fluxo, representado pela figura \ref{fig:mvc}:
+
+\begin{itemize}
+	\item o cliente, através da \emph{View}, faz a requisição de uma ação ao \emph{Controller};
+	\item o \emph{Controller} executa a ação e se necessário faz requisições ao \emph{Model};
+	\item o \emph{Model} é a única camada que acessa o banco de dados. Ele executa as tarefas requeridas pelo \emph{Controller} e retorna seus resultados para ele;
+	\item o \emph{Controller} então renderiza uma \emph{View} com as informações e a envia para o cliente.
+\end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.9]{img/mvc.png}
+	\caption{Esquema do fluxo da Arquitetura MVC}
+	\label{fig:mvc}
+\end{figure}
+
+% subsection arquitetura_mvc (end)
+
+\subsection{Scaffolding} % (fold)
+\label{sub:scaffolding}
+
+O \emph{Scaffolding} é uma ferramenta integrada ao \emph{Rails} que permite a rápida criação do CRUD, geralmente a maior parte da aplicação. Ele gera os \emph{models}, \emph{views} e \emph{controllers} para um novo recurso a partir de um simples comando \cite{Rails:Scaffolding}.
+
+As classes geradas seguem o padrão de \emph{WebServices RESTful} fornecendo acesso aos dados em formato HTML ou XML, facilitando para o desenvolvedor, que não precisa preocupar-se com essa implementação.
+
+O \emph{Rails} uma ferramenta chamada \emph{Migration} para criação e modificação de tabelas de banco de dados. Isso permite que o mesmo \emph{script} para criação de tabelas seja utilizado para diversos gerenciador de banco de dados, bastando modificar algumas configurações, permitindo que o gerenciador seja independente da aplicação.
+
+A partir da geração do \emph{scaffold} de um recurso, basta criar a tabela do respectivo recurso no banco de dados utilizando o \emph{script} do \emph{Migration} gerado pela ferramenta.
+
+% subsection scaffolding (end)
+
 % section ruby_on_rails (end)

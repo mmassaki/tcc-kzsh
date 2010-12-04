@@ -6,4 +6,65 @@
 \section{RESTful} % (fold)
 \label{sec:restful}
 
+REST (\emph{REpresentational State Transfer}) é um padrão projetado para troca de mensagens entre cliente e servidor onde o \emph{web service} é visto como um recurso e pode ser identificado pelas suas URLs. Os clientes do \emph{web service} que desejam utilizar esses recursos acessam uma particular representação através de alguns métodos definidos que descrevem a ação requerida em relação ao recurso \cite{Oracle:RESTful}.
+
+Os métodos HTTP, como GET e POST, são os verbos que o desenvolvedor pode utilizar para descrever as ações de criação, leitura, atualização e remoção a serem executadas. Pode-se fazer uma analogia desses verbos com as operações no SQL (Tabela~\ref{tab:SQL_HTTP}), porém o REST e os protocolos HTTP são mutuamente exclusivos e o REST não requer HTTP \cite{Oracle:RESTful}.
+
+\begin{table}[htb!]
+    \caption{Relação entre SQL e verbos HTTP. Fonte: \cite{Oracle:RESTful}}
+    \label{tab:SQL_HTTP}
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Ação} &   \textbf{SQL} &         \textbf{HTTP}\\
+        Criar					&		Insert			 &             PUT\\
+        Ler						&		Select			 &             GET\\
+        Atualizar			&   Update 			 &             POST\\
+        Remover				&   Delete			 &             DELETE\\
+        \toprule
+    \end{tabular}
+\end{table}
+
+Os dados enviados ao usuário pelo servidor podem ser estruturados de diversas maneiras como XML, JSON ou páginas HTML. Para este trabalho utilizou-se o formato JSON devido a sua facilidade de uso, possuir diversas referências e suporte e resultar em mensagens simples, de baixo custo de transferência.
+
+\subsection{JSON} % (fold)
+\label{sub:json}
+
+O JSON é um formato leve de intercâmbio de dados, sendo de fácil leitura e escrita por humanos e de fácil interpretação e geração para máquinas. É baseada no subconjunto do padrão ECMA-262 3ª edição - Dezembro de 1999 de linguagem de programação \emph{JavaScript} \cite{JSON}.
+
+O JSON é um texto formatado completamente independente de linguagem, porém utiliza convenções que são familiares dos programadores da linguagem da família C, incluindo C, C++, C\#, \emph{Java}, \emph{JavaScript}, \emph{Perl}, \emph{Python}, entre outras \cite{JSON}.
+
+O JSON é construído em duas estruturas \cite{JSON}:
+
+\begin{itemize}
+	\item Uma coleção de pares nome/valor. Também conhecida em outras linguagens como um objeto, registro, estrutura, dicionário, tabela \emph{hash}, lista com chaves ou matriz associativa.
+	\item Uma lista ordenada de valores. Também conhecida como matriz, vetor, lista ou seqüência.
+\end{itemize}
+
+Estas são as estruturas de dados universais. Virtualmente todos as linguagens de programação modernas as suportam em uma forma ou outra. Faz sentido que um formato de dados que é intercambiável entre linguagens de programação também seja baseado nessas estruturas \cite{JSON}.
+
+Um exemplo de um texto JSON utilizado no trabalho é apresentado a seguir:
+\\
+\begin{lstlisting}
+[
+	{
+		"evento":{
+			"data_hora":"2010-11-21T20:51:51-02:00",
+			"latitude":-23.564,
+			"created_at":"2010-11-21T20:51:51-02:00",
+			"dispositivo_id":"f219756355cf796e47335a7f909a2c4f58ab7cdc",
+			"updated_at":"2010-11-21T20:51:51-02:00",
+			"ativo":true,
+			"id":5,
+			"foto":"http://betterwayserver.co.cc/eventos/foto/5",
+			"longitude":-46.6187,
+			"evento_tipo_id":1,
+			"descricao":"Acidente na pista"
+		}
+	}
+]
+\end{lstlisting}
+
+% subsection json (end)
+
 % section restful (end)
