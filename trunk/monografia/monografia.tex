@@ -55,10 +55,11 @@
     stringstyle=\ttfamily,
     showstringspaces=false,
     mathescape,
-    morecomment=[l]{;},
+    morecomment=[l]{\#},
     commentstyle=\color[rgb]{0.5,0.5,0.5},
     tabsize=1,
-		captionpos=b
+		captionpos=b,
+		escapeinside={\%*}{*)}
 }
 
 %\versaofinal % descomente para gerar a versão final
@@ -183,18 +184,21 @@
 %		JUSTIFICATIVA
 %   METODOLOGIA DE TRABALHO
 %   ESTRUTURA DE TRABALHO
-\part{Introdução}
+\chapter{Introdução} % (fold)
+\label{cha:introdução}
 	\input{capitulos/20-introducao/1-objetivo}
 	\input{capitulos/20-introducao/2-motivacao}
 	\input{capitulos/20-introducao/3-justificativa}
 	\input{capitulos/20-introducao/4-metodologia}
 	\input{capitulos/20-introducao/5-estrutura}
-	
+% chapter introdução (end)
+
 %CONCEITOS E TECNOLOGIAS ENVOLVIDAS
 %		IPHONE
 %   GPS
 %   CONSIDERAÇÕES FINAIS
-\part{Conceitos e tecnologias envolvidas}
+\chapter{Conceitos e tecnologias envolvidas} % (fold)
+\label{cha:conceitos_e_tecnologias_envolvidas}
 	\input{capitulos/30-conceitos/1-iphone}
 	\input{capitulos/30-conceitos/2-gps}
 	\input{capitulos/30-conceitos/3-xcode}
@@ -202,26 +206,31 @@
 	\input{capitulos/30-conceitos/5-ruby_on_rails}
 	\input{capitulos/30-conceitos/6-restful}
 	\input{capitulos/30-conceitos/7-consideracoes}
+% chapter conceitos_e_tecnologias_envolvidas (end)
 	
 %PROJETO E IMPLEMENTAÇÃO
 %		ESPECIFICAÇÃO DE REQUISITOS
 % 	ARQUITETURA DE SOFTWARE
 % 	DESENVOLVIMENTO
 %   CONSIDERAÇÕES FINAIS
-\part{Projeto e implementação}
+\chapter{Desenvolvimento} % (fold)
+\label{cha:desenvolvimento}
 	\input{capitulos/40-projeto/1-requisitos}
 	\input{capitulos/40-projeto/2-arquitetura}
 	\input{capitulos/40-projeto/3-desenvolvimento}
 	\input{capitulos/40-projeto/4-consideracoes}
+% chapter desenvolvimento (end)
 	
 %CONSIDERAÇÕES FINAIS
 %   CONCLUSÕES
 %   CONTRIBUIÇÕES
 %   TRABALHOS FUTUROS
-\part{Considerações finais}
+\chapter{Considerações finais} % (fold)
+\label{cha:considerações_finais}
 	\input{capitulos/50-conclusoes/1-conclusoes}
 	\input{capitulos/50-conclusoes/2-contribuicoes}
 	\input{capitulos/50-conclusoes/3-trabalhos_futuros}
+% chapter considerações_finais (end)
 
 %ANEXOS
 \input{capitulos/60-anexos/1-anexos}
@@ -251,8 +260,3 @@
 %
 
 \end{document}
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "tese"
-%%% x-symbol-8bits: t
-%%% End:

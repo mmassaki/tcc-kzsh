@@ -3,8 +3,8 @@
 %~~ GPS
 %~~
 %
-
-\chapter{GPS} \label{chp:gps}
+\section{GPS} % (fold)
+\label{sec:gps}
 
 O Sistema de Posicionamento Global (GPS) é um sistema desenvolvido pelo Departamento de Defesa dos Estados Unidos da América utilizado para navegação por satélite. Inicialmente foi desenvolvido para uso militar, sendo disponibilizado para uso civil nos anos 1980s \cite{Garmin:WhatIsGPS}.
 
@@ -17,17 +17,19 @@ Este sistema consiste de três segmentos: espacial, de controle e de usuário. As 
 	\item O segmento de usuário consiste nos equipamentos receptores GPS que recebem os sinais dos satélites GPS e usam a informação transmitida para calcular a posição tridimensional do usuário e o tempo.
 \end{itemize}
 
-\section{Posicionamento} % (fold)
-\label{sec:posicionamento}
+
+\subsection{Posicionamento} % (fold)
+\label{sub:posicionamento}
 
 Através das informações recebidas dos satélites, os receptores GPS utilizam triangulação para calcular a posição exata do usuário. Essencialmente, ele compara o tempo transmitido pelo satélite com o tempo em que o sinal foi recebido. Através dessa diferença temporal é possível saber a distância em que o satélite se encontra e, com as medidas de distância de mais alguns satélites, o receptor pode determinar a posição do usuário e exibi-la no mapa eletrônico \cite{Garmin:WhatIsGPS}.
 
 O receptor GPS necessita de pelo menos três satélites para calcular a posição 2D (latitude e longitude) do usuário. Com quatro ou mais satélites visíveis, é possível determinar sua posição 3D (latitude, longitude e altitude). Uma vez que a posição do usuário é determinada, a unidade GPS pode calcular outras informações como velocidade, caminho percorrido, distância percorrida, distância ao destino, horários do nascer e pôr do sol \cite{Garmin:WhatIsGPS}.
 
-% section posicionamento (end)
+% subsection posicionamento (end)
 
-\section{Sinais} % (fold)
-\label{sec:sinais}
+
+\subsection{Sinais} % (fold)
+\label{sub:sinais}
 
 Os satélites GPS transmitem dois sinais de rádio de baixa potência, designados L1 e L2. O GPS civil usa a freqüência L1 de 1575,42 MHz na banda UHF. Os sinais são transmitidos em linha de visão, ou seja, eles atravessam nuvens, vidro e plástico, mas não atravessam a maioria dos objetos sólidos como edifícios e montanhas \cite{Garmin:WhatIsGPS}.
 
@@ -36,10 +38,11 @@ O código pseudo-randômico é simplesmente um código identificador do satélite que
 O \emph{ephemeris}, que constantemente é transmitido por cada satélite, contém informações importantes sobre a condição do satélite, data e hora atuais. Esta parte do sinal é essencialmente para determinação da posição.
 O \emph{almanac} informa o receptor GPS onde cada satélite deve estar a qualquer hora do dia. Cada satélite transmite o \emph{almanac} informando a sua órbita e a dos outros satélites do sistema \cite{Garmin:WhatIsGPS}.
 
-% section sinais (end)
+% subsection sinais (end)
 
-\section{A-GPS} % (fold)
-\label{sec:a_gps}
+
+\subsection{A-GPS} % (fold)
+\label{sub:a_gps}
 
 O GPS Assistido, também conhecido como A-GPS ou AGPS, melhora a performance do convencional GPS nos dispositivos conectados à rede celular. Ele aprimora a performance de localização dos telefones celulares (e outros dispositivos conectados à rede celular) de duas maneiras \cite{About.com:A-GPS}:
 \begin{itemize}
@@ -49,5 +52,6 @@ O GPS Assistido, também conhecido como A-GPS ou AGPS, melhora a performance do c
 
 Atualmente a maioria dos \emph{smartphones} utilizam A-GPS para posicionamento global. O iPhone utiliza A-GPS desde sua primeira versão com serviço de localização, a 3G, lançada em Julho de 2008 \cite{GSMArena:iPhone3G}.
 
-% section a_gps (end)
+% subsection a_gps (end)
 
+% section gps (end)
