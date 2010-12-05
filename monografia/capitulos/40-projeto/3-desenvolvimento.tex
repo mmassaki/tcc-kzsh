@@ -27,7 +27,17 @@ Foi registrado um domínio gratuito no site \url{http://www.co.cc/} com o nome \u
 \subsubsection{Dificuldades iniciais} % (fold)
 \label{ssub:dificuldades_iniciais_servidor}
 
+Como o ambiente \emph{Ruby on Rails} já era de conhecimento do grupo, não foi difícil a criação da aplicação inicialmente, pois o ambiente já está bem estruturado para a criação dos métodos de CRUD e uso de \emph{web services} utilizando \emph{RESTful}.
 
+Foi necessário o estudo das \emph{Google Maps APIs} disponíveis afim de se escolher a melhora alternativa para o projeto. Inicialmente optou-se pela API via \emph{web services}, pois ela fornece dados diretos via requisições HTTP. Testou-se a API via \emph{web services} e achou-se que ela não informava as coordenadas dos pontos da rota requerida, dados necessários para o desenho da rota. Uma alternativa era utilizar a API \emph{JavaScript} que informava explicitamente as coordenadas dos pontos da rota, mas seria muito custosa sua implementação.
+
+Um estudo mais aprofundado nos dados retornados pela API via \emph{web services} permitiu a descoberta de que as coordenadas necessárias são enviadas de forma codificada de forma que o dado fique mais compacto diminuindo a quantidade de dados transferidos. Dessa forma optou-se definitivamente pela API via \emph{web services} e foi encontrada na internet uma biblioteca para \emph{Ruby} que faz a decodificação dos dados para coordenadas geográficas.
+
+Outra dificuldade encontrada foi encontrar uma maneira de atualizar os dados do banco de dados, pois os dados de eventos e trânsito devem ser inativados após trinta minutos. Buscou-se informações de como implementar tarefas rotineiras em \emph{Ruby on Rails} e descobriu-se que uma maneira é utilizar o utilitário \emph{crontab} que está disponível para os sistemas operacionais baseados em \emph{UNIX} e \emph{Solaris}.
+
+O mapeamento do trânsito foi a tarefa mais complicada inicialmente, pois o grupo não possui conhecimento na área de tráfego. As informações coletadas pelos dispositivos \emph{iPhones} são basicamente a coordenada e velocidade atual do usuário e, a partir disto deve-se mapear o trânsito. Buscou-se por alguma banco de dados que fornecesse as coordenadas das ruas da cidade de São Paulo, porém não obteve-se sucesso.
+
+Uma alternativa foi utilizar o serviço de geocodificação reversa do \emph{Google}, que ao informar uma coordenada retorna um trecho de endereço, geralmente um quarteirão da rua. Com isso pode-se mapear o trânsito sem muitas dificuldades.
 
 % subsubsection dificuldades_iniciais (end)
 
@@ -175,9 +185,11 @@ Um modelo de diagrama de classes simplificada da aplicação e o diagrama de naveg
 \subsubsection{Dificuldades iniciais} % (fold)
 \label{ssub:dificuldades_iniciais}
 
-As dificuldades de construir a aplicação \emph{BetterWay} para o dispositivo iPhone vem do momento de sua criação, uma vez que o grupo não possui o conhecimento sobre o \emph{framework} de mapas e de requisições web. 
-No estudo do \emph{framework} de mapas para o \emph{Cocoa Touch}, chamado \emph{MapKit}, não existia métodos diretos para desenho de rotas e de camadas auxiliares para uma camada de desenho na visualização do mapa. Implementamos métodos indiretos para desenho através do \emph{framework} \emph{CoreGraphics} que deixava a aplicação sobrecarregada, pois neste método era necessário a recalculação de todas marcações realizadas no mapa a cada transição de movimento.
-Porém com o lançamento do SDK 4.0 no final do mês de Agosto melhorias foram implementadas no \emph{framework MapKit}, sendo agora possível a implementação de uma camada gráfica encima do mapa. A partir do estudo dessa camada, conseguimos implementar uma solução mais dinâmica onde já não era mais necessário o calcular novamente todas marcações para cada mudança no mapa.
+As dificuldades para construção da aplicação \emph{BetterWay} para o dispositivo iPhone ocorreram do momento de sua criação, uma vez que o grupo não possuía conhecimento sobre o \emph{framework} de mapas e de requisições \emph{web}.
+
+No \emph{framework} de mapas para o \emph{Cocoa Touch}, chamado \emph{MapKit}, não existiam métodos diretos para desenho de rotas e de camadas auxiliares para uma camada de desenho na visualização do mapa. Foram implementados métodos indiretos para desenho através do \emph{framework} \emph{CoreGraphics}, o que deixava a aplicação sobrecarregada, pois com este método era necessário o recálculo de todas as marcações realizadas no mapa a cada transição de movimento.
+
+Porém com o lançamento do SDK 4.0 no final do mês de Agosto algumas melhorias foram implementadas no \emph{framework MapKit}, sendo possível a implementação de uma camada gráfica em cima do mapa. A partir do estudo dessa camada, conseguiu-se implementar uma solução mais dinâmica onde já não era mais necessário o recálculo de todas marcações para cada mudança no mapa.
 
 % subsubsection dificuldades_iniciais (end)
 
