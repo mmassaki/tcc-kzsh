@@ -320,9 +320,9 @@ Métodos de requisição de rotas é realizado a partir da requisição das posições d
 
 \textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pre-formatado com o endereço do local entrado pelo usuário.
 
-\textbf{RouteRecalculatorClock:} Para o caso do uso da posição atual do usuário no endereço de origem, a classe objeto \emph{RouteRecalculatorClock} é ativada. A cada 10 segundos é conferida a distância entre o usuário e a rota definida, e caso for maior que 50 metros uma nova requisição de rota é enviada, atualizando o trajeto para a posição original do usuário naquele momento.
+\textbf{RouteRecalculatorClock:} Para o caso do uso da posição atual do usuário no endereço de origem, o objeto do tipo  \emph{RouteRecalculatorClock} é ativada. A cada 10 segundos é conferida a distância entre o usuário e a rota definida, e caso for maior que 50 metros uma nova requisição de rota é enviada, atualizando o trajeto para a posição original do usuário naquele momento.
 
-\textbf{RoutePolyline:} Classe objeto que possui uma lista de pontos para desenho da rota no mapa.
+\textbf{RoutePolyline:} Objeto do tipo marcação de rota. Possui uma lista de pontos para desenho da rota no mapa.
 
 
 % subsubsection módulo_de_geração_de_rota (end)
@@ -344,7 +344,7 @@ Um outro problema de integridade dos dados surgiu, pois dependendo da condição d
 
 \textbf{TrafficClock:} Objeto que realiza a rotina de atualização da malha de tráfego a cada 30 segundos. Ao movimentar o mapa, faz a requisição automática para extender a malha de tráfego para a região em visualização.
 
-\textbf{TrafficPolyline:} Classe objeto que possui uma lista de pontos para desenho da malha de transito no mapa. Para cada \emph{TrafficPolyline} é definido uma cor para sua linha, representando as condições do tráfego na região marcada.
+\textbf{TrafficPolyline:} Objeto do tipo anotação no mapa, possuindo uma lista de pontos para desenho da malha de transito. Para cada objeto \emph{TrafficPolyline} é definido uma cor para sua linha, representando as condições do tráfego na região marcada.
 
 % subsubsection módulo_de_trânsito (end)
 
@@ -375,7 +375,7 @@ As principais classes utilizadas neste módulo estão listadas a seguir:
 
 \textbf{EventDetailsViewController:} Classe que disponibiliza a criação do tipo do evento selecionado anteriormente pelo \emph{EventListViewController}. Há espaço para uma descrição e uma foto para uma melhor representação do evento identificado.
 
-\textbf{EventAnnotation:} Classe objeto de uma anotação que pode ser adicionada no mapa principal da aplicação.
+\textbf{EventAnnotation:} Classe do tipo anotação que pode ser adicionada no mapa principal da aplicação.
 
  
 
