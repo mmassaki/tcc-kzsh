@@ -17,8 +17,33 @@ A arquitetura geral do sistema, incluindo todos os seus componentes, é apresenta
 
 A arquitetura está dividida basicamente em duas camadas físicas: 
 
-\textbf{Servidor de aplicação e banco dados:} Responsável por armazenar e disponibilizar os dados persistentes enviados pelos usuários do \emph{BetterWay} via internet e utilizados pelo sistema de trânsito. A partir dos dados, manipula a requisição com a \emph{API Google Maps} para gerar uma melhor rota para o dispositivo com o aplicativo. Também fornece o resultado da manipulação dos dados para a exibição da malha do tráfego atual.
+\textbf{Servidor de aplicação e banco dados:} Responsável por armazenar e disponibilizar os dados persistentes enviados pelos usuários do \emph{BetterWay} via internet e utilizados pelo sistema de trânsito. Possui comunicação com a \emph{API Google Maps} para obtenção de informações de rotas, geocodificação e geocodificação reversa, necessárias para tratamento dos dados.
 
 \textbf{Cliente (aplicação \emph{BetterWay}):} Nó referente aos usuários acessando e utilizando a aplicação \emph{BetterWay}. Na aplicação está a interface que apresenta o mapa com todas informações disponibilizadas pelo servidor. Possui um sistema interno para gerir endereços recentes buscados, favoritos e também de informar eventos.
 
+\subsection{Limitações} % (fold)
+\label{sub:limitações}
+
+O sistema, por utilizar os serviços disponibilizados pelo \emph{Google Maps} possui algumas limitações referente ao seu uso, pois estes serviços possuem um número limitado de requisições por dia que cada usuário pode realizar, listados na tabela~\ref{tab:limite_de_uso_maps_api}.
+
+\begin{table}[htb!]
+    \caption{Limites de uso dos serviços da \emph{API Google Maps}}
+    \label{tab:limite_de_uso_maps_api}
+    \centering
+    \begin{tabular}{c c}
+        \toprule
+        \textbf{Serviço} &         \textbf{Limite (req./dia)}\\
+        Geocodificação*	 &             2.500\\
+        Rotas 					 &             2.500\\
+        \toprule
+    \end{tabular}
+		\\
+		Fonte: \cite{Google:MapsAPI:Geocoding}\cite{Google:MapsAPI:Direction}
+		
+		* O serviço de geocodificação reversa está incluso no serviço de geocodificação.
+\end{table}
+
+O \emph{Google Maps} disponibiliza o serviço pago \emph{Google Maps API Premier} que possui um número maior de requisições por dia permitidas, mas como para execução deste trabalho não exige-se um número muito alto de requisições utilizou-se o serviço gratuito, sabendo das suas limitações.
+
+% subsection limitações (end)
 % section arquitetura_do_sistema (end)
