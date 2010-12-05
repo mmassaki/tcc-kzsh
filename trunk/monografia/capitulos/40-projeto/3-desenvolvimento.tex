@@ -97,7 +97,7 @@ Esta requisição é tratada pelo método \emph{index} da classe \emph{EventosContro
 
 Os eventos informados pelos usuários são exibidos durante 30 minutos. Após esse período eles são marcados como inativos no banco de dados, não sendo mais informados pelo servidor.
 
-Para a implementação da atualização dos registros no banco de dados utilizou-se o ``crontab'' do servidor. O ``crontab'' é um utilitário dos sistemas Unix e Solaris que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
+Para a implementação da atualização dos registros no banco de dados utilizou-se o ``crontab'' do servidor. O ``crontab'' é um utilitário dos sistemas \emph{Unix} e \emph{Solaris} que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
 
 Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo.
 
@@ -117,6 +117,8 @@ Os registros são dados armazenados no servidor para interpretação da situação do
 O envio do registro é feito através de um POST para o endereço \url{betterway.co.cc/registros} e o método \emph{create} da classe \emph{RegistrosController} é o responsável por manipular essas requisições.
 
 O horário de envio é obtido pelo relógio do servidor pelo mesmo motivo citado anteriormente - evitar erro de informação já que o usuário pode ajustar manualmente o horário do dispositivo móvel.
+
+Após a criação do registro, dispara-se uma \emph{thread} que busca o endereço referente à coordenada informada, armazena-o no banco de dados e faz uma chamada para a classe \emph{TransitoController} para que ela atualize as informações de trânsito utilizando o novo registro.
 
 % subsubsection criação_de_registros (end)
 
@@ -148,16 +150,28 @@ A API do \emph{Google Maps} utilizada envia os dados com o desenho da rota (\emp
 
 %
 %~~
-%~~ Trânsito
+%~~ Mapeamento do trânsito
 %~~
 %
 
-\subsubsection{Trânsito} % (fold)
-\label{ssub:trânsito}
+\subsubsection{Mapeamento do trânsito} % (fold)
+\label{ssub:mapeamento_do_trânsito}
 
+O servidor deve, através das informações obtidas dos usuários nos registros, mapear o trânsito nas vias por onde os usuários trafegaram. Para que não hajam informações incorretas no mapeamento, foi estabelecida a seguinte premissa:
 
+\begin{itemize}
+	\item Para que as informações de registros tornem-se informações de trânsito para o usuário, são necessários pelo menos cinco usuários informando a mesma situação, ou seja, é necessário que pelo menos cinco usuários trafeguem pela mesma via em tempos próximos informando velocidades compatíveis.
+\end{itemize}
 
-% subsubsection trânsito (end)
+Para armazenar a informação de trânsito é necessário armazenar um trecho de via com a informação de intensidade do trânsito. O servidor armazena duas coordenadas (ponto inicial e final), a intensidade, em escala numérica e, a \emph{polyline} do trecho, que são as coordenadas para desenho no mapa.
+
+Para implementação desta funcionalidade utilizou-se o serviço de geocodificação reversa do \emph{Google}. Este serviço converte uma coordenada em um trecho de endereço. Por exemplo a coordenada (-23.566623, -46.650181) é convertida para ``Av. Paulista, 521-811 - Bela Vista, Sao Paulo - São Paulo, 01311-100, Brazil''.
+
+Dessa forma é possível obter as duas coordenadas do endereço utilizando o serviço de geocodificação do \emph{Google} e a \emph{polyline} do trecho utilizando o serviço de rotas também do \emph{Google}.
+
+Da mesma forma que os eventos, as informações de trânsito ficam ativas apenas por 30 minutos. Caso não seja atualizada a informação dentro desse tempo ela deve ser inativada. Para isso inclui-se na mesma tarefa de atualização da tabela de eventos, um \emph{script} de atualização da tabela de trânsito.
+
+% subsubsection mapeamento_do_trânsito (end)
 
 % subsection servidor (end)
 
@@ -173,7 +187,7 @@ A API do \emph{Google Maps} utilizada envia os dados com o desenho da rota (\emp
 
 A aplicação \emph{BetterWay} construída para o ambiente \emph{iOS} é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade e também é responsável pelo envio de eventos e gerenciamento de endereços.
 
-Um modelo de diagrama de classes simplificada da aplicação e o diagrama de navegação estão nas seções~\ref{sec:modelo_de_classes} e \ref{sec:diagrama_navegacao} do apêndice~\ref{cha:especificação_de_requisitos_do_sistema}, respectivamente.
+Um modelo de diagrama de classes simplificada da aplicação e o diagrama de navegação são apresentados na seção~\ref{sec:modelo_de_classes} do apêndice~\ref{cha:especificação_de_requisitos_do_sistema} e na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário} , respectivamente.
  
 
 %
