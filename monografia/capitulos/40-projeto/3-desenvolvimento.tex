@@ -163,6 +163,9 @@ A API do \emph{Google Maps} utilizada envia os dados com o desenho da rota (\emp
 
 A aplicação \emph{BetterWay} construída para o ambiente \emph{iOS} é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade e também é responsável pelo envio de eventos e gerenciamento de endereços.
 
+Um modelo de diagrama de classes simplificada da aplicação e o diagrama de navegação estão nas seções~\ref{sec:modelo_de_classes} e \ref{sec:diagrama_navegacao} do apêndice~\ref{cha:especificação_de_requisitos_do_sistema} respectivamente.
+ 
+
 %
 %~~
 %~~ Dificuldades iniciais
@@ -209,39 +212,9 @@ Classe Delegadora principal da aplicação. Responsável por informar sobre a condi
 
 Os dados a serem armazenados são manipulados pela classe NSUsersDefault, que guarda no SandBox da aplicação. Ao iniciar a aplicação, o método loadDatabase é chamado. Ao encerrar a aplicação, a classe delegate captura essa notificação e assim o processo se retenção de dados é realizada.
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=0.8]{img/iphone/appWillTerminate.png}
-	\caption{Método de encerramento da aplicação.}
-\end{figure}
+\textbf{Reachability:} Para o verificamento de conectividade do aparelho, implementou-se uma classe herdada de \emph{SCNetworkReachability}, disponibilizada pela Apple a partir do \emph{SystemConfiguration.framework}. Verifica-se a conexão com a internet via \emph{edge}/\emph{3G} ou \emph{wifi}.
 
-\textbf{Reachability:} Para o verificamento de conectividade do aparelho, implementou-se uma classe herdada de \emph{SCNetworkReachability}, disponibilizada pela Apple a partir do \emph{SystemConfiguration.framework}. Verifica-se a conexão com a internet via \emph{edge}/\emph{3G} ou \emph{wifi}. O método aplicado é descrito a seguir:
 
-\begin{lstlisting}[language=C]
-- (void) checkNetworkStatus:(NSNotification *)notice {
-	NetworkStatus internetStatus = [internetReachable currentReachabilityStatus];
-	switch (internetStatus) {
-		case NotReachable: {
-			NSLog(@"The internet is down.");
-			self._internetActive = NO;
-			break;
-		}
-		case ReachableViaWiFi: {
-			NSLog(@"The internet is working via WIFI.");
-			self._internetActive = YES;
-			break;
-		}
-		case ReachableViaWWAN: {
-			NSLog(@"The internet is working via WWAN.");
-			self._internetActive = YES;
-			break;
-		}
-	}
-}
-\end{lstlisting}
-
-Possui objetos que verificam de tempo em tempo diversos atributos do aparelho:
-\textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar a posição atual do usuário.
 
 % subsubsection classe_delegadora_mapdirection (end)
 
@@ -256,6 +229,10 @@ Possui objetos que verificam de tempo em tempo diversos atributos do aparelho:
 
 Esta sessão contém a descrição da classe central da aplicação, sendo o responsável pela tela principal. Possui o mapa onde é identificado as funcionalidades de geração de rotas, informação do trânsito e de eventos para o usuário. Possui o \emph{UINavigatorController}, que conecta todas as telas da aplicação.
 
+\textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar a posição atual do usuário.
+
+
+
 % subsubsection view_controller_principal_betterwayviewcontroller (end)
 
 %
@@ -269,19 +246,12 @@ Esta sessão contém a descrição da classe central da aplicação, sendo o responsáv
 
 Este módulo foi estruturada diversas View Controllers necessárias para o fluxo de interatividade com o usuário, que entra com os dados da via de destino e origem no aparelho a fim de gerar uma rota evitando os congestionamentos conhecidos pelo servidor.
 
-A seguir é apresentada o diagrama de classe para a geração de rota na aplicação. Foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas mesmas telas. Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
+O fluxo foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas classe de telas. O diagrama de fluxo encontra-se na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário}.  Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
+Uma breve descrição para cada ViewController está descrita a seguir:
 
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=0.7]{img/iphone/BetterWayDiagramaClasseRota.pdf}
-	\caption{Diagrama de classe para o módulo de geração de rota}
-\end{figure}
-
-
-Uma breve descrição para cada ViewController a seguir:
 \textbf{RouteMenuViewController:} View Controller que exibe uma lista de opções para o usuário. Para o caso de se selecionar o endereço de destino a classe exibe as opções entrar com endereço ou utilizar da lista de favoritos. Para o caso de se selecionar o endereço de origem ela exibe além das opções disponíveis no caso de endereço destino, a opção de se utilizar o endereço atual do dispositivo.
-A implementação para o uso do endereço atual utilizou-se da classe \emph{MKReverseGeocode}, que a partir da posição em relação a latitude e longitude do local, utiliza-se o serviço de rastreamento de endereço da API do Google Maps.
+A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKReverseGeocode}, que a partir da posição em relação a latitude e longitude do local, faz a chamada para o serviço de rastreamento de endereço da API do Google Maps, obtendo assim o endereço completo que existe naquele ponto.
 
 \begin{figure}[htpb]
 	\centering
@@ -290,21 +260,21 @@ A implementação para o uso do endereço atual utilizou-se da classe \emph{MKRever
 	\caption{Aplicação na tela de seleção de menu de endereços}
 \end{figure}
 
-
+Uma descrição das principais classes utilizadas para esse módulo encontra-se abaixo:
 \textbf{AddressViewController:} Classe que oferece a interface para o usuário digitar o endereço. Exibe uma lista do histórico da aplicação, que pode ser utilizada sem a necessidade de digitar novamente o endereço já usado.
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.2]{img/iphone/AddressViewController.png}
-	\caption{Aplicação na tela de inclusão de endereço}
-\end{figure}
+% \begin{figure}
+% 	\centering
+% 	\includegraphics[scale=0.2]{img/iphone/AddressViewController.png}
+% 	\caption{Aplicação na tela de inclusão de endereço}
+% \end{figure}
 
 \textbf{FavoriteListViewController:} Classe que exibe a lista de favoritos salvos pelo usuário. Pode-se excluir da lista arrastando o dedo encima do endereço favorito salvo, e confirmar a exclusão com o botão que aparece na tela.
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=0.2]{img/iphone/FavoriteListViewController.png}
-	\caption{Aplicação na lista de favoritos}
-\end{figure}
+% \begin{figure}[htpb]
+% 	\centering
+% 	\includegraphics[scale=0.2]{img/iphone/FavoriteListViewController.png}
+% 	\caption{Aplicação na lista de favoritos}
+% \end{figure}
 
 \textbf{SearchViewController:}
 Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local. O usuário possui as opcões de salvar no favorito, enviar via e-mail e confirmar o endereço.
@@ -315,41 +285,18 @@ Classe que apresenta a tela que exibe informações do endereço encontrado a parti
 	\caption{Aplicação exibindo detalhes do endereço}
 \end{figure}
 
-Métodos de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário. Nas figuras abaixo, encontram-se os códigos usado para a requisição no servidor, e o tratamento de sua resposta. O método de requisição está descrito abaixo:
-\\
-\begin{lstlisting}[language=C]
-- (void)requestRouteWithDestinationAddress:(AddressLocation *)toDestination withOrigin:(AddressLocation *)toOrigin {
-	NSString *requestString = [NSString stringWithFormat:@"%@/rota/tracar?origem=%f,%f&destino=%f,%f", 
-							   SERVER_URL,
-							   toOrigin.coordinate.latitude,
-							   toOrigin.coordinate.longitude,
-							   toDestination.coordinate.latitude,
-							   toDestination.coordinate.longitude];
-	NSURL *url = [NSURL URLWithString:requestString];
-	ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-	[request setDelegate:self];
-	[request setDidFinishSelector:@selector(requestDone:)];
-	[request setDidFailSelector:@selector(requestWentWrong:)];
-	[request addRequestHeader:@"User-Agent" value:@"BetterWayv1.0"];	
-	[request setRequestMethod:@"GET"];	
-	[request startAsynchronous];
-}
-\end{lstlisting}
-
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=0.6]{img/iphone/coreRotaResponse.png}
-	\caption{Tratamento da resposta de requisição de rota}
-\end{figure}
+Métodos de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário. Nas figuras abaixo, encontram-se os códigos usado para a requisição no servidor, e o tratamento de sua resposta.
 
 
-Classes para as funções suplementares da aplicação:
 \textbf{FavoriteAddViewController:} View Controller com formulário para a entrada no nome do endereço favorito a ser adicionado.
 
 
-\textbf{SendDestinationViewController:} Classe auxiliar para o envio via e-mail do endereço selecionado pelo usuário. Utiliza-se a classe MFMailComposeViewController disponibilizado pela Apple.
+\textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pre-formatado com o endereço do local entrado pelo usuário.
 
 \textbf{RouteRecalculatorClock:} Para o caso do uso da posição atual do usuário no endereço de origem, a Classe objeto RouteRecalculatorClock é ativada. A cada 10 segundos é conferida a distância entre o usuário e a rota definida, e caso for maior que 50 metros uma nova requisição de rota é enviada, atualizando o trajeto para a posição original do usuário naquele momento.
+
+\textbf{RoutePolyline:} Classe objeto que possui uma lista de pontos para desenho da rota no mapa.
+
 
 % subsubsection módulo_de_geração_de_rota (end)
 
@@ -363,12 +310,14 @@ Classes para as funções suplementares da aplicação:
 \label{ssub:módulo_de_trânsito}
 
 Para implementação do módulo de trânsito é utilizado um método para chamadas contínuas de requisições no servidor para adquirir informações sobre a malha de tráfego nas redondezas que o usuário está visualizando. A malha é desenhada como se fosse uma lista de trajetos a serem desenhadas no mapa. A via é colorida a partir da informação da cor a ser renderizada para a via no dado de retorno da requisíção.
-
-
-\textbf{TrafficClock:} Objeto que realiza a rotina de atualização da malha de tráfego a cada 30 segundos. Ao movimentar o mapa, faz a requisição automática para extender a malha de tráfego para a região em visualização.
+Uma listagem das principais classes para este módulo encontra-se a seguir:
 
 \textbf{RegisterClock:} Objeto que envia a identificação, posição e velocidade do usuário a cada 3 segundos. Inicialmente definimos que o tempo do momento que o registro é disparado era também enviado para o servidor. Porém não tinhamos levado em consideração que cada aparelho poderia ter horários diferentes, invalidando os dados no servidor. Para solucionar este problema, o servidor ficou responsável por guardar o horário de recebimento do registro.
 Um outro problema de integridade dos dados surgiu, pois dependendo da condição de conexão de internet do dispositivo tiveram casos em que mais de uma requisição de registro era realizada ao mesmo tempo. Cada requisição possuia dados de velocidade diferentes, mas com exatamente o mesmo tempo. Com uma política de envio sincromo dos dados do registro solucionamos este problema, tendo agora a diferença de 3 segundos entre requisições com contato com sucesso ao servidor.
+
+\textbf{TrafficClock:} Objeto que realiza a rotina de atualização da malha de tráfego a cada 30 segundos. Ao movimentar o mapa, faz a requisição automática para extender a malha de tráfego para a região em visualização.
+
+\textbf{TrafficPolyline:} Classe objeto que possui uma lista de pontos para desenho da malha de transito no mapa. Para cada TrafficPolyline é definido uma cor para sua linha, representando as condições do tráfego na região marcada.
 
 % subsubsection módulo_de_trânsito (end)
 
@@ -381,7 +330,11 @@ Um outro problema de integridade dos dados surgiu, pois dependendo da condição d
 \subsubsection{Módulo de eventos} % (fold)
 \label{ssub:módulo_de_eventos}
 
-O módulo de eventos contém classes que coordenam os métodos para gerenciar os eventos. Contém uma rotina de requisição da lista de eventos com o servidor que é atualizado a cada 10 segundos, e relacionado com o nível de zoom que o usuário está visualizando no mapa. Dependendo da resposta do servidor novas marcações no mapa de eventos são criados ou removidos.
+O módulo de eventos contém classes que coordenam os métodos para gerenciar os eventos. Contém uma rotina de requisição da lista de eventos com o servidor que é atualizado a cada 10 segundos, e relacionado com o nível de zoom que o usuário está visualizando no mapa. Dependendo da resposta do servidor novas marcações no mapa de eventos são criados ou removidos. 
+Para marcação de um novo evento, é possível definir entre 4 tipos: polícia, trânsito, acidente e aviso. O usuário pode colocar uma breve descrição e foto para complementar as informações do evento a ser divulgado. 
+Para salvar e disponibilizar a foto, foi realizado um redimensionamento e compressão para que não consuma muita banda de internet do dispositivo. Houveram dificuldades no gerenciamento de memória para realizar este tratamento da foto, sendo necessário um grande esforço de organização de alocação de memória do dispositivo.
+As principais classes utilizadas neste módulo estão listadas a seguir:
+
 
 \textbf{EventClock:} Classe que opera esporadicamente a requisição da lista de eventos no servidor. Entre uma requisição e outra foi definido 8 segundos de espera. Também é responsável por tratar a resposta do servidor.
 
@@ -391,10 +344,13 @@ O módulo de eventos contém classes que coordenam os métodos para gerenciar os ev
 	\caption{Evento identificado no mapa}
 \end{figure}
 
-Para criar um novo evento na posição atual do dispositivo, seleciona-se ``+ Evento'' na tela principal.
 \textbf{EventListViewController:} View Controller que dispõe para o usuário a escolha de que tipo de evento ele quer criar. Há as opções de ``Polícia'', ``Trânsito'', ``Acidente'' e ``Aviso''.
 
 \textbf{EventDetailsViewController:} Classe que disponibiliza a criação do tipo do evento selecionado anteriormente pelo EventListViewController. Há espaço para uma descrição e uma foto para uma melhor representação do evento identificado.
+
+\textbf{EventAnnotation:} Classe objeto de uma anotação que pode ser adicionada no mapa principal da aplicação.
+
+ 
 
 % subsubsection módulo_de_eventos (end)
 
