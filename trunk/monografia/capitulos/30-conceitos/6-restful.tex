@@ -11,7 +11,7 @@ REST (\emph{REpresentational State Transfer}) é um padrão projetado para troca d
 Os métodos HTTP, como GET e POST, são os verbos que o desenvolvedor pode utilizar para descrever as ações de criação, leitura, atualização e remoção a serem executadas. Pode-se fazer uma analogia desses verbos com as operações no SQL (Tabela~\ref{tab:SQL_HTTP}), porém o REST e os protocolos HTTP são mutuamente exclusivos e o REST não requer HTTP \cite{Oracle:RESTful}.
 
 \begin{table}[htb!]
-    \caption{Relação entre SQL e verbos HTTP. Fonte: \cite{Oracle:RESTful}}
+    \caption{Relação entre SQL e verbos HTTP}
     \label{tab:SQL_HTTP}
     \centering
     \begin{tabular}{c c c}
@@ -23,6 +23,9 @@ Os métodos HTTP, como GET e POST, são os verbos que o desenvolvedor pode utiliza
         Remover				&   Delete			 &             DELETE\\
         \toprule
     \end{tabular}
+		\\
+		\centering
+		Fonte: \cite{Oracle:RESTful}
 \end{table}
 
 Os dados enviados ao usuário pelo servidor podem ser estruturados de diversas maneiras como XML, JSON ou páginas HTML. Para este trabalho utilizou-se o formato JSON devido a sua facilidade de uso, possuir diversas referências e suporte e resultar em mensagens simples, de baixo custo de transferência.
