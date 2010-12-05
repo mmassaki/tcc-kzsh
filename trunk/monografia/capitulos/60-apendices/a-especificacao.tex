@@ -713,12 +713,15 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Modelo de classes}
 	\label{sec:modelo_de_classes}
-	Os diagramas de classes do aplicativo móvel e do servidor são apresentados nas figuras \ref{fig:diagrama_classes_iphone} e \ref{fig:diagrama_classes_servidor}, respectivamente.
+	Os diagramas de classes simplificada do aplicativo móvel e do servidor são apresentados nas figuras \ref{fig:diagrama_classes_iphone} e \ref{fig:diagrama_classes_servidor}, respectivamente.
 	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[width=\linewidth]{img/apendice_a/diagrama_classes_iphone.pdf}
-		\caption{Diagrama de classes do aplicativo móvel}
+		\includegraphics[width=\linewidth]{img/apendice_a/DiagramaClassesViewController1.pdf}
+		\includegraphics[width=\linewidth]{img/apendice_a/DiagramaClassesViewController2.pdf}
+		\includegraphics[width=\linewidth]{img/apendice_a/TrafficPolyLine.pdf}
+		\includegraphics[width=\linewidth]{img/apendice_a/MKAnnotations.pdf}
+		\caption{Diagrama de classes simplificada do aplicativo móvel}
 		\label{fig:diagrama_classes_iphone}
 	\end{figure}
 	
@@ -751,7 +754,32 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\label{fig:diagrama_estados_transito}
 	\end{figure}
 	
+	O modelo de estados do relógio de recalculagem de rotas é descrito na figura~\ref{fig:diagrama_estados_relogio_recalculador}.
+	
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=\linewidth]{img/apendice_a/DiagramaEstadoRouteRecalculatorClock.pdf}
+		\caption{Diagrama de estados do evento}
+		\label{fig:diagrama_estados_relogio_recalculador}
+	\end{figure}	
+	
 	% subsection modelo_de_estados (end)
+%%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modelo de classes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsection{Fluxograma da aplicação no iPhone}
+	\label{sec:diagrama_navegacao}
+	O diagrama de navegação do aplicativo móvel está representado na figura \ref{fig:diagrama_navegacao_iphone}.
+
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=\linewidth]{img/apendice_a/DiagramaNavegacaoBetterWay.pdf}
+		\caption{Diagrama de navegação do aplicativo móvel}
+		\label{fig:diagrama_navegacao_iphone}
+	\end{figure}
+	
+
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Restrições do projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
