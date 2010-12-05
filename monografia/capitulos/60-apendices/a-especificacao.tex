@@ -647,28 +647,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\begin{enumerate}
 			\item Usuário cancela remoção (passo 2): sistema retorna à tela anterior.
 		\end{enumerate}
-
-	% \section{Modelo de classes}
-	% Bla.
-	% 
-	% \section{Modelo de interação}
-	% Bla.
-	% 
-	% \section{Modelo de estados}
-	% Bla.
-	% 
-	% \section{Requisitos de banco de dados}
-	% Bla.
-	% 
-	% \begin{itemize}
-	% 	\item Alta disponibilidade
-	% 	\item Robustez
-	% 	\item Banda larga
-	% \end{itemize}
-	% 
-	% \section{Descrição das interfaces externas}
-	% Bla.
-
+	
 %%%%%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Protótipo de telas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -734,23 +713,38 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Modelo de classes}
 	\label{sec:modelo_de_classes}
-	Os diagramas de classes do sistema são apresentados nas figuras \ref{fig:diagrama_classes_iphone} (aplicativo móvel) e \ref{fig:diagrama_classes_servidor} (servidor).
+	Os diagramas de classes do aplicativo móvel e do servidor são apresentados nas figuras \ref{fig:diagrama_classes_iphone} e \ref{fig:diagrama_classes_servidor}, respectivamente.
 	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[width=\linewidth]{img/apendice_a/class_diagram.pdf}
+		\includegraphics[width=\linewidth]{img/apendice_a/diagrama_classes_iphone.pdf}
 		\caption{Diagrama de classes do aplicativo móvel}
 		\label{fig:diagrama_classes_iphone}
 	\end{figure}
 	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[width=\linewidth]{img/apendice_a/class_diagram.pdf}
+		\includegraphics[width=\linewidth]{img/apendice_a/diagrama_classes_servidor.pdf}
 		\caption{Diagrama de classes do servidor}
 		\label{fig:diagrama_classes_servidor}
 	\end{figure}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modelo de estados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\subsection{Modelo de estados} % (fold)
+	\label{sub:modelo_de_estados}
+	
+	O modelo de estados do evento de trânsito é descrito na figura~\ref{fig:diagrama_estados_evento}.
+	
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=\linewidth]{img/apendice_a/diagrama_estados_evento.pdf}
+		\caption{Diagrama de estados do evento}
+		\label{fig:diagrama_estados_evento}
+	\end{figure}
+	
+	% subsection modelo_de_estados (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Restrições do projeto
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
