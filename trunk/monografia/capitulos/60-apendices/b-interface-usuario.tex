@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Objetivo do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Objetivo do documento} % (fold)
+\label{sec:objetivo_do_documento}
+
+O objetivo deste documento é apresentar a interface homem-computador (IHC) do sistema.
+
+% section objetivo_do_documento (end)
+
+
+\section{Estilo da interface} % (fold)
+\label{sec:estilo_da_interface}
+
+A interface do sistema é simplificada visando maior facilidade e usabilidade. Os estilos da interface são listados a seguir:
+
+\begin{itemize}
+	\item Janelas
+	\item Ícones
+	\item Formulários
+	\item Linguagem natural
+\end{itemize}
+
+% section estilo_da_interface (end)
+
+
+\section{Identificação dos principais objetos} % (fold)
+\label{sec:_identificação_dos_principais_objetos}
+
+O principal objeto do sistema é a imagem do mapa que é exibido na tela principal. Os eventos atuais do mapa são identificados por ícones e o trânsito atual por cores das vias variando do vermelho (ruim) ao verde (bom).
+
+A interface faz uso de botões com texto ou imagens auto-explicativas, assim como alguns comandos comuns em aplicativos para iPhone como o deslizamento do dedo sobre o mapa para navegação e \emph{zoom} com uso de dois dedos.
+
+Para o envio de informações detalhadas sobre o evento há o uso de formulários e imagens que são adquiridas na hora com a câmera do aparelho.
+
+Janelas de aviso informam o usuário de eventuais erros ocorridos.
+
+% section _identificação_dos_principais_objetos (end)
+
+
+\section{Protótipo de navegação} % (fold)
+\label{sec:protótipo_de_navegação}
+
+A navegação do sistema é demonstrado a seguir:
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[scale=0.85]{img/apendice_b/diagrama_navegacao.pdf}
+	\caption{Diagrama de navegação}
+\end{figure}
+
+Algumas considerações:
+
+\begin{itemize}
+	\item O botão voltar sempre retorna para a tela anterior;
+	\item A tela ``Mapa'' pode variar de acordo com as solicitações do usuário com relação à exibição das seguintes informações:
+	\begin{itemize}
+		\item posição atual do usuário;
+		\item informações de trânsito;
+		\item rota criada pelo usuário;
+	\end{itemize}
+	\item A tela ``Confirmação de envio'' varia de acordo com o meio de envio selecionado, mas em todos os casos o usuário deve confirmar o envio antes.
+\end{itemize}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/apendice_b/main_screen.png}
+	\caption{Tela principal}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/apendice_b/tipo_evento_screen.png}
+	\caption{Tela de seleção de tipo de evento}
+\end{figure}
