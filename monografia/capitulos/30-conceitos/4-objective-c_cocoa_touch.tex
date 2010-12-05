@@ -6,25 +6,48 @@
 \section{Objective-C e Cocoa Touch} % (fold)
 \label{sec:objective-c_e_cocoa touch}
 
-\emph{Objetive-C} é a linguagem primária usada para construir \emph{softwares} para macOS e iOS baseada na linguagem C, com programação orientada a objeto. A origem dos conceitos são relacionados à linguagem \emph{Smalltalk}, uma das primeiras linguagens orientada a objeto.
+\emph{Objective-C}\cite{Objective-C}  é a linguagem primária usada para construir \emph{softwares} para macOS e iOS baseada na linguagem C, com programação orientada a objeto. A origem dos conceitos são relacionados à linguagem \emph{Smalltalk}, uma das primeiras linguagens orientada a objeto.
 
-\emph{Cocoa Touch} é um \emph{framework} de padrão de projeto utilizado no iOS com foco específico na interface orientada a toques. Fornece ferramentas básicas para implementar, como por exemplo o \emph{UIKit} que é o responsável pelo visual das aplicações do sistema operacional, como também gerenciamento de dados na aplicação, conexão, construção de \emph{strings}, acelerômetro, etc.
+\emph{Cocoa Touch} é um \emph{framework} de padrão de projeto utilizado no iOS com foco específico na interface orientada a toques. Fornece ferramentas básicas para implementar, como por exemplo o \emph{UIKit} que é o responsável pelo visual das aplicações do sistema operacional, como também gerenciamento de dados na aplicação, conexão, construção de \emph{strings}, acelerômetro, etc. Possui como base o \emph{Core OS} e o \emph{Core Services}, utilizados também no \emph{MacOS}.
 
-Para características mais específicas da aplicação é separada a parte em outros pacotes de desenvolvimento dentro do \emph{Cocoa Touch}. Alguns exemplos:
-
-\begin{enumerate}
-	\item \emph{Core Animation}
-	\item \emph{Core Data}
-	\item \emph{Core Audio}
-	\item \emph{Core}
-\end{enumerate}
-
-Também tem como base o \emph{Core OS} e o \emph{Core Services}, utilizados no \emph{MacOS}.
-
-\begin{figure}[htp]
+\begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.8]{img/iphone/CocoaTouch.png}
 	\caption{Camadas base do \emph{Cocoa Touch}}
 \end{figure}
+
+\subsection{Classes e objetos} % (fold)
+\label{sub:arquitetura_mvc_cocoa}
+
+Um objeto consiste em informações e métodos para manipular-las. Um objeto é uma instância de uma classe, o que significa que foi alocada memória para aquela instância especifica. Pode-se encapsular informações no objeto, sendo possível apenas métodos dentro do objeto serem capazes de acessar-la. Para outros objetos ou códigos externos conseguirem acessar essas informações, é requisitado à um método deste objeto.
+
+
+\subsection{Arquitetura MVC} % (fold)
+\label{sub:arquitetura_mvc_cocoa}
+
+A proposta da arquitetura MVC do Cocoa é dividir os objetos em cada um dos tipos da camada, como está representada na figura \ref{fig:mvcCocoa}.
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[scale=0.8]{img/iphone/mvcCocoaPic.png}
+	\caption{Esquema do fluxo da Arquitetura MVC do Cocoa. Retirado de \cite{Objective-C}}
+	\label{fig:mvcCocoa}
+\end{figure}
+
+\textbf{\emph{Model:}} Possui as classes objetos(NSObject) que são criados e manipulados de acordo com a lógica do negócio do sistema. Responsável por comunicar com um possível banco de dados para persistência das informações. 
+
+\textbf{\emph{View:}} Representa a tela visível para o usuário. Usualmente contendo botões, campos de texto, campos para imagens, etc. A ferramenta \emph{Interface Builder} do \emph{Xcode} facilita a construção desta camada.
+
+\textbf{\emph{Controller:}} Classes mediadoras entre as classes da camada \emph{Model} e camada \emph{View} da aplicação. Coordenam a comunicação e executam as tarefas necessárias para a lógica de negócio do sistema. Por exemplo:
+\begin{enumerate}
+	\item \emph{UIViewController}: Responsável direto pela interface apresentada ao usuário.
+	\item \emph{UIApplicationDelegate}: Responsável pela delegação das informações do sistema.
+\end{enumerate}
+
+
+
+
+
+
 
 % section objective-c_e_cocoa touch (end)
