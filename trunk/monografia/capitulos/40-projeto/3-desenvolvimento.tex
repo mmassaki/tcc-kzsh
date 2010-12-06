@@ -21,7 +21,7 @@ Neste capítulo são descritos separadamente os procedimentos executados para impl
 
 Para que o desenvolvimento fosse ágil, utilizou-se o \emph{Scaffolding} do \emph{Rails}. O \emph{Scaffolding} gera toda a parte de CRUD dos objetos, inclusive o \emph{script} de criação de tabela no banco de dados, utilizando-se o \emph{WebService} \emph{RESTful} para acesso, criação e edição dos dados.
 
-Foi registrado um domínio gratuito no site \url{http://www.co.cc/} com o nome \url{betterwayserver.co.cc} e foi contratado um plano de hospedagem de \emph{site} nos servidores da empresa TeHospedo: serviços de internet \cite{TeHospedo:site}, que fornece hospedagem \emph{Linux} para aplicações \emph{Ruby on Rails}.
+Foi registrado o domínio gratuito \url{betterwayserver.co.cc} no site \url{http://www.co.cc/} e foi contratado um plano de hospedagem de \emph{site} nos servidores da empresa TeHospedo: serviços de internet \cite{TeHospedo:site}, que fornece hospedagem \emph{Linux} para aplicações \emph{Ruby on Rails}.
 
 
 \subsubsection{Dificuldades iniciais} % (fold)
@@ -70,6 +70,8 @@ O arquivo de imagem do evento é obtido via POST \emph{multipart/form-data} e os 
 \label{ssub:consulta_de_eventos}
 
 O servidor deve fornecer as informações dos eventos atuais aos usuários. Para isso o aplicativo móvel pode acessar os dados dos eventos através de um GET no endereço \url{http://betterway.co.cc/eventos} de duas maneiras:
+
+\pagebreak
 
 \begin{enumerate}
 	\item \textbf{Eventos localizados:}
@@ -289,6 +291,7 @@ A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKRe
 \end{figure}
 
 Descrição das principais classes utilizadas neste módulo:
+
 \textbf{SearchAddressViewController:} Classe que oferece a interface para o usuário digitar o endereço. Exibe uma lista do histórico da aplicação, que pode ser utilizada sem a necessidade de digitar novamente o endereço já usado. O framework do iPhone não disponibiliza a procura de endereços, sendo necessário o uso da API de serviços do Google Maps para fazer a verificação da existência do endereço digitado pelo usuário.
 
 

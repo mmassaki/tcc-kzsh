@@ -143,7 +143,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		Os atores do sitema são:
 		\begin{itemize}
 			\item Usuário que utiliza a aplicação através do iPhone;
-			\item \emph{Timer} que envia periodicamente informações de trânsito;
+			\item \emph{Timer} que envia e solicita informações periodicamente;
 			\item API de rotas acessada através da internet.
 		\end{itemize}
 	
@@ -214,6 +214,8 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 	\textbf{Atores:} Usuário
 	
 	\textbf{Pré-condição:} Sistema na tela principal exibindo o mapa.
+
+\pagebreak
 	
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
@@ -333,6 +335,8 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\item Caso de uso 10: Selecionar localização (passo 2-3 e 6-7)
 		\item Caso de uso 11: Calcular rota (passo 8)
 	\end{enumerate}
+
+\pagebreak
 
 	\textbf{Extensões:}
 	\begin{enumerate}
@@ -506,7 +510,9 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 	\textbf{Atores:} Usuário
 	
 	\textbf{Pré-condição:} Sistema na tela de seleção de meio de envio de destino.
-	
+
+\pagebreak	
+
 	\textbf{Seqüência de eventos:}
 	\begin{enumerate}
 		\item Sistema solicita o(s) e-mail(s) do(s) destinatário(s) e exibe a mensagem a ser enviada podendo ser editada;
@@ -549,7 +555,8 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\end{enumerate}
 
 
-\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Caso de uso 15 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
 
 	\textbf{Caso de uso 15:} Requisitar eventos
 
@@ -632,7 +639,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Modelo de classes}
 	\label{sec:modelo_de_classes}
-	\textbf{Servidor:} Os diagramas de classes do servidor está apresentado na figura\ref{fig:diagrama_classes_servidor}  
+	\textbf{Servidor:} Os diagramas de classes do servidor é apresentado na Figura~\ref{fig:diagrama_classes_servidor}.
 	
 	\begin{figure}[htpb]
 		\centering
@@ -641,7 +648,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\label{fig:diagrama_classes_servidor}
 	\end{figure}
 	
-	\textbf{Aplicação móvel:} O diagrama de classe simplificado dos \emph{View Controllers} da aplicação para o iOS está apresentado na figura\ref{fig:diagrama_classes_iphone}. Todos objetos neste diagrama são da Classe \emph{UIViewController}, herdados da super classe \emph{NSObject} do \emph{framework Cocoa}.
+	\textbf{Aplicação móvel:} O diagrama de classe simplificado dos \emph{View Controllers} da aplicação para o \emph{iOS} é apresentado na Figura~\ref{fig:diagrama_classes_iphone}. Todos objetos neste diagrama são da Classe \emph{UIViewController}, herdados da super classe \emph{NSObject} do \emph{framework Cocoa}.
 	
 		
 	\begin{figure}[htpb]
@@ -652,24 +659,27 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 	\end{figure}
 	
 	
-	Nas figuras \ref{fig:diagrama_classes_iphone}, \ref{fig:diagrama_classes_TrafficPolyLine} e \ref{fig:diagrama_classes_MKAnnotations} encontra-se as classes não controladoras na aplicação. Todas herdam da super classe NSObject.
+	Nas figuras \ref{fig:diagrama_classes_clock}, \ref{fig:diagrama_classes_traffic_polyLine} e \ref{fig:diagrama_classes_mkannotations} encontra-se as classes não controladoras na aplicação. Todas herdam da super classe NSObject.
+	
 	\begin{figure}[htpb]
 		\centering
 		\includegraphics[scale=0.25]{img/apendice_a/DiagramaClassesClock.pdf}
 		\caption{Diagrama de classes simplificada do tipo \emph{timer} do aplicativo móvel}
-		\label{fig:diagrama_classes_TrafficPolyLine}
+		\label{fig:diagrama_classes_clock}
 	\end{figure}
+	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[scale=0.6]{img/apendice_a/TrafficPolyLine.pdf}
+		\includegraphics[scale=0.4]{img/apendice_a/TrafficPolyLine.pdf}
 		\caption{Diagrama de classes simplificada do tipo marcação da rota do aplicativo móvel}
-		\label{fig:diagrama_classes_TrafficPolyLine}
+		\label{fig:diagrama_classes_traffic_polyLine}
 	\end{figure}
+	
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[scale=0.4]{img/apendice_a/MKAnnotations.pdf}
+		\includegraphics[scale=0.3]{img/apendice_a/MKAnnotations.pdf}
 		\caption{Diagrama de classes simplificada do tipo anotação no mapa do aplicativo móvel}
-		\label{fig:diagrama_classes_MKAnnotations}
+		\label{fig:diagrama_classes_mkannotations}
 	\end{figure}	
 
 
@@ -679,7 +689,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 	\subsection{Modelo de estados} % (fold)
 	\label{sub:modelo_de_estados}
 	
-	Os modelos de estados do evento e do trânsito são apresentados nas figuras \ref{fig:diagrama_estados_evento} e \ref{fig:diagrama_estados_transito}, respectivamente.
+	Os modelos de estados do evento, do trânsito e do relógio de recálculo de rotas são apresentados nas Figuras~\ref{fig:diagrama_estados_evento}, \ref{fig:diagrama_estados_transito} e \ref{fig:diagrama_estados_relogio_recalculador}, respectivamente.
 	
 	\begin{figure}[htpb]
 		\centering
@@ -695,14 +705,12 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\label{fig:diagrama_estados_transito}
 	\end{figure}
 	
-	O modelo de estados do relógio de recalculagem de rotas é descrito na figura~\ref{fig:diagrama_estados_relogio_recalculador}.
-	
-	\begin{figure}[htpb]
+	\begin{figure}[h!tpb]
 		\centering
 		\includegraphics[width=\linewidth]{img/apendice_a/DiagramaEstadoRouteRecalculatorClock.pdf}
-		\caption{Diagrama de estados do evento}
+		\caption{Diagrama de estados do relógio de recálculo de rotas}
 		\label{fig:diagrama_estados_relogio_recalculador}
-	\end{figure}	
+	\end{figure}
 	
 	% subsection modelo_de_estados (end)
 
@@ -716,6 +724,8 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 	\item A aplicação será desenvolvida para o dispositivo iPhone da Apple;
 	\item Utilização de computadores com sistema operacional MacOS para desenvolvimento da aplicação.
 \end{itemize}
+
+\pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Requisitos não funcionais
