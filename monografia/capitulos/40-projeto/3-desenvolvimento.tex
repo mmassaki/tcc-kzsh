@@ -256,7 +256,7 @@ Os dados a serem armazenados são manipulados pela classe \emph{NSUsersDefault}, 
 
 Esta sessão contém a descrição da classe central da aplicação, sendo o responsável pela tela principal. Possui o mapa onde é identificado as funcionalidades de geração de rotas, informação do trânsito e de eventos para o usuário. Possui o \emph{UINavigatorController}, que conecta todas as telas da aplicação.
 
-\textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar a posição atual do usuário.
+\textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar as informações da posição atual do usuário.
 
 
 
@@ -288,13 +288,9 @@ A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKRe
 	\caption{Aplicação na tela de seleção de menu de endereços}
 \end{figure}
 
-Uma descrição das principais classes utilizadas para esse módulo encontra-se abaixo:
-\textbf{AddressViewController:} Classe que oferece a interface para o usuário digitar o endereço. Exibe uma lista do histórico da aplicação, que pode ser utilizada sem a necessidade de digitar novamente o endereço já usado.
-% \begin{figure}
-% 	\centering
-% 	\includegraphics[scale=0.2]{img/iphone/AddressViewController.png}
-% 	\caption{Aplicação na tela de inclusão de endereço}
-% \end{figure}
+Descrição das principais classes utilizadas neste módulo:
+\textbf{SearchAddressViewController:} Classe que oferece a interface para o usuário digitar o endereço. Exibe uma lista do histórico da aplicação, que pode ser utilizada sem a necessidade de digitar novamente o endereço já usado. O framework do iPhone não disponibiliza a procura de endereços, sendo necessário o uso da API de serviços do Google Maps para fazer a verificação da existência do endereço digitado pelo usuário.
+
 
 \textbf{FavoriteListViewController:} Classe que exibe a lista de favoritos salvos pelo usuário. Pode-se excluir da lista arrastando o dedo encima do endereço favorito salvo, e confirmar a exclusão com o botão que aparece na tela.
 
@@ -304,22 +300,23 @@ Uma descrição das principais classes utilizadas para esse módulo encontra-se aba
 % 	\caption{Aplicação na lista de favoritos}
 % \end{figure}
 
-\textbf{SearchViewController:}
-Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local. O usuário possui as opcões de salvar no favorito, enviar via e-mail e confirmar o endereço.
+\textbf{CheckAddressViewController:}
+Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local. O usuário possui as opcões de salvar no favorito, enviar via e-mail e confirmar o endereço. O método de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário.
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[scale=0.2]{img/iphone/SearchViewController.png}
-	\caption{Aplicação exibindo detalhes do endereço}
+	\caption{Aplicação exibindo detalhes do endereço na \emph{view} do CheckAddressViewController}
+	\label{fig:searchviewcontroller}
 \end{figure}
 
-Métodos de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário. Nas figuras abaixo, encontram-se os códigos usado para a requisição no servidor, e o tratamento de sua resposta.
+
 
 
 \textbf{FavoriteAddViewController:} \emph{View Controller} com formulário para a entrada no nome do endereço favorito a ser adicionado.
 
 
-\textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pre-formatado com o endereço do local entrado pelo usuário.
+\textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pré-formatado com o endereço do local entrado pelo usuário.
 
 \textbf{RouteRecalculatorClock:} Para o caso do uso da posição atual do usuário no endereço de origem, o objeto do tipo  \emph{RouteRecalculatorClock} é ativada. A cada 10 segundos é conferida a distância entre o usuário e a rota definida, e caso for maior que 50 metros uma nova requisição de rota é enviada, atualizando o trajeto para a posição original do usuário naquele momento.
 
@@ -360,7 +357,7 @@ Um outro problema de integridade dos dados surgiu, pois dependendo da condição d
 
 O módulo de eventos contém classes que coordenam os métodos para gerenciar os eventos. Contém uma rotina de requisição da lista de eventos com o servidor que é atualizado a cada 10 segundos, e relacionado com o nível de zoom que o usuário está visualizando no mapa. Dependendo da resposta do servidor novas marcações no mapa de eventos são criados ou removidos. 
 Para marcação de um novo evento, é possível definir entre 4 tipos: polícia, trânsito, acidente e aviso. O usuário pode colocar uma breve descrição e foto para complementar as informações do evento a ser divulgado. 
-Para salvar e disponibilizar a foto, foi realizado um redimensionamento e compressão para que não consuma muita banda de internet do dispositivo. Houveram dificuldades no gerenciamento de memória para realizar este tratamento da foto, sendo necessário um esforço na organização de alocação de memória do dispositivo.
+Para salvar e disponibilizar a foto, foi realizado um redimensionamento e compressão para que não consuma muito tráfego de internet do dispositivo. Houveram dificuldades no gerenciamento de memória para realizar este tratamento da foto, sendo necessário um esforço na organização de alocação de memória do dispositivo.
 As principais classes utilizadas neste módulo estão listadas a seguir:
 
 
