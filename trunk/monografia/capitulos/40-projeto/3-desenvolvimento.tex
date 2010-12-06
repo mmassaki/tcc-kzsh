@@ -278,7 +278,8 @@ Uma breve descrição para cada ViewController está descrita a seguir:
 
 
 \textbf{RouteMenuViewController:} \emph{View Controller} que exibe uma lista de opções para o usuário. Para o caso de se selecionar o endereço de destino a classe exibe as opções entrar com endereço ou utilizar da lista de favoritos. Para o caso de se selecionar o endereço de origem ela exibe além das opções disponíveis no caso de endereço destino, a opção de se utilizar o endereço atual do dispositivo.
-A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKReverseGeocode}, que a partir da posição em relação a latitude e longitude do local, faz a chamada para o serviço de rastreamento de endereço da API do Google Maps, obtendo assim o endereço completo que existe naquele ponto.
+A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKReverseGeocode}, que a partir da posição em relação a latitude e longitude do local, faz a chamada para o serviço de geocodificação da API do Google Maps, obtendo assim o endereço completo que existe naquele ponto.
+
 
 \begin{figure}[htpb]
 	\centering
