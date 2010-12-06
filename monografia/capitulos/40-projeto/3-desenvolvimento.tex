@@ -69,14 +69,12 @@ O arquivo de imagem do evento é obtido via POST \emph{multipart/form-data} e os 
 \subsubsection{Consulta de eventos} % (fold)
 \label{ssub:consulta_de_eventos}
 
-O servidor deve fornecer as informações dos eventos atuais aos usuários. Para isso o aplicativo móvel pode acessar os dados dos eventos através de um GET no endereço \url{http://betterway.co.cc/eventos} de duas maneiras:
-
-\pagebreak
+O servidor deve fornecer as informações dos eventos atuais aos usuários. Para isso o aplicativo móvel pode acessar os dados dos eventos através de um GET no endereço \url{http://betterwayserver.co.cc/eventos} de duas maneiras:
 
 \begin{enumerate}
 	\item \textbf{Eventos localizados:}
 	
-	O servidor envia somente eventos próximos à coordenada informada pelo usuário. O cliente deve informar uma coordenada através dos parâmetros ``latitude'' e ``longitude'' e, opcionalmente, uma área de abrangência através dos parâmetros ``delta\_latitude'' e ``delta\_longitude''.
+	O servidor envia somente eventos próximos à coordenada informada pelo usuário. O cliente deve informar uma coordenada através dos parâmetros \emph{latitude} e \emph{longitude} e, opcionalmente, uma área de abrangência através dos parâmetros \emph{delta\_latitude} e \emph{delta\_longitude}.
 	
 	\item \textbf{Todos eventos:}
 	
@@ -99,7 +97,7 @@ Esta requisição é tratada pelo método \emph{index} da classe \emph{EventosContro
 
 Os eventos informados pelos usuários são exibidos durante 30 minutos. Após esse período eles são marcados como inativos no banco de dados, não sendo mais informados pelo servidor.
 
-Para a implementação da atualização dos registros no banco de dados utilizou-se o ``crontab'' do servidor. O ``crontab'' é um utilitário dos sistemas \emph{Unix} e \emph{Solaris} que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
+Para a implementação da atualização dos registros no banco de dados utilizou-se o \emph{crontab} do servidor. O \emph{crontab} é um utilitário dos sistemas \emph{Unix} e \emph{Solaris} que permite a execução de comandos (tarefas) em \emph{background} a cada intervalo de tempo especificado.
 
 Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos que ultrapassarem 30 minutos a partir do horário em que foram informados. Essa tarefa é executada a cada cinco minutos no servidor para que não haja sobrecarga no mesmo.
 
@@ -116,7 +114,7 @@ Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos q
 
 Os registros são dados armazenados no servidor para interpretação da situação do tráfego nas ruas em que os usuários do sistema viajam. O dispositivo móvel envia de tempos em tempos as informações de posição, velocidade e identificação do mesmo. Essas informações são armazenadas no banco de dados do servidor, que posteriormente analisa-as e estima o trânsito em determinadas vias.
 
-O envio do registro é feito através de um POST para o endereço \url{betterway.co.cc/registros} e o método \emph{create} da classe \emph{RegistrosController} é o responsável por manipular essas requisições.
+O envio do registro é feito através de um POST para o endereço \url{betterwayserver.co.cc/registros} e o método \emph{create} da classe \emph{RegistrosController} é o responsável por manipular essas requisições.
 
 O horário de envio é obtido pelo relógio do servidor pelo mesmo motivo citado anteriormente - evitar erro de informação já que o usuário pode ajustar manualmente o horário do dispositivo móvel.
 
@@ -318,6 +316,7 @@ Classe que apresenta a tela que exibe informações do endereço encontrado a parti
 
 \textbf{FavoriteAddViewController:} \emph{View Controller} com formulário para a entrada no nome do endereço favorito a ser adicionado.
 
+\pagebreak
 
 \textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pré-formatado com o endereço do local entrado pelo usuário.
 
@@ -372,7 +371,7 @@ As principais classes utilizadas neste módulo estão listadas a seguir:
 	\caption{Evento identificado no mapa}
 \end{figure}
 
-\textbf{EventListViewController:} View Controller que dispõe para o usuário a escolha de que tipo de evento ele quer criar. Há as opções de ``Polícia'', ``Trânsito'', ``Acidente'' e ``Aviso''.
+\textbf{EventListViewController:} View Controller que dispõe para o usuário a escolha de que tipo de evento ele quer criar. Há as opções de Polícia, Trânsito, Acidente e Aviso.
 
 \textbf{EventDetailsViewController:} Classe que disponibiliza a criação do tipo do evento selecionado anteriormente pelo \emph{EventListViewController}. Há espaço para uma descrição e uma foto para uma melhor representação do evento identificado.
 
