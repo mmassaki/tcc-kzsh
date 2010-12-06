@@ -73,15 +73,15 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 
 			\item{\bf Mapeamento em tempo real}
 
-			As informações do trânsito são exibidas automaticamente por meio de coloração, que segue uma escala de trânsito livre, intenso, lento ou congestionado.
+			As informações do trânsito são exibidas automaticamente por meio de coloração, que segue uma escala de cores representando trânsito livre, intenso, lento ou congestionado.
 
 			\item{\bf Localização atual}
 
 			A aplicação apresenta a localização no mapa em tempo real, mesmo se não estiver seguindo alguma rota. É exibido um ícone, indicando sua posição.
 			
-			\item{\bf Alertas}
+			\item{\bf Eventos}
 			
-			A aplicação permite que o usuário envie alertas de eventos relacionados ao trânsito, como semáforos quebrados, alagamentos, acidentes e outros.
+			A aplicação permite que o usuário envie alertas de eventos relacionados ao trânsito.
 			
 			\item{\bf Rotas}
 			
@@ -94,13 +94,10 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 
 			Registrar e acessar, no banco de dados, informações de condições de tráfego das vias e alertas emitidos.
 
-			\item{\bf Geração e consulta de estatísticas}
-
-			Tratar dados históricos registrados no banco de dados, para auxiliar no roteamento do usuário.
 		\end{itemize}
 		
-		\subsubsection{Integração}
-		O sistema é capaz de enviar mensagens de alertas para o Twitter e para contatos do usuário, presentes na agenda telefônica do iPhone, por meio de SMS e e-mail.
+		\subsubsection{Compartilhamento}
+		O sistema é capaz de enviar e-mails para compartilhar algum endereço de interesse.
 		
 
 	% \section{Características do usuário}
@@ -111,6 +108,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\item A aplicação é exclusiva para a plataforma iPhone;
 		\item O funcionamento e precisão da localização estão sujeitos ao recurso de GPS do iPhone e independem da aplicação;
 		\item O funcionamento e desempenho da atualização de informações estão sujeitos ao recursos do iPhone e ao funcionamento da operadora.
+		\item O bom funcionamento do mapeamento de trânsito é relativo à quantidade de usuários;
 	\end{itemize}
 
 	% \section{Hipóteses e dependências}
@@ -129,9 +127,7 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 	
 	O aplicativo desenvolvido para o iPhone, após sua inicialização, exibe a tela principal com o mapa do sistema.
 	
-	Para o funcionamento da aplicação é necessária uma rede de dados acessada através do iPhone. Caso nenhuma rede esteja disponível a aplicação informará o usuário que não foi possível conectar-se em nenhuma rede de dados.
-	
-	Para que a aplicação obtenha a informação de posição do dispositivo é necessário que o usuário permita o acesso ao GPS para aplicação. Caso a aplicação não tenha essa permissão uma mensagem será informada ao usuário para que ative-a, gerando uma extensão ao caso de uso.
+	Para o funcionamento da aplicação é necessária uma rede de dados acessada através do iPhone. Caso nenhuma rede esteja disponível algumas funcionalidades da aplicação informará ao usuário que não foi possível conectar-se ao servidor.
 	
 	Devido à interface do iPhone, toda interação com o usuário é feita através de botões, toques ou gestos na tela.
 	
@@ -675,17 +671,6 @@ A aplicação, portanto, se comunica pela internet com o servidor para obter as in
 		\caption{Diagrama de classes simplificada do tipo anotação no mapa do aplicativo móvel}
 		\label{fig:diagrama_classes_MKAnnotations}
 	\end{figure}	
-	
-
-
-	
-	
-	
-	
-	
-	
-	\ref{fig:diagrama_classes_iphone} 
-e do servidor são apresentados nas figurase , respectivamente.	
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
