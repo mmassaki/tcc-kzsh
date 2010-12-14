@@ -165,7 +165,7 @@ O servidor deve, através das informações obtidas dos usuários nos registros, map
 
 Para armazenar a informação de trânsito é necessário armazenar um trecho de via com a informação de intensidade do trânsito. O servidor armazena duas coordenadas (ponto inicial e final), a intensidade, em escala numérica e, a \emph{polyline} do trecho, que são as coordenadas para desenho no mapa.
 
-Para implementação desta funcionalidade utilizou-se o serviço de geocodificação reversa do \emph{Google}. Este serviço converte uma coordenada em um trecho de endereço. Por exemplo a coordenada (-23.566623, -46.650181) é convertida para ``Av. Paulista, 521-811 - Bela Vista, Sao Paulo - São Paulo, 01311-100, Brazil''.
+Para implementação desta funções utilizou-se o serviço de geocodificação reversa do \emph{Google}. Este serviço converte uma coordenada em um trecho de endereço. Por exemplo a coordenada (-23.566623, -46.650181) é convertida para ``Av. Paulista, 521-811 - Bela Vista, Sao Paulo - São Paulo, 01311-100, Brazil''.
 
 Dessa forma é possível obter as duas coordenadas do endereço utilizando o serviço de geocodificação do \emph{Google} e a \emph{polyline} do trecho utilizando o serviço de rotas também do \emph{Google}.
 
@@ -217,7 +217,7 @@ Porém com o lançamento do SDK 4.0 no final do mês de Agosto algumas melhorias fo
 \subsubsection{Bibliotecas utilizadas} % (fold)
 \label{ssub:bibliotecas_utilizadas}
 
-Para a aplicação no dispositivo iPhone, utiliza-se duas bibliotecas auxiliares na implementação.
+Para a aplicação no dispositivo iPhone, utilizam-se duas bibliotecas auxiliares na implementação.
 
 \textbf{\emph{JSON}:} Biblioteca de codificação/decodificação do protocolo padrão \emph{JSON} para leitura como dados para a linguagem \emph{Objetive-C}. Protocolo \emph{JSON} é utilizado como interface de comunicação entre o dispositivo móvel e o servidor. \cite{json-framework}
 
