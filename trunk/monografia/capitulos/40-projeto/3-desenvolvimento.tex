@@ -29,6 +29,8 @@ Foi registrado o domínio gratuito \url{betterwayserver.co.cc} no site \url{http:
 
 Como o ambiente \emph{Ruby on Rails} já era de conhecimento do grupo, não foi difícil a criação da aplicação inicialmente, pois o ambiente já está bem estruturado para a criação dos métodos de CRUD e uso de \emph{web services} utilizando \emph{RESTful}.
 
+\pagebreak
+
 Foi necessário o estudo das \emph{Google Maps APIs} disponíveis afim de se escolher a melhor alternativa para o projeto. Inicialmente optou-se pela API via \emph{web services}, pois ela fornece dados diretos via requisições HTTP. Testou-se a API via \emph{web services} e achou-se que ela não informava as coordenadas dos pontos da rota requerida, dados necessários para o desenho da rota. Uma alternativa era utilizar a API \emph{JavaScript} que informava explicitamente as coordenadas dos pontos da rota, mas seria muito custosa sua implementação.
 
 Um estudo mais aprofundado nos dados retornados pela API via \emph{web services} permitiu a descoberta de que as coordenadas necessárias são enviadas de forma codificada de forma que o dado fique mais compacto diminuindo a quantidade de dados transferidos. Dessa forma optou-se definitivamente pela API via \emph{web services} e foi encontrada na internet uma biblioteca para \emph{Ruby} que faz a decodificação dos dados para coordenadas geográficas.
@@ -256,6 +258,8 @@ Os dados a serem armazenados são manipulados pela classe \emph{NSUsersDefault}, 
 
 Esta sessão contém a descrição da classe central da aplicação, sendo o responsável pela funcionalidade de disponibilizar o mapa. Possui o mapa onde é identificado as funcionalidades de geração de rotas, informação do trânsito e de eventos para o usuário. Possui o \emph{UINavigatorController}, que conecta todas as telas da aplicação.
 Possui a funcionalidade de localização atual do usuário, através de um botão ativa-se um método que requisita as informações locais para o sistema e move o mapa para a posição do usuário.
+
+\pagebreak
 
 \textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar as informações da posição atual do usuário.
 
