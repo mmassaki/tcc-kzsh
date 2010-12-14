@@ -6,9 +6,18 @@
 \section{Considerações finais do capítulo} % (fold)
 \label{sec:considerações_finais_do_capítulo_3}
 
-O desenvolvimento do sistema se mostrou um processo trabalhoso em alguns aspectos. Como a implementação das duas partes do sistema, servidor e aplicativo móvel, foi realizada paralelamente as dificuldade puderam ser contornadas para que o sistema fosse concluído.
+O desenvolvimento do sistema se mostrou um processo trabalhoso em alguns aspectos. Como a implementação das duas partes do sistema, servidor e aplicativo móvel, foi realizada paralelamente as dificuldades puderam ser contornadas para que o sistema fosse concluído.
 
 O uso do \emph{framework Ruby on Rails} permitiu uma implementação mais eficiente do servidor e que se focasse nas particularidades da implementação como o controle dos eventos, criação de rotas e mapeamento do trânsito.
+
+Definimos alguns valores de tempo para os métodos de temporarização do sistema:
+
+\textbf{Temporização para informar eventos:} Considerando o período de validade para os eventos, considerando a média usada para acidentes, parros parados, picos de trânsito, estimamos 30 minutos. 
+\textbf{Temporização para validação da informação de trânsito:} Considerando o tempo de mudança de fluxo na via, estimamos 30 minutos a informação reportada do usuário.
+\textbf{Temporização para informar a velocidade do usuário pela aplicação:} Limitados a aplicação a enviar a cada 3 segundos um disparo informativo para o servidor. Definimos este tempo baseando entre a precisão dos cálculos do fluxo da via e a quantidade de banda de internet que se utilizaria, sendo que quanto maior o intervalo de tempo melhor será para economia de banda mas pior para a precisão.
+\textbf{Temporização para exibir a malha de tráfego no mapa do usuário:} É realizado a atualização das informações da malha de trânsito a cada 30 segundos. Definimos esse tempo mais longo em relação aos outros temporizadores da aplicação levando em consideração a renderização da malha demanda uma carga de processamento alto para o dispositivo e pela velocidade de modificação da malha.
+\textbf{Temporização para exibir os eventos no mapa do usuário:} Definimos em 10 segundos o tempo para atualizar as informações de eventos para os usuários no mapa, pois não necessita de uma contante verificação para esse informativo.
+
 
 Inicialmente burocrático, a arquitetura Cocoa Touch juntamente com a linguagem Objective-C dificultou a implementação. Porém a medida que o projeto avançava, esse sistema mostrou-se colaborativo para o desenvolvimento para o dispositivo móvel.
 

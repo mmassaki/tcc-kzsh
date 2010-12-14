@@ -187,7 +187,7 @@ Da mesma forma que os eventos, as informações de trânsito ficam ativas apenas po
 
 A aplicação \emph{BetterWay} construída para o ambiente \emph{iOS} é o componente principal do projeto, tendo como objetivo controlar a requisição de rota para o usuário e da visualização da malha da situação de trânsito no mapa. Nesse contexto, todas as lógicas de visualização do trânsito estão contidos nesse módulo. Contém rotinas para envio constante de dados do usuário sobre sua posição e velocidade e também é responsável pelo envio de eventos e gerenciamento de endereços.
 
-Um modelo de diagrama de classes simplificada da aplicação e o diagrama de navegação são apresentados na seção~\ref{sec:modelo_de_classes} do apêndice~\ref{cha:especificação_de_requisitos_do_sistema} e na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário} , respectivamente.
+Um modelo de diagrama de classes simplificado da aplicação e o diagrama de navegação são apresentados na seção~\ref{sec:modelo_de_classes} do apêndice~\ref{cha:especificação_de_requisitos_do_sistema} e na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário} , respectivamente.
  
 
 %
@@ -271,9 +271,9 @@ Esta sessão contém a descrição da classe central da aplicação, sendo o responsáv
 \subsubsection{Módulo de geração de rota} % (fold)
 \label{ssub:módulo_de_geração_de_rota}
 
-Este módulo foi estruturada diversas View Controllers necessárias para o fluxo de interatividade com o usuário, que entra com os dados da via de destino e origem no aparelho a fim de gerar uma rota evitando os congestionamentos conhecidos pelo servidor.
+Este módulo foi estruturada por várias View Controllers necessárias para o fluxo de interatividade com o usuário, que entra com os dados da via de destino e origem no aparelho a fim de gerar uma rota evitando os congestionamentos conhecidos pelo servidor.
 
-O fluxo foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas classe de telas. O diagrama de fluxo encontra-se na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário}.  Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
+O fluxo foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas classes de telas. O diagrama de fluxo encontra-se na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário}.  Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
 Uma breve descrição para cada ViewController está descrita a seguir:
 
 
