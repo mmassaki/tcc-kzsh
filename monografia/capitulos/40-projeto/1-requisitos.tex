@@ -23,9 +23,13 @@ As funcionalidades especificadas do sistema são:
 
 \textbf{Seguir rota:} o sistema deve permitir que o usuário siga uma rota previamente traçada.
 
-\pagebreak
+\textbf{Enviar registros:} o sistema deve coletar informações de velocidade dos usuários enviando-as para o servidor, que deve cadastrá-las no banco de dados.
 
-\textbf{Informar eventos:} o sistema deve permitir que os usuário enviem eventos relacionados ao trânsito afim de compartilhar informações.
+\textbf{Mapear trânsito:} o sistema deve, a partir das informações de registros armazenadas, gerar informações de trânsito das vias que os usuários percorreram e armazená-las no servidor.
+
+\textbf{Informar eventos:} o sistema deve permitir que os usuário enviem eventos relacionados ao trânsito afim de compartilhar informações. Para isso o servidor terá de cadastrar e permitir a consulta dessas informações.
+
+\textbf{Temporização dos eventos e informações de trânsito:} as informações dos eventos e trânsito devem expirar após 30 minutos caso não sejam atualizadas por nenhum usuário.
 
 \textbf{Enviar destino:} o sistema deve permitir que o usuário envie a outras pessoas o seu local de destino.
 
@@ -47,13 +51,13 @@ Os principais requisitos não funcionais que o sistema deve atender são:
 \subsection{Diagrama de casos de uso} % (fold)
 \label{sub:diagrama_de_casos_de_uso}
 
-O diagrama de casos de uso é apresentado na Figura~\ref{fig:diagrama_casos_de_uso}.
+O diagrama de casos de uso é apresentado na Figura~\ref{fig:diagrama_casos_de_uso1}.
 
 \begin{figure}[htpb]
 	\centering
 		\includegraphics[width=\linewidth]{img/apendice_a/diagrama_casos_de_uso.pdf}
 	\caption{Diagrama de casos de uso}
-	\label{fig:diagrama_casos_de_uso}
+	\label{fig:diagrama_casos_de_uso1}
 \end{figure}
 
 A descrição detalhada dos casos de uso encontra-se na especificação de requisitos completa no Apêndice~\ref{cha:especificação_de_requisitos_do_sistema}.
