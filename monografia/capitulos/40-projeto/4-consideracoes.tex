@@ -10,16 +10,19 @@ O desenvolvimento do sistema se mostrou um processo trabalhoso em alguns aspecto
 
 O uso do \emph{framework Ruby on Rails} permitiu uma implementação mais eficiente do servidor e que se focasse nas particularidades da implementação como o controle dos eventos, criação de rotas e mapeamento do trânsito.
 
-Definimos alguns valores de tempo para os métodos de temporarização do sistema:
+Foram definidos alguns valores de tempo para os métodos de temporarização do sistema:
 
-\textbf{Temporização para informar eventos:} Considerando o período de validade para os eventos, considerando a média usada para acidentes, parros parados, picos de trânsito, estimamos 30 minutos. 
-\textbf{Temporização para validação da informação de trânsito:} Considerando o tempo de mudança de fluxo na via, estimamos 30 minutos a informação reportada do usuário.
-\textbf{Temporização para informar a velocidade do usuário pela aplicação:} Limitados a aplicação a enviar a cada 3 segundos um disparo informativo para o servidor. Definimos este tempo baseando entre a precisão dos cálculos do fluxo da via e a quantidade de banda de internet que se utilizaria, sendo que quanto maior o intervalo de tempo melhor será para economia de banda mas pior para a precisão.
-\textbf{Temporização para exibir a malha de tráfego no mapa do usuário:} É realizado a atualização das informações da malha de trânsito a cada 30 segundos. Definimos esse tempo mais longo em relação aos outros temporizadores da aplicação levando em consideração a renderização da malha demanda uma carga de processamento alto para o dispositivo e pela velocidade de modificação da malha.
-\textbf{Temporização para exibir os eventos no mapa do usuário:} Definimos em 10 segundos o tempo para atualizar as informações de eventos para os usuários no mapa, pois não necessita de uma contante verificação para esse informativo.
+\textbf{Temporização de execução da tarefa no servidor:} para que não ocorresse sobrecarga no servidor devido a execução contínua da tarefa, utilizou-se um tempo de 5 minutos de intervalo entre as suas execuções.
 
+\textbf{Tempo de validade eventos e informações de trânsito:} para o período de validade dos eventos e informações de trânsito, estimou-se uma média de 30 minutos de validade dessas informações no banco de dados.
 
-Inicialmente burocrático, a arquitetura Cocoa Touch juntamente com a linguagem Objective-C dificultou a implementação. Porém a medida que o projeto avançava, esse sistema mostrou-se colaborativo para o desenvolvimento para o dispositivo móvel.
+\textbf{Temporização para informar a velocidade do usuário pela aplicação:} limitou-se a aplicação para que envie a cada 3 segundos o informativo de velocidade para o servidor. Definiu-se este tempo baseando entre a precisão dos cálculos do fluxo da via e a quantidade de banda de internet que se utilizaria, sendo que quanto maior o intervalo de tempo melhor será para economia de banda mas pior para a precisão.
+
+\textbf{Temporização para exibir a malha de tráfego no mapa do usuário:} é realizado a atualização das informações da malha de trânsito a cada 30 segundos. Definiu-se esse tempo mais longo em relação aos outros temporizadores da aplicação levando em consideração a renderização da malha demanda uma carga de processamento alto para o dispositivo e pela velocidade de modificação da malha.
+
+\textbf{Temporização para exibir os eventos no mapa do usuário:} definiu-se 10 segundos o tempo para atualizar as informações de eventos para os usuários no mapa, pois não é necessário uma constante verificação dessas informações.
+
+Inicialmente burocrática, a arquitetura \emph{Cocoa Touch} juntamente com a linguagem \emph{Objective-C} dificultou a implementação. Porém a medida que o projeto avançava, esse sistema mostrou-se colaborativo para o desenvolvimento para o dispositivo móvel.
 
 O mapeamento do trânsito de forma colaborativa necessita de um número mínimo de usuário do sistema, pois não é possível obter informações precisas apenas de um único motorista. E quanto maior a quantidade de usuário, maior a quantidade de ruas mapeadas e mais correta a informação será.
 
