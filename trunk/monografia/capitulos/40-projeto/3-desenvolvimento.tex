@@ -254,7 +254,8 @@ Os dados a serem armazenados são manipulados pela classe \emph{NSUsersDefault}, 
 \subsubsection{View Controller Principal: \emph{BetterWayViewController}} % (fold)
 \label{ssub:view_controller_principal_betterwayviewcontroller}
 
-Esta sessão contém a descrição da classe central da aplicação, sendo o responsável pela tela principal. Possui o mapa onde é identificado as funcionalidades de geração de rotas, informação do trânsito e de eventos para o usuário. Possui o \emph{UINavigatorController}, que conecta todas as telas da aplicação.
+Esta sessão contém a descrição da classe central da aplicação, sendo o responsável pela funcionalidade de disponibilizar o mapa. Possui o mapa onde é identificado as funcionalidades de geração de rotas, informação do trânsito e de eventos para o usuário. Possui o \emph{UINavigatorController}, que conecta todas as telas da aplicação.
+Possui a funcionalidade de localização atual do usuário, através de um botão ativa-se um método que requisita as informações locais para o sistema e move o mapa para a posição do usuário.
 
 \textbf{CLLocationManager:} Classe disponibilizada pela Apple que faz a verificação da disponibilidade do GPS. Possui diversos métodos de utilização do GPS, entre elas o método de buscar as informações da posição atual do usuário.
 
@@ -271,7 +272,7 @@ Esta sessão contém a descrição da classe central da aplicação, sendo o responsáv
 \subsubsection{Módulo de geração de rota} % (fold)
 \label{ssub:módulo_de_geração_de_rota}
 
-Este módulo foi estruturada por várias View Controllers necessárias para o fluxo de interatividade com o usuário, que entra com os dados da via de destino e origem no aparelho a fim de gerar uma rota evitando os congestionamentos conhecidos pelo servidor.
+Essa funcionalidade de navegação para a criação de rotas foi estruturada por várias View Controllers necessárias para o fluxo de interatividade com o usuário, que entra com os dados da via de destino e origem no aparelho a fim de gerar uma rota evitando os congestionamentos conhecidos pelo servidor.
 
 O fluxo foi definido de tal maneira recursiva para o reaproveitamento das mesmas classes, sendo que ao passar o endereço de destino e o de origem, o usuário passe pelas classes de telas. O diagrama de fluxo encontra-se na seção~\ref{sec:protótipo_de_navegação} do apêndice~\ref{cha:projeto_da_interface_de_usuário}.  Decidimos por implementar algumas funcionalidades auxiliares como um armazenamento de endereços como um histórico e como uma lista favoritos, para uma melhor experiência de utilização para o usuário. 
 Uma breve descrição para cada ViewController está descrita a seguir:
@@ -303,7 +304,7 @@ Descrição das principais classes utilizadas neste módulo:
 % \end{figure}
 
 \textbf{CheckAddressViewController:}
-Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local (Figura~\ref{fig:searchviewcontroller}). O usuário possui as opções de salvar no favorito, enviar via e-mail e confirmar o endereço. O método de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário.
+Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local (Figura~\ref{fig:searchviewcontroller}). O usuário possui as opções de salvar no favorito, enviar via e-mail e confirmar o endereço. O método de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário. 
 
 \begin{figure}[htpb]
 	\centering
@@ -316,7 +317,7 @@ Classe que apresenta a tela que exibe informações do endereço encontrado a parti
 
 \pagebreak
 
-\textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pré-formatado com o endereço do local entrado pelo usuário.
+\textbf{MFMailComposeViewControlle:} Classe auxiliar para o envio via e-mail. O corpo do e-mail é pré-formatado com o endereço do local entrado pelo usuário. Realiza a funcionalidade do software de envio dos e-mails.
 
 \textbf{RouteRecalculatorClock:} Para o caso do uso da posição atual do usuário no endereço de origem, o objeto do tipo  \emph{RouteRecalculatorClock} é ativada. A cada 10 segundos é conferida a distância entre o usuário e a rota definida, e caso for maior que 50 metros uma nova requisição de rota é enviada, atualizando o trajeto para a posição original do usuário naquele momento.
 
@@ -337,12 +338,12 @@ Classe que apresenta a tela que exibe informações do endereço encontrado a parti
 Para implementação do módulo de trânsito é utilizado um método para chamadas contínuas de requisições no servidor para adquirir informações sobre a malha de tráfego nas redondezas que o usuário está visualizando. A malha é desenhada como se fosse uma lista de trajetos a serem desenhadas no mapa. A via é colorida a partir da informação da cor a ser renderizada para a via no dado de retorno da requisíção.
 Uma listagem das principais classes para este módulo encontra-se a seguir:
 
-\textbf{RegisterClock:} Objeto que envia a identificação, posição e velocidade do usuário a cada 3 segundos. Inicialmente definimos que o tempo do momento que o registro é disparado era também enviado para o servidor. Porém não tinhamos levado em consideração que cada aparelho poderia ter horários diferentes, invalidando os dados no servidor. Para solucionar este problema, o servidor ficou responsável por guardar o horário de recebimento do registro.
-Um outro problema de integridade dos dados surgiu, pois dependendo da condição de conexão de internet do dispositivo tiveram casos em que mais de uma requisição de registro era realizada ao mesmo tempo. Cada requisição possuia dados de velocidade diferentes, mas com exatamente o mesmo tempo. Com uma política de envio sincromo dos dados do registro solucionamos este problema, tendo agora a diferença de 3 segundos entre requisições com contato com sucesso ao servidor.
+\textbf{RegisterClock:} Objeto que envia a identificação, posição e velocidade do usuário a cada 3 segundos, sendo responsável pela funcionalidade de trânsito. Inicialmente definimos que o tempo do momento que o registro é disparado era também enviado para o servidor. Porém não tinhamos levado em consideração que cada aparelho poderia ter horários diferentes, invalidando os dados no servidor. Para solucionar este problema, o servidor ficou responsável por guardar o horário de recebimento do registro.
+Um outro problema de integridade dos dados surgiu, pois dependendo da condição de conexão de internet do dispositivo tiveram casos em que mais de uma requisição de registro era realizada ao mesmo tempo. Cada requisição possuía dados de velocidade diferentes, mas com exatamente o mesmo tempo. Com uma política de envio síncrono dos dados do registro solucionamos este problema, tendo agora a diferença de 3 segundos entre requisições com contato com sucesso ao servidor.
 
-\textbf{TrafficClock:} Objeto que realiza a rotina de atualização da malha de tráfego a cada 30 segundos. Ao movimentar o mapa, faz a requisição automática para extender a malha de tráfego para a região em visualização.
+\textbf{TrafficClock:} Objeto que realiza a rotina de atualização da malha de tráfego a cada 30 segundos. Ao movimentar o mapa, faz a requisição automática para estender a malha de tráfego para a região em visualização.
 
-\textbf{TrafficPolyline:} Objeto do tipo anotação no mapa, possuindo uma lista de pontos para desenho da malha de transito. Para cada objeto \emph{TrafficPolyline} é definido uma cor para sua linha, representando as condições do tráfego na região marcada.
+\textbf{TrafficPolyline:} Objeto do tipo anotação no mapa, possuindo uma lista de pontos para desenho da malha de transito. Para cada objeto \emph{TrafficPolyline} é definido uma cor para sua linha, representando as condições do tráfego na região marcada. Responsável pela funcionalidade do software de mapeamento em tempo real apresentando as linhas da malha do tráfego.
 
 % subsubsection módulo_de_trânsito (end)
 
@@ -365,7 +366,7 @@ As principais classes utilizadas neste módulo estão listadas a seguir:
 
 \textbf{EventListViewController:} View Controller que dispõe para o usuário a escolha de que tipo de evento ele quer criar. Há as opções de Polícia, Trânsito, Acidente e Aviso.
 
-\textbf{EventDetailsViewController:} Classe que disponibiliza a criação do tipo do evento selecionado anteriormente pelo \emph{EventListViewController}. Há espaço para uma descrição e uma foto para uma melhor representação do evento identificado.
+\textbf{EventDetailsViewController:} Classe que disponibiliza a criação do tipo do evento selecionado anteriormente pelo \emph{EventListViewController}. Há espaço para uma descrição e uma foto para uma melhor representação do evento identificado. É o responsável pela função de software de eventos, permitindo o usuário emitir alertas de eventos.
 
 \textbf{EventAnnotation:} Classe do tipo anotação que pode ser adicionada no mapa principal da aplicação.
 
