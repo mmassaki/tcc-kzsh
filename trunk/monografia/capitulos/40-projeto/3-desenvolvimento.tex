@@ -43,12 +43,12 @@ Uma alternativa foi utilizar o serviço de geocodificação reversa do \emph{Google
 
 %
 %~~
-%~~ Criação de eventos
+%~~ Cadastro de eventos
 %~~
 %
 
-\subsubsection{Criação de eventos} % (fold)
-\label{ssub:criação_de_eventos}
+\subsubsection{Cadastro de eventos} % (fold)
+\label{ssub:cadastro_de_eventos}
 
 Os eventos do trânsito são criados pelo usuário através do aplicativo móvel. O servidor tem o papel de receber as informações do novo evento e armazená-las no banco de dados.
 
@@ -109,8 +109,8 @@ Criou-se então, uma tarefa que atualiza o banco de dados inativando os eventos q
 %~~
 %
 
-\subsubsection{Criação de registros} % (fold)
-\label{ssub:criação_de_registros}
+\subsubsection{Cadastro de registros} % (fold)
+\label{ssub:cadastro_de_registros}
 
 Os registros são dados armazenados no servidor para interpretação da situação do tráfego nas ruas em que os usuários do sistema viajam. O dispositivo móvel envia de tempos em tempos as informações de posição, velocidade e identificação do mesmo. Essas informações são armazenadas no banco de dados do servidor, que posteriormente analisa-as e estima o trânsito em determinadas vias.
 
@@ -124,14 +124,14 @@ Após a criação do registro, dispara-se uma \emph{thread} que busca o endereço re
 
 %
 %~~
-%~~ Criação de rotas
+%~~ Traças rota
 %~~
 %
 
-\subsubsection{Criação de rotas} % (fold)
-\label{ssub:criação_de_rotas}
+\subsubsection{Traças rota} % (fold)
+\label{ssub:traçar_rota}
 
-O servidor é responsável pela criação de rotas para os dispositivos móveis do sistema. Como a criação de rotas está fora do escopo do trabalho proposto, foi utilizada a API do \emph{Google Maps}, via \emph{Webservices}, para geração de rotas entre dois pontos.
+O servidor é responsável pela geração de rotas para os dispositivos móveis do sistema. Como a criação de rotas está fora do escopo do trabalho proposto, foi utilizada a API do \emph{Google Maps}, via \emph{Webservices}, para geração de rotas entre dois pontos.
 
 O procedimento de criação de rota segue o seguinte fluxo:
 \begin{enumerate}
@@ -277,7 +277,7 @@ O fluxo foi definido de tal maneira recursiva para o reaproveitamento das mesmas
 Uma breve descrição para cada ViewController está descrita a seguir:
 
 
-\textbf{RouteMenuViewController:} \emph{View Controller} que exibe uma lista de opções para o usuário. Para o caso de se selecionar o endereço de destino a classe exibe as opções entrar com endereço ou utilizar da lista de favoritos. Para o caso de se selecionar o endereço de origem ela exibe além das opções disponíveis no caso de endereço destino, a opção de se utilizar o endereço atual do dispositivo.
+\textbf{RouteMenuViewController:} \emph{View Controller} que exibe uma lista de opções para o usuário. Para o caso de se selecionar o endereço de destino a classe exibe as opções entrar com endereço ou utilizar da lista de favoritos. Para o caso de se selecionar o endereço de origem ela exibe além das opções disponíveis no caso de endereço destino, a opção de se utilizar o endereço atual do dispositivo (Figura~\ref{fig:seleção_endereço}).
 A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKReverseGeocode}, que a partir da posição em relação a latitude e longitude do local, faz a chamada para o serviço de geocodificação da API do Google Maps, obtendo assim o endereço completo que existe naquele ponto.
 
 
@@ -286,6 +286,7 @@ A implementação para obtenção do endereço atual utilizou-se da classe \emph{MKRe
 	\includegraphics[scale=0.2]{img/iphone/Destino.png}
 	\includegraphics[scale=0.2]{img/iphone/Origem.png}
 	\caption{Aplicação na tela de seleção de menu de endereços}
+	\label{fig:seleção_endereço}
 \end{figure}
 
 Descrição das principais classes utilizadas neste módulo:
@@ -302,7 +303,7 @@ Descrição das principais classes utilizadas neste módulo:
 % \end{figure}
 
 \textbf{CheckAddressViewController:}
-Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local. O usuário possui as opcões de salvar no favorito, enviar via e-mail e confirmar o endereço. O método de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário.
+Classe que apresenta a tela que exibe informações do endereço encontrado a partir da requisição do usuário. Possui o endereço completo encontrado e um mapa para identificar a redondeza do local (Figura~\ref{fig:searchviewcontroller}). O usuário possui as opções de salvar no favorito, enviar via e-mail e confirmar o endereço. O método de requisição de rotas é realizado a partir da requisição das posições de endereço de destino e origem no servidor. O servidor processa o pedido, e a partir dos dados da situação de trânsito, manipula o trajeto para evitar congestionamento para melhorar a performance no tempo na viagem do usuário.
 
 \begin{figure}[htpb]
 	\centering
@@ -310,9 +311,6 @@ Classe que apresenta a tela que exibe informações do endereço encontrado a parti
 	\caption{Aplicação exibindo detalhes do endereço na \emph{view} do CheckAddressViewController}
 	\label{fig:searchviewcontroller}
 \end{figure}
-
-
-
 
 \textbf{FavoriteAddViewController:} \emph{View Controller} com formulário para a entrada no nome do endereço favorito a ser adicionado.
 
@@ -364,12 +362,6 @@ As principais classes utilizadas neste módulo estão listadas a seguir:
 
 
 \textbf{EventClock:} Classe que opera esporadicamente a requisição da lista de eventos no servidor. Entre uma requisição e outra foi definido 8 segundos de espera. Também é responsável por tratar a resposta do servidor.
-
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=0.2]{img/iphone/EventoMapa.png}
-	\caption{Evento identificado no mapa}
-\end{figure}
 
 \textbf{EventListViewController:} View Controller que dispõe para o usuário a escolha de que tipo de evento ele quer criar. Há as opções de Polícia, Trânsito, Acidente e Aviso.
 
